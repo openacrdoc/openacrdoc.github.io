@@ -1,0 +1,1578 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
+
+    <!-- Generated with Sphinx 6.2.1 and Furo 2024.01.29 -->
+        <title>data/dev/targsrc.ssim - Openacr Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=369552022d0b975c8e74270ce6eabe0fb7978f24" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  --sidebar-item-spacing-horizontal: 1.0rem;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --sidebar-item-spacing-horizontal: 1.0rem;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --sidebar-item-spacing-horizontal: 1.0rem;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">Openacr Documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  
+  <span class="sidebar-brand-text">Openacr Documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../txt/intro/about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../txt/start/setup.html">Setup And Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../txt/fun/README.html">Fundamentals</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Fundamentals</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/fun/cpp/README.html">C++ integration</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of C++ integration</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/fun/cpp/coding-style.html">Coding Style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/fun/cpp/fun_06.html">C++ target</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/fun/cpp/intro.html">AMC Intro</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/fun/ssim/README.html">Ssimfiles for Information Management</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Ssimfiles for Information Management</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/fun/ssim/fun_01.html"><strong>ssim</strong> tuples and <strong>ssimfiles</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/fun/ssim/fun_02.html"><strong>ssim</strong> tuples and SQL Database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/fun/ssim/fun_03.html"><strong>fldfunc fields</strong> in <strong>ssim</strong> tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/fun/ssim/fun_04.html"><strong>ssimfile</strong> cross-references</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/fun/ssim/fun_05.html">Information Management Insights</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../txt/recipe/README.html">Recipes</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Recipes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/recipe/cpp/README.html">C++</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of C++</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/recipe/cpp/recipe_04.html">How to create C++ <strong>target</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/recipe/ssim/README.html">Ssimfiles</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Ssimfiles</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/recipe/ssim/recipe_01.html">How to define a new ssimfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/recipe/ssim/recipe_02.html">How to edit an existing ssimfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/recipe/ssim/recipe_03.html">How to display an existing ssimfile</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../txt/tut/README.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/tut/tut1.html">Tutorial 1: Parts And Projects Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/tut/tut2.html">Tutorial 2: Parts And Projects in SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/tut/tut3.html">Tutorial 3: Scheduling And Main Loop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/tut/tut4.html">Tutorial 4: Command Lines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/tut/tut5.html">Tutorial 5: Running multiple subprocesses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/tut/tut6.html">Iohook &amp; Fbuf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/tut/tut7.html">Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/tut/tut8.html">tut8 - ACR live tutorial</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../txt/ssimdb/README.html">Ssim Databases</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Ssim Databases</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/ssimdb/amcdb/README.html">amcdb - Algo Model Compiler support tables</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of amcdb - Algo Model Compiler support tables</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/amcdb/bltin.html">amcdb.bltin - Specify properties of a C built-in type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/amcdb/curstype.html">amcdb.curstype - Cursor type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/amcdb/gen.html">amcdb.gen -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/amcdb/regxtype.html">amcdb.regxtype -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/amcdb/tclass.html">amcdb.tclass - AMC template class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/amcdb/tcurs.html">amcdb.tcurs - Cursor template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/amcdb/tfunc.html">amcdb.tfunc - AMC template function</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/ssimdb/amsdb/README.html">amsdb - AMS configuration (ssim database)</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of amsdb - AMS configuration (ssim database)</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/amsdb/proctype.html">amsdb.proctype -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/amsdb/streamtype.html">amsdb.streamtype -</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/ssimdb/atfdb/README.html">atfdb - Support tables for testing</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of atfdb - Support tables for testing</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/amctest.html">atfdb.amctest -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/cijob.html">atfdb.cijob -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/cipackage.html">atfdb.cipackage -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/citest.html">atfdb.citest -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/comptest.html">atfdb.comptest -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/fuzzstrat.html">atfdb.fuzzstrat -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/msgdir.html">atfdb.msgdir -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/targs.html">atfdb.targs -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/test_gsymbol_char.html">atfdb.test_gsymbol_char -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/test_gsymbol_pkey.html">atfdb.test_gsymbol_pkey -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/test_gsymbol_strptr.html">atfdb.test_gsymbol_strptr -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/tfilt.html">atfdb.tfilt -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/tmsg.html">atfdb.tmsg -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/unittest.html">atfdb.unittest -</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/ssimdb/dclidb/README.html">dclidb - docker db</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of dclidb - docker db</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dclidb/dclicmd.html">dclidb.dclicmd -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dclidb/dclicmdsel.html">dclidb.dclicmdsel -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dclidb/dclicmdstep.html">dclidb.dclicmdstep -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dclidb/dclisel.html">dclidb.dclisel -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dclidb/dctr.html">dclidb.dctr - Container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dclidb/dctrhost.html">dclidb.dctrhost - Container/host</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dclidb/dctrua.html">dclidb.dctrua - User attribute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dclidb/dhost.html">dclidb.dhost - Host</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dclidb/duascript.html">dclidb.duascript - Script type (step in preparation of container)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dclidb/duascriptstep.html">dclidb.duascriptstep - Script step ordering</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/ssimdb/dev/README.html">dev - Tables supporting compilation of programs</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of dev - Tables supporting compilation of programs</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/arch.html">dev.arch - System architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/badline.html">dev.badline - Regex of a dubious source code line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/builddir.html">dev.builddir - Directory where object files/executables go. Determines compile/link options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/cfg.html">dev.cfg - Compiler configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/compiler.html">dev.compiler - One of the known compilers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/copyright.html">dev.copyright - Copyrighting entity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/covfile.html">dev.covfile -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/covline.html">dev.covline -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/covtarget.html">dev.covtarget -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/edaction.html">dev.edaction - acr_ed editing action (only one can exist at a time)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/edacttype.html">dev.edacttype - acr_ed editing action type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/gitfile.html">dev.gitfile - File managed by git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/gitinfo.html">dev.gitinfo -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/hilite.html">dev.hilite - Mapping of perl regx-&gt;hilite pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/htmlentity.html">dev.htmlentity - Known HTML entity strings &amp; codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/include.html">dev.include - A site where one file includes another</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/license.html">dev.license - Source code license</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/linelim.html">dev.linelim -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/mdsection.html">dev.mdsection - Template for updating a markdown file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/msgfile.html">dev.msgfile - File in repo containing messages that should be normalized during CI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/noindent.html">dev.noindent - Indicates that a file should not be automatically indented</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/opt_type.html">dev.opt_type - Type of option (used in tool_opt)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/package.html">dev.package - OpenACR package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/pkgdep.html">dev.pkgdep - OpenACR Package dependency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/pkgkey.html">dev.pkgkey - Keys belonging to the OpenACR package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/readme.html">dev.readme - File containing documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/readmecat.html">dev.readmecat - sorted categories of txt/ *.md files presented in dev.readme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/sandbox.html">dev.sandbox - Registered sandbox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/sbpath.html">dev.sbpath - Extra files to copy into the sandbox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/scriptfile.html">dev.scriptfile - Known script file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/srcfile.html">dev.srcfile - Source file or header (key is pathname)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/syscmd.html">dev.syscmd - System command to execute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/syscmddep.html">dev.syscmddep - Dependency between two commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/syslib.html">dev.syslib - Registered system library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/targdep.html">dev.targdep - Dependency between targets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/target.html">dev.target - Build target</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/targsrc.html">dev.targsrc - List of sources for target</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/targsyslib.html">dev.targsyslib - Use of system library by target</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/tgtcov.html">dev.tgtcov - Captured line coverate information by target</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/timefmt.html">dev.timefmt - Time formats supported by orgfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/tool_opt.html">dev.tool_opt - Compiler/linker options to use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/uname.html">dev.uname - List of known unames</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/unstablefld.html">dev.unstablefld - Fields that should be stripped from component test output because they contain timestamps etc.</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/ssimdb/dmmeta/README.html">dmmeta - Tables holding metadata (data model meta)</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of dmmeta - Tables holding metadata (data model meta)</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/anonfld.html">dmmeta.anonfld - Omit field name where possible (command line, enums, constants)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/argvtype.html">dmmeta.argvtype - Customize parsing of command lines (rarely used)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/basepool.html">dmmeta.basepool - Specify pool to be used for allocating elements of a type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/bitfld.html">dmmeta.bitfld - Specify offset/width of a bitfield within another field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/cafter.html">dmmeta.cafter - Control amc processing order for unrelated types (used in rare situations)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/cascdel.html">dmmeta.cascdel - Request cascading delete of referenced rows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/ccmp.html">dmmeta.ccmp - Generate hash function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/cdflt.html">dmmeta.cdflt - Specify default value for single-value types that lack fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/cextern.html">dmmeta.cextern - Externally defined ctype (a struct from system header, or from a c++ library)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/cfast.html">dmmeta.cfast - FAST properties for ctype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/cfmt.html">dmmeta.cfmt - Specify options for printing/reading ctypes into multiple formats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/cget.html">dmmeta.cget - Generate state functions for these ctypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/charset.html">dmmeta.charset - Generate functions to determine if a character is a member of a set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/chash.html">dmmeta.chash - Generate hash function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/cppfunc.html">dmmeta.cppfunc - Value of field provided by this expression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/cppkeyword.html">dmmeta.cppkeyword - Built-in C++ keyword</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/cpptype.html">dmmeta.cpptype - Specify whether a ctype can be passed by value, and other c++ options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/csize.html">dmmeta.csize - Specify size/alignment for built-in C++ types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/cstr.html">dmmeta.cstr - Specify that type behaves like a string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/ctype.html">dmmeta.ctype - Struct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/ctypelen.html">dmmeta.ctypelen - Size of Ctype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/dispatch.html">dmmeta.dispatch - Generate code for a multi-way branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/dispatch_msg.html">dmmeta.dispatch_msg - Add message to a dispatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/dispctx.html">dmmeta.dispctx - Use context with dispatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/dispfilter.html">dmmeta.dispfilter - Generate filter function on dispatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/dispsig.html">dmmeta.dispsig - Cryptographic signature of all dispatches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/dispsigcheck.html">dmmeta.dispsigcheck - Check signature of input data against executable’s version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/disptrace.html">dmmeta.disptrace - Generate trace fields (cycles, counts) for all dispatch branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/falias.html">dmmeta.falias - Alias field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fastenc.html">dmmeta.fastenc -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fastinstr.html">dmmeta.fastinstr -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fastop.html">dmmeta.fastop -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fbase.html">dmmeta.fbase - Customize imported Base fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fbigend.html">dmmeta.fbigend - Annotate field as having big-endian storage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fbitset.html">dmmeta.fbitset - Generate bitset functions over integer field or array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fbuf.html">dmmeta.fbuf - Buffer for reading/writing messages, works with Iohook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fbufdir.html">dmmeta.fbufdir - Buffer direction (in,out)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fbuftype.html">dmmeta.fbuftype - Buffer type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fcast.html">dmmeta.fcast - Generate implicit conversion from field to c++ expression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fcleanup.html">dmmeta.fcleanup - Request user-implemented function to be called at Uninit time for a field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fcmap.html">dmmeta.fcmap - Bidirectional mapping between fconst values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fcmdline.html">dmmeta.fcmdline - Annotate field that holds process command line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fcmp.html">dmmeta.fcmp - Request versionsort or case-insensitive sort for field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fcompact.html">dmmeta.fcompact - Request compaction upon removal from index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fconst.html">dmmeta.fconst - Specify enum value (integer + string constant) for a field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fcurs.html">dmmeta.fcurs - Request generation of custom cursor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fdec.html">dmmeta.fdec - Specify that field has an implied # of decimal places and specify formatting options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fdelay.html">dmmeta.fdelay - Control elapsed time between execution of a step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/ffast.html">dmmeta.ffast - FAST properties for field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fflag.html">dmmeta.fflag - Options for command-line flags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/field.html">dmmeta.field - Specify field of a struct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/findrem.html">dmmeta.findrem - Request generation of FindRemove function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/finput.html">dmmeta.finput - Describe input table of a program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fldoffset.html">dmmeta.fldoffset - Assert field offset - will result in compile-time error if violated</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/floadtuples.html">dmmeta.floadtuples - Request that process automatically load any input tables on startup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fnoremove.html">dmmeta.fnoremove - Omit any functions for removing elements from table; Table is append-only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/foutput.html">dmmeta.foutput - Generate function to save index/table back to disk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fprefix.html">dmmeta.fprefix - Mapping between field prefix and Reftype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fregx.html">dmmeta.fregx - Specify options for command-line regx field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fsort.html">dmmeta.fsort - Generate custom sort function for array field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fstep.html">dmmeta.fstep - Generate a main loop step to be executed whenever a field is non-empty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/ftrace.html">dmmeta.ftrace - Generate cycle/step counting fields for a step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/ftuple.html">dmmeta.ftuple -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/func.html">dmmeta.func -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/funique.html">dmmeta.funique - This field must be unique in the table. Not needed for primary key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fuserinit.html">dmmeta.fuserinit - Add user-defined initialization function for field (see fcleanup)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fwddecl.html">dmmeta.fwddecl - Request forward declaration of a field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/gconst.html">dmmeta.gconst - Import ssim table columns as fconst for a field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/gstatic.html">dmmeta.gstatic - Load entries for this table at startup time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/gsymbol.html">dmmeta.gsymbol - Create C++ symbols from entries in ssim table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/hashtype.html">dmmeta.hashtype - Hash function type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/hook.html">dmmeta.hook - Required on Hook fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/inlary.html">dmmeta.inlary - Generate inline array of fixed or variable length (all entries fit within parent struct)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/lenfld.html">dmmeta.lenfld - Specify which gives length of varlen portion in bytes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/listtype.html">dmmeta.listtype - Specify structure of linked list based on field prefix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/llist.html">dmmeta.llist - Options for Llist field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/logcat.html">dmmeta.logcat - Log category</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/main.html">dmmeta.main - Generate Main function for namespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/msgtype.html">dmmeta.msgtype - Specify message type for each eligible message, controls dispatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/nocascdel.html">dmmeta.nocascdel - Remove cascade delete for this index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/nossimfile.html">dmmeta.nossimfile - Indicates that ssimfile does not exist for this ssimdb ctype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/noxref.html">dmmeta.noxref - Explicitly specify that no x-ref exists between tables (don’t use unless forced)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/ns.html">dmmeta.ns - Namespace (for in-memory database, protocol, etc)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/nscpp.html">dmmeta.nscpp - Generate C++ code for this namespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/nsdb.html">dmmeta.nsdb - Annotate ssimdb namespaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/nsfast.html">dmmeta.nsfast - Whether namespace is FAST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/nsinclude.html">dmmeta.nsinclude - Explicitly specify a C++ include file for namespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/nsjs.html">dmmeta.nsjs - Generate JavaScript code for this namespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/nsproto.html">dmmeta.nsproto - Annotate protocol namespace (collection of types, no state)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/nstype.html">dmmeta.nstype - Namespace type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/nsversion.html">dmmeta.nsversion - Namespace version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/nsx.html">dmmeta.nsx - Control code-generation and exception handling options for process/library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/numstr.html">dmmeta.numstr - Add functions to read numbers out of a string field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/pack.html">dmmeta.pack - Request byte-packing of structure fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/pmaskfld.html">dmmeta.pmaskfld - Specify which field holds presence mask bits (one for each field in struct)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/pmaskfld_member.html">dmmeta.pmaskfld_member - Explicit field-to-pmask association</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/pnew.html">dmmeta.pnew - Generate custom constructor (placement new), for use with binary protocols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/pnewtype.html">dmmeta.pnewtype - Type of fbuf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/printfmt.html">dmmeta.printfmt - Print format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/ptrary.html">dmmeta.ptrary - Required for fields with reftype:Ptrary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/reftype.html">dmmeta.reftype - Field type constructor (e.g. reference type)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/rowid.html">dmmeta.rowid - Initialize field to row id of element</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/smallstr.html">dmmeta.smallstr - Generated fixed-length padded or length-delimited string field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/sortfld.html">dmmeta.sortfld - Specify what field an index (Bheap,Atree) is sorted on</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/sorttype.html">dmmeta.sorttype - Sort type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/sqltype.html">dmmeta.sqltype - Mapping of ctype -&gt; SQL expression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/ssimfile.html">dmmeta.ssimfile - File with ssim tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/ssimreq.html">dmmeta.ssimreq - Extended constraints for ssim records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/ssimsort.html">dmmeta.ssimsort - Define sort order for ssimfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/ssimvolatile.html">dmmeta.ssimvolatile - Types based on ssim files marked this way cannot be cross-referenced</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/steptype.html">dmmeta.steptype - Type of scheduler step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/strfmt.html">dmmeta.strfmt - Cfmt conversion type (misnomer, not necessarily a string)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/strtype.html">dmmeta.strtype - Type of small string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/substr.html">dmmeta.substr - Specify that the field value is computed from a substring of another field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/svtype.html">dmmeta.svtype - Table for determining ctype from separated value file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/tary.html">dmmeta.tary - Indirect linear dynamically alocated array (used for strings, arrays of data, etc)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/thash.html">dmmeta.thash - Hash index, required for fields with reftype Thash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/tracefld.html">dmmeta.tracefld - Trace fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/tracerec.html">dmmeta.tracerec - Trace record</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/typefld.html">dmmeta.typefld - Specifies which field of a message carries the type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/usertracefld.html">dmmeta.usertracefld - Add custom user trace fields to process’s trace struct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/xref.html">dmmeta.xref - Specify how to cross-reference (i.e. project, or group-by) one record with another</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/ssimdb/fmdb/README.html">fmdb - Fault management tables (ssim database)</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle navigation of fmdb - Fault management tables (ssim database)</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/fmdb/alarm.html">fmdb.alarm -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/fmdb/alm_code.html">fmdb.alm_code -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/fmdb/alm_objtype.html">fmdb.alm_objtype - Alarm resource type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/fmdb/alm_source.html">fmdb.alm_source - Subsystem where alarm has been detected</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/ssimdb/gclidb/README.html">gclidb - gcli db</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle navigation of gclidb - gcli db</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gact.html">gclidb.gact - Action that may be performed on a table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gatv.html">gclidb.gatv -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gclicmd.html">gclidb.gclicmd -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gclicmdf2j.html">gclidb.gclicmdf2j - Mapping of internal fields to JSON fields for gitlab/github</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gclicmdt.html">gclidb.gclicmdt - Internal test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gclienv.html">gclidb.gclienv -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gclienvsub.html">gclidb.gclienvsub -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gclisub.html">gclidb.gclisub -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gfld.html">gclidb.gfld - Gitlab/github field name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/githost.html">gclidb.githost -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gmethod.html">gclidb.gmethod - HTTP method list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/grepo.html">gclidb.grepo - Repo table (acr grepo -in ~/.ssim)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/grepogitport.html">gclidb.grepogitport - Default ports for repositories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/grepossh.html">gclidb.grepossh - Ssh key table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gstate.html">gclidb.gstate - Issue/MR state list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gstatet.html">gclidb.gstatet - Internal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gtbl.html">gclidb.gtbl - Supported gcli tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gtblact.html">gclidb.gtblact -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gtblactfld.html">gclidb.gtblactfld - List of available for each table &amp; action combination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gtblacttst.html">gclidb.gtblacttst -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gtblacttstout.html">gclidb.gtblacttstout -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gtype.html">gclidb.gtype - Platform type (ghp=github; glpat=gitlab)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gtypeh.html">gclidb.gtypeh - HTTP heaaderes for user with platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gtypeprefix.html">gclidb.gtypeprefix - Token prefix mapping to platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/issue.html">gclidb.issue - Gitlab project issue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/issuenote.html">gclidb.issuenote - Issue note</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/issuepipeline.html">gclidb.issuepipeline - Issue pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/label.html">gclidb.label - List of labels for gitlab/github</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/milestone.html">gclidb.milestone - Gclidb project milestone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/mr.html">gclidb.mr - Gitlab project mr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/mrjob.html">gclidb.mrjob - Mr job</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/mrnote.html">gclidb.mrnote - Issue note</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/project.html">gclidb.project - Gitlab project mr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/user.html">gclidb.user -</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/ssimdb/gmvdb/README.html">gmvdb - gmv db</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle navigation of gmvdb - gmv db</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gmvdb/gmvproj.html">gmvdb.gmvproj -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gmvdb/gmvscript.html">gmvdb.gmvscript - action type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gmvdb/gmvua.html">gmvdb.gmvua - User attribute</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/ssimdb/spnxdb/README.html">spnxdb - Sphinx-based Websites build tool DB</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><div class="visually-hidden">Toggle navigation of spnxdb - Sphinx-based Websites build tool DB</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/spnxdb/build.html">spnxdb.build - list of actions supported by sphinx-build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/spnxdb/pkgapt.html">spnxdb.pkgapt - required packages to be installed by apt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/spnxdb/pkgpip.html">spnxdb.pkgpip - required packages to be installed by pip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/spnxdb/site.html">spnxdb.site - list of sites supported by bin/spnx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/spnxdb/siteattr.html">spnxdb.siteattr - list of attributes and values by the site</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/spnxdb/srcext.html">spnxdb.srcext - source extensions read as md by sphinx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/spnxdb/theme.html">spnxdb.theme -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/spnxdb/userattr.html">spnxdb.userattr - list of possible attributes referred by spnxdb.siteattr</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/ssimdb/wclidb/README.html">wclidb - wiki db</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><div class="visually-hidden">Toggle navigation of wclidb - wiki db</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/atfwclicmd.html">wclidb.atfwclicmd - management commands for atf_wcli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/atfwclicmdfld.html">wclidb.atfwclicmdfld - arguments taken by management commands for atf_wcli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/curlarg.html">wclidb.curlarg - an internal list of curl arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/ftype.html">wclidb.ftype - wiki file ftype types used by wcli to copy files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/page.html">wclidb.page - a form for wcli page operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/pagesec.html">wclidb.pagesec - a from for wcli page sections operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/pagetitle.html">wclidb.pagetitle - a form for wcli page reporting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wact.html">wclidb.wact - wcli actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wcliapi.html">wclidb.wcliapi - api tokens for wcli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wclicmd.html">wclidb.wclicmd - wcli api commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wclicmdapi.html">wclidb.wclicmdapi - wcli api commands with arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wclicmdf2j.html">wclidb.wclicmdf2j - Mapping of internal fields to JSON fields for gitlab/github</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wfld.html">wclidb.wfld - Wiki field name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wikiext.html">wclidb.wikiext - wiki allowed file extensions, dynamic read</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wikigroup.html">wclidb.wikigroup - wiki default user groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wikins.html">wclidb.wikins - wiki namespaces, dynamic read</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wikisite.html">wclidb.wikisite - wiki site types supported by wcli - the main wcli key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wikisitesub.html">wclidb.wikisitesub - atf_wcli args substitution table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wikisub.html">wclidb.wikisub - atf_wcli substitutions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wikitoken.html">wclidb.wikitoken - wcli medaiwiki auth token types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wikitokenapi.html">wclidb.wikitokenapi - wcli tie-in of a token to an api action</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wikiuser.html">wclidb.wikiuser -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wikiuseruser.html">wclidb.wikiuseruser -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wlogin.html">wclidb.wlogin - a form for wcli login operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wtbl.html">wclidb.wtbl - scope for wcli actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wtblact.html">wclidb.wtblact - a wcli tie-in of table and action</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wtblactfld.html">wclidb.wtblactfld - List of available for each table &amp; action combination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wtblacttst.html">wclidb.wtblacttst - atf_wcli wcli regression testcases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wtblacttstout.html">wclidb.wtblacttstout - atf_wcli wcli regression results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wwiki.html">wclidb.wwiki - user/auth tokens holding structure</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/ssimdb/wsdb/README.html">wsdb - WebSocket db</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><div class="visually-hidden">Toggle navigation of wsdb - WebSocket db</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wsdb/status.html">wsdb.status -</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/ssimdb/x2db/README.html">x2db - operational info for algornd</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle navigation of x2db - operational info for algornd</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/admact.html">x2db.admact - x2admin actions for startup scripts generation and use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/admsvc.html">x2db.admsvc - x2admin scope for services like user, host, ssh applied to envnodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/admsvcact.html">x2db.admsvcact - x2admin coupling for the scope and the actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/dctrport.html">x2db.dctrport - tie-in docker ports with uids for containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/env.html">x2db.env - x2 environments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/envctr.html">x2db.envctr - envnode to container tie-in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/envhost.html">x2db.envhost - envnode to hosts tie-in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/envktypeuser.html">x2db.envktypeuser - environment to “ssh key type” to a user and its public key tie in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/envnode.html">x2db.envnode - environment to node tie in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/envnodeacct.html">x2db.envnodeacct - envnode to its users accounts tie in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/envnodeacctuser.html">x2db.envnodeacctuser - envnode accounts to users tie in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/envnodecname.html">x2db.envnodecname - envnode to cname tie in - cname used in /etc/hosts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/ktype.html">x2db.ktype - “ssh key types” list for different purposes/env</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/node.html">x2db.node - node name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/nodektype.html">x2db.nodektype - A node to “ssh key type” assignment list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/uid.html">x2db.uid - x2 user linux uid list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/user.html">x2db.user - x2 users list</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../txt/protocol/README.html">Protocols</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><div class="visually-hidden">Toggle navigation of Protocols</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/protocol/algo/README.html">algo - Basic types and functions</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" role="switch" type="checkbox"/><label for="toctree-checkbox-23"><div class="visually-hidden">Toggle navigation of algo - Basic types and functions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Attr.html">txt/protocol/algo/Attr.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Bool.html">txt/protocol/algo/Bool.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Charset.html">txt/protocol/algo/Charset.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Comment.html">txt/protocol/algo/Comment.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/CppExpr.html">txt/protocol/algo/CppExpr.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/DateCache.html">txt/protocol/algo/DateCache.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Decimal.html">txt/protocol/algo/Decimal.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/DirEntry.html">txt/protocol/algo/DirEntry.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Errcode.html">txt/protocol/algo/Errcode.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Errns.html">txt/protocol/algo/Errns.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Fildes.html">txt/protocol/algo/Fildes.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/FileFlags.html">txt/protocol/algo/FileFlags.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/IOEvtFlags.html">txt/protocol/algo/IOEvtFlags.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/IPoint.html">txt/protocol/algo/IPoint.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Imtable.html">txt/protocol/algo/Imtable.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Ipmask.html">txt/protocol/algo/Ipmask.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/LineBuf.html">txt/protocol/algo/LineBuf.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Md5Digest.html">txt/protocol/algo/Md5Digest.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Month.html">txt/protocol/algo/Month.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/NumParseFlags.html">txt/protocol/algo/NumParseFlags.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/PrlogFcn.html">txt/protocol/algo/PrlogFcn.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/SchedTime.html">txt/protocol/algo/SchedTime.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/SeqType.html">txt/protocol/algo/SeqType.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Sha1sig.html">txt/protocol/algo/Sha1sig.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/TFNNtTestAlert.html">txt/protocol/algo/TFNNtTestAlert.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/TermStyle.html">txt/protocol/algo/TermStyle.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/TextJust.html">txt/protocol/algo/TextJust.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/TstampCache.html">txt/protocol/algo/TstampCache.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Tuple.html">txt/protocol/algo/Tuple.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/URL.html">txt/protocol/algo/URL.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/UnDiff.html">txt/protocol/algo/UnDiff.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/UnTime.html">txt/protocol/algo/UnTime.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/UnixDiff.html">txt/protocol/algo/UnixDiff.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/UnixTime.html">txt/protocol/algo/UnixTime.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/cstring.html">txt/protocol/algo/cstring.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/memptr.html">txt/protocol/algo/memptr.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/strptr.html">txt/protocol/algo/strptr.md</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/protocol/ams/README.html">ams - Algo Messaging System protocol</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" role="switch" type="checkbox"/><label for="toctree-checkbox-24"><div class="visually-hidden">Toggle navigation of ams - Algo Messaging System protocol</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/AlarmSyncMsg.html">txt/protocol/ams/AlarmSyncMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/DfltStream.html">txt/protocol/ams/DfltStream.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/DumpStreamTableMsg.html">txt/protocol/ams/DumpStreamTableMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/ExpectMsg.html">txt/protocol/ams/ExpectMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/HeartbeatMsg.html">txt/protocol/ams/HeartbeatMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/InputLineMsg.html">txt/protocol/ams/InputLineMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/LogMsg.html">txt/protocol/ams/LogMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/Member.html">txt/protocol/ams/Member.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/MsgBlock.html">txt/protocol/ams/MsgBlock.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/MsgHeader.html">txt/protocol/ams/MsgHeader.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/OpenMsg.html">txt/protocol/ams/OpenMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/PrlogMsg.html">txt/protocol/ams/PrlogMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/ProcAddMsg.html">txt/protocol/ams/ProcAddMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/ProcId.html">txt/protocol/ams/ProcId.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/ProcRemoveMsg.html">txt/protocol/ams/ProcRemoveMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/ProcType.html">txt/protocol/ams/ProcType.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/Seqmsg.html">txt/protocol/ams/Seqmsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/SeqmsgId.html">txt/protocol/ams/SeqmsgId.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/SeqmsgTrace.html">txt/protocol/ams/SeqmsgTrace.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/StreamFlags.html">txt/protocol/ams/StreamFlags.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/StreamHbMsg.html">txt/protocol/ams/StreamHbMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/StreamId.html">txt/protocol/ams/StreamId.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/StreamPos.html">txt/protocol/ams/StreamPos.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/StreamType.html">txt/protocol/ams/StreamType.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/TerminateMsg.html">txt/protocol/ams/TerminateMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/Trace2Msg.html">txt/protocol/ams/Trace2Msg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/TraceInfo2Msg.html">txt/protocol/ams/TraceInfo2Msg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/TraceInfoMsg.html">txt/protocol/ams/TraceInfoMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/TraceMsg.html">txt/protocol/ams/TraceMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/UdpFrame.html">txt/protocol/ams/UdpFrame.md</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/protocol/atf/README.html">atf - Algo Testing Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/protocol/command/README.html">command - Command line descriptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/protocol/emdi12/README.html">emdi12 -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/protocol/fasttest/README.html">fasttest -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/protocol/fm/README.html">fm - Fault management types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/protocol/ietf/README.html">ietf - Some IETF structs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/protocol/js/README.html">js - Reserved for JavaScript builtin types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/protocol/report/README.html">report - Command reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/protocol/ws/README.html">ws - WebSocket binary protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/protocol/x2/README.html">x2 - X2 protocol</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../txt/lib/README.html">Libraries</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" role="switch" type="checkbox"/><label for="toctree-checkbox-25"><div class="visually-hidden">Toggle navigation of Libraries</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/algo_lib/README.html">algo_lib - Support library for all executables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_amcdb/README.html">lib_amcdb - Library used by amc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_ams/README.html">lib_ams - Library for AMS middleware, supporting file format &amp; messaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_ams/README.html#ams-library">AMS Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_ams/README.html#list-of-ams-messages">List of AMS Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_ams/README.html#in-memory-stream-format-flow-control">In-memory stream format; Flow control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_ctype/README.html">lib_ctype - Helpful library for reading/writing ctypes as text tuples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_exec/README.html">lib_exec - Build and run a dag of subprocesses with N parallel jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_fast/README.html">lib_fast - FAST prococol support library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_finprot/README.html">lib_finprot - Library of financial protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_fm/README.html">lib_fm - Library for dynamic alarm management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_git/README.html">lib_git - Helpful git wrappers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_iconv/README.html">lib_iconv - Iconv wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_json/README.html">lib_json - Full json support library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_mysql/README.html">lib_mysql - Mysql adaptor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_prot/README.html">lib_prot - Library covering all protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_sql/README.html">lib_sql - SQL formatting functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_ws/README.html">lib_ws - WebSocket library</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../txt/exe/README.html">Executables</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" role="switch" type="checkbox"/><label for="toctree-checkbox-26"><div class="visually-hidden">Toggle navigation of Executables</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/abt/README.html">abt - Algo Build Tool - build &amp; link C++ targets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/abt_md/README.html">abt_md - Tool to generate markdown documentation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/exe/acr/README.html">acr - Algo Cross-Reference - ssimfile database &amp; update tool</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" role="switch" type="checkbox"/><label for="toctree-checkbox-27"><div class="visually-hidden">Toggle navigation of acr - Algo Cross-Reference - ssimfile database &amp; update tool</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/exe/acr/relnotes.html">ACR release notes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/acr_compl/README.html">acr_compl - ACR shell auto-complete for all targets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/acr_dm/README.html">acr_dm - ACR Diff/Merge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/acr_ed/README.html">acr_ed - Script generator for common dev tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/acr_in/README.html">acr_in - ACR Input - compute set of ssimfiles or tuples used by a specific target</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/acr_my/README.html">acr_my - ACR &lt;-&gt; MariaDB adaptor</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/exe/amc/README.html">amc - Algo Model Compiler: generate code under include/gen and cpp/gen</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" role="switch" type="checkbox"/><label for="toctree-checkbox-28"><div class="visually-hidden">Toggle navigation of amc - Algo Model Compiler: generate code under include/gen and cpp/gen</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/exe/amc/enum.html">AMC Enumerated Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/exe/amc/exec.html">AMC Subprocess Invocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/exe/amc/pmask.html">AMC Presence Masks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/exe/amc/pools.html">AMC Memory Pools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/exe/amc/proto.html">AMC Protocols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/exe/amc/reflection.html">AMC Reflection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/exe/amc/reftypes.html">AMC Reftypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/exe/amc/relnotes.html">AMC release notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/exe/amc/runtime.html">AMC Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/exe/amc/strings.html">AMC Strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/exe/amc/xref.html">AMC Cross-References (xrefs)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/amc_gc/README.html">amc_gc - Garbage collector for in-memory databases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/amc_js/README.html">amc_js - Model compiler for javascript targets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/amc_vis/README.html">amc_vis - Draw access path diagrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/ams_cat/README.html">ams_cat - Algo Messaging System sample tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/ams_sendtest/README.html">ams_sendtest - Algo Messaging System test tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/apm/README.html">apm - Algo Package Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/atf_amc/README.html">atf_amc - Unit tests for amc (see amctest table)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/atf_ci/README.html">atf_ci - Normalization tests (see citest table)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/atf_cmdline/README.html">atf_cmdline - Test tool for command line parsing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/atf_comp/README.html">atf_comp - Algo Test Framework - Component test execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/atf_cov/README.html">atf_cov - Line coverage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/atf_cov/README.html#line-coverage">Line coverage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/atf_fuzz/README.html">atf_fuzz - Generator of bad inputs for targets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/atf_gcli/README.html">atf_gcli - test harness for gcli</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/atf_netio/README.html">atf_netio - Test driver for netio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/atf_nrun/README.html">atf_nrun - Run N subprocesses in parallel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/atf_unit/README.html">atf_unit - Unit tests (see unittest table)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/atf_wcli/README.html">atf_wcli - wiki management and test harness for wcli tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/atf_ws/README.html">atf_ws - Component test driver for lib_ws</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/bash2html/README.html">bash2html - Convert bash output and colours to html</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/dcli/README.html">dcli - command line tool for container operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/dcli_ed/README.html">dcli_ed - Docker Client Editor - generator of dcli commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/fast/README.html">fast - FAST utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/gcache/README.html">gcache - Compiler cache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/gcli/README.html">gcli - Gcli - gitlab/github command-line client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/gmv/README.html">gmv - Utility to move parts of the project in or out to a different project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/lib_x2/README.html">lib_x2 -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/mdbg/README.html">mdbg - Gdb front-end</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/mysql2ssim/README.html">mysql2ssim - mysql -&gt; ssim conversion tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/orgfile/README.html">orgfile - Organize and deduplicate files by timestamp and by contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/samp_regx/README.html">samp_regx - Test tool for regular expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/samp_ws/README.html">samp_ws - WebSocket sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/sandbox/README.html">sandbox - Sandbox - sandbox management tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/spnx/README.html">spnx - website generator based on sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/src_func/README.html">src_func - Access / edit functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/src_hdr/README.html">src_hdr - Manage source copyright+license header in source files and scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/src_lim/README.html">src_lim - Enforce line length, function length, and indentation limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/ssim2csv/README.html">ssim2csv - Ssim -&gt; csv conversion tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/ssim2mysql/README.html">ssim2mysql - Ssim -&gt; mysql</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/ssimfilt/README.html">ssimfilt - Tuple utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/strconv/README.html">strconv - A simple string utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/sv2ssim/README.html">sv2ssim - sv2ssim - Separated Value file processor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/ttrack/README.html">ttrack - Tool for keeping track of work time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/wcli/README.html">wcli - wiki cli to operate on wikis via API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/x2admin/README.html">x2admin - utility to generate admsvc control for containers etc…</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/x2cmt/README.html">x2cmt - X2 - Commit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/x2gf/README.html">x2gf - X2 - Gapfill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/x2gw/README.html">x2gw - X2 - Gateway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/x2mon/README.html">x2mon - X2 - Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/x2node/README.html">x2node - ssh tool to access varios aops nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/x2read/README.html">x2read - X2 - Read client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/x2sup/README.html">x2sup - X2 - Supervisor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/x2txn/README.html">x2txn - X2 - Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/x2write/README.html">x2write - X2 - Write client</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../txt/script/README.html">Scripts</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" role="switch" type="checkbox"/><label for="toctree-checkbox-29"><div class="visually-hidden">Toggle navigation of Scripts</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/abt_md_filt.html">bin/abt_md_filt - Eliminate unstable fields from inline-command output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/ai.html">bin/ai - Bootstrapped compilation script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/alexei-setup-soft-links.html">bin/alexei-setup-soft-links -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/break-long-lines.html">bin/break-long-lines - Read input and break long lines into multiple lines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/ci-show-log.html">bin/ci-show-log - Fetch gitlab runner output for current issue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/cpp-indent.html">bin/cpp-indent - Indent specified files using emacs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/delete-duplicate-lines.html">bin/delete-duplicate-lines - Read input and eliminate duplicate lines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/diff-to-errlist.html">bin/diff-to-errlist - Read standard diff format on input and produce output suitable for errlist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/edit-conflicts.html">bin/edit-conflicts - Open any files marked as being in confict using EDITOR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/em.html">bin/em - Alias for ‘emacs -nw’</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/errlist.html">bin/errlist - Open error list in editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/ff.html">bin/ff - Find files and inside files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/find-non-copyrighted.html">bin/find-non-copyrighted - Find any files with missing copyrights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/fix-gen-conflicts.html">bin/fix-gen-conflicts - Auto-fix for git merge- or rebase-related conflicts by re-running generator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-add-to-last-commit.html">bin/git-add-to-last-commit - Add any currently modified changes to the most recent commit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-branch-gc.html">bin/git-branch-gc - Attempt to rebase all branches and delete branches merged into HEAD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-clean-branches.html">bin/git-clean-branches -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-commits-per-user.html">bin/git-commits-per-user -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-current-ref.html">bin/git-current-ref - Print gitref of current HEAD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-diff-annotate.html">bin/git-diff-annotate -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-grep-reflog.html">bin/git-grep-reflog - Find a commit in reflog whose delta contains given regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-mdiff.html">bin/git-mdiff - Git diff but exclude generated files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-mod-plot.html">bin/git-mod-plot -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-praise.html">bin/git-praise -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-rebase-origin.html">bin/git-rebase-origin - Rebase current branch onto origin master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-rebase-remote.html">bin/git-rebase-remote - Rebase current branch onto given <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-recent-branches.html">bin/git-recent-branches - List recent branches that you worked on</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-rollback-file.html">bin/git-rollback-file - Roll back specified files to the previous commit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-update-config.html">bin/git-update-config -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/gitconfig-setup.html">bin/gitconfig-setup -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/grephunk.html">bin/grephunk - Patch file filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/hilite-error.html">bin/hilite-error - Read input and highlight errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/hilite.html">bin/hilite - Inline highlighter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/limit-output.html">bin/limit-output - Read input and show at most N lines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/lines-to-dots.html">bin/lines-to-dots - Read input and print a dot for each input line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/lsfunc.html">bin/lsfunc - List all functions from all source files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/msloc.pl.html">bin/msloc.pl - Word count statistics for non-generated source files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/normalize.html">bin/normalize - Run standard normalization tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/select-bootstrap.html">bin/select-bootstrap -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/sha1.html">bin/sha1 -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/sloc.pl.html">bin/sloc.pl - Word count statistics for specified list of source files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/tags.html">bin/tags -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/targ-diff.html">bin/targ-diff - Show changes in TARG’s source code between this branch and REF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/test-orgfile.html">bin/test-orgfile -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/timestamps.html">bin/timestamps - Read input and timestamp each line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/toamc.html">bin/toamc - Try to extract amc schema from specified C++ file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/todo.html">bin/todo -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/update-gitfile.html">bin/update-gitfile -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/update-hdr.html">bin/update-hdr -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/update-scriptfile.html">bin/update-scriptfile -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/zfs_snapshot.pl.html">bin/zfs_snapshot.pl -</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="data-dev-targsrc-ssim">
+<h1>data/dev/targsrc.ssim<a class="headerlink" href="#data-dev-targsrc-ssim" title="Permalink to this heading">#</a></h1>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span>dev.targsrc  targsrc:abt/cpp/abt/build.cpp  comment:&quot;Build dag execution&quot;
+<span class="linenos">  2</span>dev.targsrc  targsrc:abt/cpp/abt/disas.cpp  comment:Disassemble
+<span class="linenos">  3</span>dev.targsrc  targsrc:abt/cpp/abt/main.cpp  comment:&quot;Algo Build Tool - Main file&quot;
+<span class="linenos">  4</span>dev.targsrc  targsrc:abt/cpp/abt/opt.cpp  comment:&quot;Calculate compiler options&quot;
+<span class="linenos">  5</span>dev.targsrc  targsrc:abt/cpp/gen/abt_gen.cpp  comment:&quot;&quot;
+<span class="linenos">  6</span>dev.targsrc  targsrc:abt/include/abt.h  comment:&quot;Main header&quot;
+<span class="linenos">  7</span>dev.targsrc  targsrc:abt/include/gen/abt_gen.h  comment:&quot;&quot;
+<span class="linenos">  8</span>dev.targsrc  targsrc:abt/include/gen/abt_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">  9</span>dev.targsrc  targsrc:abt_md/cpp/abt_md/file_section.cpp  comment:&quot;&quot;
+<span class="linenos"> 10</span>dev.targsrc  targsrc:abt_md/cpp/abt_md/main.cpp  comment:&quot;&quot;
+<span class="linenos"> 11</span>dev.targsrc  targsrc:abt_md/cpp/abt_md/mdsection.cpp  comment:&quot;&quot;
+<span class="linenos"> 12</span>dev.targsrc  targsrc:abt_md/cpp/abt_md/sources.cpp  comment:&quot;&quot;
+<span class="linenos"> 13</span>dev.targsrc  targsrc:abt_md/cpp/gen/abt_md_gen.cpp  comment:&quot;&quot;
+<span class="linenos"> 14</span>dev.targsrc  targsrc:abt_md/include/abt_md.h  comment:&quot;&quot;
+<span class="linenos"> 15</span>dev.targsrc  targsrc:abt_md/include/gen/abt_md_gen.h  comment:&quot;&quot;
+<span class="linenos"> 16</span>dev.targsrc  targsrc:abt_md/include/gen/abt_md_gen.inl.h  comment:&quot;&quot;
+<span class="linenos"> 17</span>dev.targsrc  targsrc:acr/cpp/acr/check.cpp  comment:&quot;Check constraints &amp; referential integrity&quot;
+<span class="linenos"> 18</span>dev.targsrc  targsrc:acr/cpp/acr/createrec.cpp  comment:&quot;Create record&quot;
+<span class="linenos"> 19</span>dev.targsrc  targsrc:acr/cpp/acr/err.cpp  comment:&quot;Show errors / suggestions&quot;
+<span class="linenos"> 20</span>dev.targsrc  targsrc:acr/cpp/acr/eval.cpp  comment:&quot;Evaluate attributes&quot;
+<span class="linenos"> 21</span>dev.targsrc  targsrc:acr/cpp/acr/git.cpp  comment:&quot;Git triggers&quot;
+<span class="linenos"> 22</span>dev.targsrc  targsrc:acr/cpp/acr/load.cpp  comment:&quot;Load files&quot;
+<span class="linenos"> 23</span>dev.targsrc  targsrc:acr/cpp/acr/main.cpp  comment:&quot;Main file&quot;
+<span class="linenos"> 24</span>dev.targsrc  targsrc:acr/cpp/acr/print.cpp  comment:&quot;Code for output&quot;
+<span class="linenos"> 25</span>dev.targsrc  targsrc:acr/cpp/acr/query.cpp  comment:&quot;Run query&quot;
+<span class="linenos"> 26</span>dev.targsrc  targsrc:acr/cpp/acr/select.cpp  comment:&quot;Selection of records&quot;
+<span class="linenos"> 27</span>dev.targsrc  targsrc:acr/cpp/acr/verb.cpp  comment:&quot;Command-line verbs&quot;
+<span class="linenos"> 28</span>dev.targsrc  targsrc:acr/cpp/acr/write.cpp  comment:&quot;Write files&quot;
+<span class="linenos"> 29</span>dev.targsrc  targsrc:acr/cpp/gen/acr_gen.cpp  comment:&quot;&quot;
+<span class="linenos"> 30</span>dev.targsrc  targsrc:acr/include/acr.h  comment:&quot;Header file&quot;
+<span class="linenos"> 31</span>dev.targsrc  targsrc:acr/include/gen/acr_gen.h  comment:&quot;&quot;
+<span class="linenos"> 32</span>dev.targsrc  targsrc:acr/include/gen/acr_gen.inl.h  comment:&quot;&quot;
+<span class="linenos"> 33</span>dev.targsrc  targsrc:acr_compl/cpp/acr_compl/main.cpp  comment:&quot;&quot;
+<span class="linenos"> 34</span>dev.targsrc  targsrc:acr_compl/cpp/acr_compl/shell.cpp  comment:&quot;&quot;
+<span class="linenos"> 35</span>dev.targsrc  targsrc:acr_compl/cpp/gen/acr_compl_gen.cpp  comment:&quot;&quot;
+<span class="linenos"> 36</span>dev.targsrc  targsrc:acr_compl/include/acr_compl.h  comment:&quot;&quot;
+<span class="linenos"> 37</span>dev.targsrc  targsrc:acr_compl/include/gen/acr_compl_gen.h  comment:&quot;&quot;
+<span class="linenos"> 38</span>dev.targsrc  targsrc:acr_compl/include/gen/acr_compl_gen.inl.h  comment:&quot;&quot;
+<span class="linenos"> 39</span>dev.targsrc  targsrc:acr_dm/cpp/acr_dm/acr_dm.cpp  comment:&quot;&quot;
+<span class="linenos"> 40</span>dev.targsrc  targsrc:acr_dm/cpp/gen/acr_dm_gen.cpp  comment:&quot;&quot;
+<span class="linenos"> 41</span>dev.targsrc  targsrc:acr_dm/include/acr_dm.h  comment:&quot;&quot;
+<span class="linenos"> 42</span>dev.targsrc  targsrc:acr_dm/include/gen/acr_dm_gen.h  comment:&quot;&quot;
+<span class="linenos"> 43</span>dev.targsrc  targsrc:acr_dm/include/gen/acr_dm_gen.inl.h  comment:&quot;&quot;
+<span class="linenos"> 44</span>dev.targsrc  targsrc:acr_ed/cpp/acr_ed/ctype.cpp  comment:&quot;Create, delete, rename ctype&quot;
+<span class="linenos"> 45</span>dev.targsrc  targsrc:acr_ed/cpp/acr_ed/field.cpp  comment:&quot;Create, delete, rename field&quot;
+<span class="linenos"> 46</span>dev.targsrc  targsrc:acr_ed/cpp/acr_ed/finput.cpp  comment:&quot;&quot;
+<span class="linenos"> 47</span>dev.targsrc  targsrc:acr_ed/cpp/acr_ed/main.cpp  comment:&quot;&quot;
+<span class="linenos"> 48</span>dev.targsrc  targsrc:acr_ed/cpp/acr_ed/srcfile.cpp  comment:&quot;Create, delete, rename source file&quot;
+<span class="linenos"> 49</span>dev.targsrc  targsrc:acr_ed/cpp/acr_ed/ssimfile.cpp  comment:&quot;Create, delete, rename ssim file&quot;
+<span class="linenos"> 50</span>dev.targsrc  targsrc:acr_ed/cpp/acr_ed/target.cpp  comment:&quot;Create, delete, rename target&quot;
+<span class="linenos"> 51</span>dev.targsrc  targsrc:acr_ed/cpp/acr_ed/unittest.cpp  comment:&quot;Create, delete, rename unit test&quot;
+<span class="linenos"> 52</span>dev.targsrc  targsrc:acr_ed/cpp/gen/acr_ed_gen.cpp  comment:&quot;&quot;
+<span class="linenos"> 53</span>dev.targsrc  targsrc:acr_ed/include/acr_ed.h  comment:&quot;&quot;
+<span class="linenos"> 54</span>dev.targsrc  targsrc:acr_ed/include/gen/acr_ed_gen.h  comment:&quot;&quot;
+<span class="linenos"> 55</span>dev.targsrc  targsrc:acr_ed/include/gen/acr_ed_gen.inl.h  comment:&quot;&quot;
+<span class="linenos"> 56</span>dev.targsrc  targsrc:acr_in/cpp/acr_in/acr_in.cpp  comment:&quot;&quot;
+<span class="linenos"> 57</span>dev.targsrc  targsrc:acr_in/cpp/acr_in/data.cpp  comment:&quot;&quot;
+<span class="linenos"> 58</span>dev.targsrc  targsrc:acr_in/cpp/gen/acr_in_gen.cpp  comment:&quot;&quot;
+<span class="linenos"> 59</span>dev.targsrc  targsrc:acr_in/include/acr_in.h  comment:&quot;&quot;
+<span class="linenos"> 60</span>dev.targsrc  targsrc:acr_in/include/gen/acr_in_gen.h  comment:&quot;&quot;
+<span class="linenos"> 61</span>dev.targsrc  targsrc:acr_in/include/gen/acr_in_gen.inl.h  comment:&quot;&quot;
+<span class="linenos"> 62</span>dev.targsrc  targsrc:acr_my/cpp/acr_my/acr_my.cpp  comment:&quot;&quot;
+<span class="linenos"> 63</span>dev.targsrc  targsrc:acr_my/cpp/gen/acr_my_gen.cpp  comment:&quot;&quot;
+<span class="linenos"> 64</span>dev.targsrc  targsrc:acr_my/include/gen/acr_my_gen.h  comment:&quot;&quot;
+<span class="linenos"> 65</span>dev.targsrc  targsrc:acr_my/include/gen/acr_my_gen.inl.h  comment:&quot;&quot;
+<span class="linenos"> 66</span>dev.targsrc  targsrc:algo_lib/cpp/gen/_gen.cpp  comment:&quot;&quot;
+<span class="linenos"> 67</span>dev.targsrc  targsrc:algo_lib/cpp/gen/algo_gen.cpp  comment:&quot;&quot;
+<span class="linenos"> 68</span>dev.targsrc  targsrc:algo_lib/cpp/gen/algo_lib_gen.cpp  comment:&quot;&quot;
+<span class="linenos"> 69</span>dev.targsrc  targsrc:algo_lib/cpp/gen/command_gen.cpp  comment:&quot;&quot;
+<span class="linenos"> 70</span>dev.targsrc  targsrc:algo_lib/cpp/gen/dev_gen.cpp  comment:&quot;&quot;
+<span class="linenos"> 71</span>dev.targsrc  targsrc:algo_lib/cpp/gen/dmmeta_gen.cpp  comment:&quot;&quot;
+<span class="linenos"> 72</span>dev.targsrc  targsrc:algo_lib/cpp/gen/report_gen.cpp  comment:&quot;&quot;
+<span class="linenos"> 73</span>dev.targsrc  targsrc:algo_lib/cpp/lib/algo/arg.cpp  comment:&quot;Parse command-line&quot;
+<span class="linenos"> 74</span>dev.targsrc  targsrc:algo_lib/cpp/lib/algo/backtrace.cpp  comment:&quot;Print stack trace in case of crash&quot;
+<span class="linenos"> 75</span>dev.targsrc  targsrc:algo_lib/cpp/lib/algo/base64.cpp  comment:&quot;base64 encoding&quot;
+<span class="linenos"> 76</span>dev.targsrc  targsrc:algo_lib/cpp/lib/algo/cpu_hz.cpp  comment:&quot;Grab cpu_hz from OS&quot;
+<span class="linenos"> 77</span>dev.targsrc  targsrc:algo_lib/cpp/lib/algo/crc32.cpp  comment:&quot;Software-based CRC32&quot;
+<span class="linenos"> 78</span>dev.targsrc  targsrc:algo_lib/cpp/lib/algo/decimal.cpp  comment:&quot;&quot;
+<span class="linenos"> 79</span>dev.targsrc  targsrc:algo_lib/cpp/lib/algo/errtext.cpp  comment:&quot;&quot;
+<span class="linenos"> 80</span>dev.targsrc  targsrc:algo_lib/cpp/lib/algo/file.cpp  comment:&quot;File functions&quot;
+<span class="linenos"> 81</span>dev.targsrc  targsrc:algo_lib/cpp/lib/algo/fmt.cpp  comment:&quot;Print to string / Read from string&quot;
+<span class="linenos"> 82</span>dev.targsrc  targsrc:algo_lib/cpp/lib/algo/iohook.cpp  comment:&quot;&quot;
+<span class="linenos"> 83</span>dev.targsrc  targsrc:algo_lib/cpp/lib/algo/lib.cpp  comment:&quot;Main file&quot;
+<span class="linenos"> 84</span>dev.targsrc  targsrc:algo_lib/cpp/lib/algo/line.cpp  comment:&quot;Line processing&quot;
+<span class="linenos"> 85</span>dev.targsrc  targsrc:algo_lib/cpp/lib/algo/lockfile.cpp  comment:&quot;Lock file&quot;
+<span class="linenos"> 86</span>dev.targsrc  targsrc:algo_lib/cpp/lib/algo/mmap.cpp  comment:&quot;Mmap wrapper&quot;
+<span class="linenos"> 87</span>dev.targsrc  targsrc:algo_lib/cpp/lib/algo/prlog.cpp  comment:&quot;prlog macro&quot;
+<span class="linenos"> 88</span>dev.targsrc  targsrc:algo_lib/cpp/lib/algo/regx.cpp  comment:&quot;Sql Regx implementation&quot;
+<span class="linenos"> 89</span>dev.targsrc  targsrc:algo_lib/cpp/lib/algo/string.cpp  comment:&quot;cstring functions&quot;
+<span class="linenos"> 90</span>dev.targsrc  targsrc:algo_lib/cpp/lib/algo/time.cpp  comment:&quot;UnTime / UnDiff functions&quot;
+<span class="linenos"> 91</span>dev.targsrc  targsrc:algo_lib/cpp/lib/algo/timehook.cpp  comment:&quot;&quot;
+<span class="linenos"> 92</span>dev.targsrc  targsrc:algo_lib/cpp/lib/algo/tstamp.cpp  comment:&quot;timestamp cache&quot;
+<span class="linenos"> 93</span>dev.targsrc  targsrc:algo_lib/cpp/lib/algo/txttbl.cpp  comment:&quot;Ascii table&quot;
+<span class="linenos"> 94</span>dev.targsrc  targsrc:algo_lib/cpp/lib/algo/u128.cpp  comment:&quot;&quot;
+<span class="linenos"> 95</span>dev.targsrc  targsrc:algo_lib/cpp/lib/algo/win32.cpp  comment:&quot;&quot;
+<span class="linenos"> 96</span>dev.targsrc  targsrc:algo_lib/include/algo.h  comment:&quot;Main header&quot;
+<span class="linenos"> 97</span>dev.targsrc  targsrc:algo_lib/include/algo.inl.h  comment:&quot;Inline functions&quot;
+<span class="linenos"> 98</span>dev.targsrc  targsrc:algo_lib/include/define.h  comment:Macros
+<span class="linenos"> 99</span>dev.targsrc  targsrc:algo_lib/include/gen/_gen.h  comment:&quot;&quot;
+<span class="linenos">100</span>dev.targsrc  targsrc:algo_lib/include/gen/_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">101</span>dev.targsrc  targsrc:algo_lib/include/gen/algo_gen.h  comment:&quot;&quot;
+<span class="linenos">102</span>dev.targsrc  targsrc:algo_lib/include/gen/algo_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">103</span>dev.targsrc  targsrc:algo_lib/include/gen/algo_lib_gen.h  comment:&quot;&quot;
+<span class="linenos">104</span>dev.targsrc  targsrc:algo_lib/include/gen/algo_lib_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">105</span>dev.targsrc  targsrc:algo_lib/include/gen/command_gen.h  comment:&quot;&quot;
+<span class="linenos">106</span>dev.targsrc  targsrc:algo_lib/include/gen/command_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">107</span>dev.targsrc  targsrc:algo_lib/include/gen/dev_gen.h  comment:&quot;&quot;
+<span class="linenos">108</span>dev.targsrc  targsrc:algo_lib/include/gen/dev_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">109</span>dev.targsrc  targsrc:algo_lib/include/gen/report_gen.h  comment:&quot;&quot;
+<span class="linenos">110</span>dev.targsrc  targsrc:algo_lib/include/gen/report_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">111</span>dev.targsrc  targsrc:algo_lib/include/sha.h  comment:&quot;&quot;
+<span class="linenos">112</span>dev.targsrc  targsrc:algo_lib/include/sysincl.h  comment:&quot;System header includes&quot;
+<span class="linenos">113</span>dev.targsrc  targsrc:algo_lib/include/typedef.h  comment:Typedefs
+<span class="linenos">114</span>dev.targsrc  targsrc:algo_lib/include/u128.h  comment:&quot;&quot;
+<span class="linenos">115</span>dev.targsrc  targsrc:algo_lib/include/win32.h  comment:&quot;&quot;
+<span class="linenos">116</span>dev.targsrc  targsrc:amc/cpp/amc/alias.cpp  comment:&quot;&quot;
+<span class="linenos">117</span>dev.targsrc  targsrc:amc/cpp/amc/avl.cpp  comment:&quot;&quot;
+<span class="linenos">118</span>dev.targsrc  targsrc:amc/cpp/amc/base.cpp  comment:&quot;&quot;
+<span class="linenos">119</span>dev.targsrc  targsrc:amc/cpp/amc/bheap.cpp  comment:&quot;Binary heaps&quot;
+<span class="linenos">120</span>dev.targsrc  targsrc:amc/cpp/amc/bitfld.cpp  comment:&quot;&quot;
+<span class="linenos">121</span>dev.targsrc  targsrc:amc/cpp/amc/bitset.cpp  comment:&quot;&quot;
+<span class="linenos">122</span>dev.targsrc  targsrc:amc/cpp/amc/blkpool.cpp  comment:&quot;&quot;
+<span class="linenos">123</span>dev.targsrc  targsrc:amc/cpp/amc/cget.cpp  comment:&quot;&quot;
+<span class="linenos">124</span>dev.targsrc  targsrc:amc/cpp/amc/charset.cpp  comment:&quot;Charset functions&quot;
+<span class="linenos">125</span>dev.targsrc  targsrc:amc/cpp/amc/checkxref.cpp  comment:&quot;&quot;
+<span class="linenos">126</span>dev.targsrc  targsrc:amc/cpp/amc/cmp.cpp  comment:&quot;&quot;
+<span class="linenos">127</span>dev.targsrc  targsrc:amc/cpp/amc/concat.cpp  comment:&quot;&quot;
+<span class="linenos">128</span>dev.targsrc  targsrc:amc/cpp/amc/copypriv.cpp  comment:&quot;&quot;
+<span class="linenos">129</span>dev.targsrc  targsrc:amc/cpp/amc/count.cpp  comment:&quot;&quot;
+<span class="linenos">130</span>dev.targsrc  targsrc:amc/cpp/amc/cppfunc.cpp  comment:&quot;&quot;
+<span class="linenos">131</span>dev.targsrc  targsrc:amc/cpp/amc/ctype.cpp  comment:&quot;Ctype code generators&quot;
+<span class="linenos">132</span>dev.targsrc  targsrc:amc/cpp/amc/delptr.cpp  comment:&quot;&quot;
+<span class="linenos">133</span>dev.targsrc  targsrc:amc/cpp/amc/dflt.cpp  comment:&quot;Field default&quot;
+<span class="linenos">134</span>dev.targsrc  targsrc:amc/cpp/amc/disp/call.cpp  comment:&quot;&quot;
+<span class="linenos">135</span>dev.targsrc  targsrc:amc/cpp/amc/disp/casetype.cpp  comment:&quot;&quot;
+<span class="linenos">136</span>dev.targsrc  targsrc:amc/cpp/amc/disp/filter.cpp  comment:&quot;Dispatch filter&quot;
+<span class="linenos">137</span>dev.targsrc  targsrc:amc/cpp/amc/disp/main.cpp  comment:Dispatch
+<span class="linenos">138</span>dev.targsrc  targsrc:amc/cpp/amc/disp/msg.cpp  comment:&quot;&quot;
+<span class="linenos">139</span>dev.targsrc  targsrc:amc/cpp/amc/disp/print.cpp  comment:&quot;&quot;
+<span class="linenos">140</span>dev.targsrc  targsrc:amc/cpp/amc/disp/read.cpp  comment:&quot;&quot;
+<span class="linenos">141</span>dev.targsrc  targsrc:amc/cpp/amc/enum.cpp  comment:&quot;&quot;
+<span class="linenos">142</span>dev.targsrc  targsrc:amc/cpp/amc/exec.cpp  comment:&quot;reftype Exec&quot;
+<span class="linenos">143</span>dev.targsrc  targsrc:amc/cpp/amc/fast.cpp  comment:&quot;&quot;
+<span class="linenos">144</span>dev.targsrc  targsrc:amc/cpp/amc/fbuf.cpp  comment:&quot;Byte buffer&quot;
+<span class="linenos">145</span>dev.targsrc  targsrc:amc/cpp/amc/fcast.cpp  comment:&quot;&quot;
+<span class="linenos">146</span>dev.targsrc  targsrc:amc/cpp/amc/fcmap.cpp  comment:&quot;Fcmap generation&quot;
+<span class="linenos">147</span>dev.targsrc  targsrc:amc/cpp/amc/fconst.cpp  comment:&quot;Constants, string &lt;-&gt; int conversion&quot;
+<span class="linenos">148</span>dev.targsrc  targsrc:amc/cpp/amc/fdec.cpp  comment:&quot;&quot;
+<span class="linenos">149</span>dev.targsrc  targsrc:amc/cpp/amc/field.cpp  comment:&quot;&quot;
+<span class="linenos">150</span>dev.targsrc  targsrc:amc/cpp/amc/func.cpp  comment:&quot;C++ function output&quot;
+<span class="linenos">151</span>dev.targsrc  targsrc:amc/cpp/amc/fwddecl.cpp  comment:&quot;&quot;
+<span class="linenos">152</span>dev.targsrc  targsrc:amc/cpp/amc/gen.cpp  comment:&quot;&quot;
+<span class="linenos">153</span>dev.targsrc  targsrc:amc/cpp/amc/global.cpp  comment:&quot;&quot;
+<span class="linenos">154</span>dev.targsrc  targsrc:amc/cpp/amc/gsymbol.cpp  comment:&quot;Generate strings from tables&quot;
+<span class="linenos">155</span>dev.targsrc  targsrc:amc/cpp/amc/hook.cpp  comment:&quot;&quot;
+<span class="linenos">156</span>dev.targsrc  targsrc:amc/cpp/amc/include.cpp  comment:&quot;&quot;
+<span class="linenos">157</span>dev.targsrc  targsrc:amc/cpp/amc/inlary.cpp  comment:&quot;&quot;
+<span class="linenos">158</span>dev.targsrc  targsrc:amc/cpp/amc/io.cpp  comment:&quot;I/O functions&quot;
+<span class="linenos">159</span>dev.targsrc  targsrc:amc/cpp/amc/lary.cpp  comment:&quot;&quot;
+<span class="linenos">160</span>dev.targsrc  targsrc:amc/cpp/amc/llist.cpp  comment:&quot;Linked lists&quot;
+<span class="linenos">161</span>dev.targsrc  targsrc:amc/cpp/amc/lpool.cpp  comment:&quot;&quot;
+<span class="linenos">162</span>dev.targsrc  targsrc:amc/cpp/amc/main.cpp  comment:&quot;Main driver&quot;
+<span class="linenos">163</span>dev.targsrc  targsrc:amc/cpp/amc/malloc.cpp  comment:&quot;&quot;
+<span class="linenos">164</span>dev.targsrc  targsrc:amc/cpp/amc/msgcurs.cpp  comment:&quot;Message scanning cursor&quot;
+<span class="linenos">165</span>dev.targsrc  targsrc:amc/cpp/amc/nstype.cpp  comment:&quot;&quot;
+<span class="linenos">166</span>dev.targsrc  targsrc:amc/cpp/amc/numstr.cpp  comment:&quot;Small strings&quot;
+<span class="linenos">167</span>dev.targsrc  targsrc:amc/cpp/amc/opt.cpp  comment:&quot;&quot;
+<span class="linenos">168</span>dev.targsrc  targsrc:amc/cpp/amc/outfile.cpp  comment:&quot;&quot;
+<span class="linenos">169</span>dev.targsrc  targsrc:amc/cpp/amc/pmask.cpp  comment:&quot;&quot;
+<span class="linenos">170</span>dev.targsrc  targsrc:amc/cpp/amc/pnew.cpp  comment:&quot;Custom constructors&quot;
+<span class="linenos">171</span>dev.targsrc  targsrc:amc/cpp/amc/pool.cpp  comment:&quot;&quot;
+<span class="linenos">172</span>dev.targsrc  targsrc:amc/cpp/amc/print.cpp  comment:&quot;Print ctype to string&quot;
+<span class="linenos">173</span>dev.targsrc  targsrc:amc/cpp/amc/protocol.cpp  comment:&quot;&quot;
+<span class="linenos">174</span>dev.targsrc  targsrc:amc/cpp/amc/ptr.cpp  comment:&quot;&quot;
+<span class="linenos">175</span>dev.targsrc  targsrc:amc/cpp/amc/ptrary.cpp  comment:&quot;&quot;
+<span class="linenos">176</span>dev.targsrc  targsrc:amc/cpp/amc/query.cpp  comment:&quot;&quot;
+<span class="linenos">177</span>dev.targsrc  targsrc:amc/cpp/amc/read.cpp  comment:&quot;Read ctype from string&quot;
+<span class="linenos">178</span>dev.targsrc  targsrc:amc/cpp/amc/regx.cpp  comment:&quot;Small strings&quot;
+<span class="linenos">179</span>dev.targsrc  targsrc:amc/cpp/amc/sbrk.cpp  comment:&quot;&quot;
+<span class="linenos">180</span>dev.targsrc  targsrc:amc/cpp/amc/signature.cpp  comment:&quot;&quot;
+<span class="linenos">181</span>dev.targsrc  targsrc:amc/cpp/amc/size.cpp  comment:&quot;Compute struct sizes&quot;
+<span class="linenos">182</span>dev.targsrc  targsrc:amc/cpp/amc/smallstr.cpp  comment:&quot;Small strings&quot;
+<span class="linenos">183</span>dev.targsrc  targsrc:amc/cpp/amc/sort.cpp  comment:&quot;Comparison &amp; Sorting routines&quot;
+<span class="linenos">184</span>dev.targsrc  targsrc:amc/cpp/amc/step.cpp  comment:&quot;&quot;
+<span class="linenos">185</span>dev.targsrc  targsrc:amc/cpp/amc/struct.cpp  comment:&quot;&quot;
+<span class="linenos">186</span>dev.targsrc  targsrc:amc/cpp/amc/substr.cpp  comment:&quot;&quot;
+<span class="linenos">187</span>dev.targsrc  targsrc:amc/cpp/amc/tableid.cpp  comment:&quot;Per-namespace enum of tables&quot;
+<span class="linenos">188</span>dev.targsrc  targsrc:amc/cpp/amc/tary.cpp  comment:&quot;&quot;
+<span class="linenos">189</span>dev.targsrc  targsrc:amc/cpp/amc/tclass.cpp  comment:&quot;&quot;
+<span class="linenos">190</span>dev.targsrc  targsrc:amc/cpp/amc/thash.cpp  comment:&quot;Hash tables&quot;
+<span class="linenos">191</span>dev.targsrc  targsrc:amc/cpp/amc/tpool.cpp  comment:&quot;&quot;
+<span class="linenos">192</span>dev.targsrc  targsrc:amc/cpp/amc/trace.cpp  comment:&quot;Generate trace code&quot;
+<span class="linenos">193</span>dev.targsrc  targsrc:amc/cpp/amc/upptr.cpp  comment:&quot;&quot;
+<span class="linenos">194</span>dev.targsrc  targsrc:amc/cpp/amc/val.cpp  comment:&quot;&quot;
+<span class="linenos">195</span>dev.targsrc  targsrc:amc/cpp/amc/varlen.cpp  comment:&quot;&quot;
+<span class="linenos">196</span>dev.targsrc  targsrc:amc/cpp/gen/amc_gen.cpp  comment:&quot;&quot;
+<span class="linenos">197</span>dev.targsrc  targsrc:amc/include/amc.h  comment:&quot;Main header&quot;
+<span class="linenos">198</span>dev.targsrc  targsrc:amc/include/gen/amc_gen.h  comment:&quot;&quot;
+<span class="linenos">199</span>dev.targsrc  targsrc:amc/include/gen/amc_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">200</span>dev.targsrc  targsrc:amc_gc/cpp/amc/amc_gc.cpp  comment:&quot;&quot;
+<span class="linenos">201</span>dev.targsrc  targsrc:amc_gc/cpp/gen/amc_gc_gen.cpp  comment:&quot;&quot;
+<span class="linenos">202</span>dev.targsrc  targsrc:amc_gc/include/gen/amc_gc_gen.h  comment:&quot;&quot;
+<span class="linenos">203</span>dev.targsrc  targsrc:amc_gc/include/gen/amc_gc_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">204</span>dev.targsrc  targsrc:amc_js/cpp/amc/amc_js.cpp  comment:&quot;&quot;
+<span class="linenos">205</span>dev.targsrc  targsrc:amc_js/cpp/gen/amc_js_gen.cpp  comment:&quot;&quot;
+<span class="linenos">206</span>dev.targsrc  targsrc:amc_js/include/amc_js.h  comment:&quot;&quot;
+<span class="linenos">207</span>dev.targsrc  targsrc:amc_js/include/gen/amc_js_gen.h  comment:&quot;&quot;
+<span class="linenos">208</span>dev.targsrc  targsrc:amc_js/include/gen/amc_js_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">209</span>dev.targsrc  targsrc:amc_vis/cpp/amc/amc_vis.cpp  comment:&quot;&quot;
+<span class="linenos">210</span>dev.targsrc  targsrc:amc_vis/cpp/gen/amc_vis_gen.cpp  comment:&quot;&quot;
+<span class="linenos">211</span>dev.targsrc  targsrc:amc_vis/include/gen/amc_vis_gen.h  comment:&quot;&quot;
+<span class="linenos">212</span>dev.targsrc  targsrc:amc_vis/include/gen/amc_vis_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">213</span>dev.targsrc  targsrc:ams_cat/cpp/ams/ams_cat.cpp  comment:&quot;&quot;
+<span class="linenos">214</span>dev.targsrc  targsrc:ams_cat/cpp/gen/ams_cat_gen.cpp  comment:&quot;&quot;
+<span class="linenos">215</span>dev.targsrc  targsrc:ams_cat/include/ams_cat.h  comment:&quot;&quot;
+<span class="linenos">216</span>dev.targsrc  targsrc:ams_cat/include/gen/ams_cat_gen.h  comment:&quot;&quot;
+<span class="linenos">217</span>dev.targsrc  targsrc:ams_cat/include/gen/ams_cat_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">218</span>dev.targsrc  targsrc:ams_sendtest/cpp/ams_sendtest.cpp  comment:&quot;&quot;
+<span class="linenos">219</span>dev.targsrc  targsrc:ams_sendtest/cpp/gen/ams_sendtest_gen.cpp  comment:&quot;&quot;
+<span class="linenos">220</span>dev.targsrc  targsrc:ams_sendtest/include/ams_sendtest.h  comment:&quot;&quot;
+<span class="linenos">221</span>dev.targsrc  targsrc:ams_sendtest/include/gen/ams_sendtest_gen.h  comment:&quot;&quot;
+<span class="linenos">222</span>dev.targsrc  targsrc:ams_sendtest/include/gen/ams_sendtest_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">223</span>dev.targsrc  targsrc:apm/cpp/apm/annotate.cpp  comment:&quot;&quot;
+<span class="linenos">224</span>dev.targsrc  targsrc:apm/cpp/apm/check.cpp  comment:&quot;&quot;
+<span class="linenos">225</span>dev.targsrc  targsrc:apm/cpp/apm/diff.cpp  comment:&quot;&quot;
+<span class="linenos">226</span>dev.targsrc  targsrc:apm/cpp/apm/install.cpp  comment:&quot;&quot;
+<span class="linenos">227</span>dev.targsrc  targsrc:apm/cpp/apm/main.cpp  comment:&quot;&quot;
+<span class="linenos">228</span>dev.targsrc  targsrc:apm/cpp/apm/push.cpp  comment:&quot;&quot;
+<span class="linenos">229</span>dev.targsrc  targsrc:apm/cpp/apm/rec.cpp  comment:&quot;&quot;
+<span class="linenos">230</span>dev.targsrc  targsrc:apm/cpp/apm/remove.cpp  comment:&quot;&quot;
+<span class="linenos">231</span>dev.targsrc  targsrc:apm/cpp/apm/reset.cpp  comment:&quot;&quot;
+<span class="linenos">232</span>dev.targsrc  targsrc:apm/cpp/apm/show.cpp  comment:&quot;&quot;
+<span class="linenos">233</span>dev.targsrc  targsrc:apm/cpp/apm/update.cpp  comment:&quot;&quot;
+<span class="linenos">234</span>dev.targsrc  targsrc:apm/cpp/gen/apm_gen.cpp  comment:&quot;&quot;
+<span class="linenos">235</span>dev.targsrc  targsrc:apm/include/apm.h  comment:&quot;&quot;
+<span class="linenos">236</span>dev.targsrc  targsrc:apm/include/gen/apm_gen.h  comment:&quot;&quot;
+<span class="linenos">237</span>dev.targsrc  targsrc:apm/include/gen/apm_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">238</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/atree.cpp  comment:&quot;&quot;
+<span class="linenos">239</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/bheap.cpp  comment:&quot;&quot;
+<span class="linenos">240</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/bigend.cpp  comment:&quot;&quot;
+<span class="linenos">241</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/bitfld.cpp  comment:&quot;&quot;
+<span class="linenos">242</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/bitset.cpp  comment:&quot;&quot;
+<span class="linenos">243</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/cascdel.cpp  comment:&quot;&quot;
+<span class="linenos">244</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/cdlist.cpp  comment:&quot;&quot;
+<span class="linenos">245</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/cleanup.cpp  comment:&quot;&quot;
+<span class="linenos">246</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/cmp.cpp  comment:&quot;&quot;
+<span class="linenos">247</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/cslist.cpp  comment:&quot;&quot;
+<span class="linenos">248</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/delptr.cpp  comment:&quot;&quot;
+<span class="linenos">249</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/dispatch.cpp  comment:&quot;&quot;
+<span class="linenos">250</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/exec.cpp  comment:&quot;&quot;
+<span class="linenos">251</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/fbuf.cpp  comment:&quot;&quot;
+<span class="linenos">252</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/fconst.cpp  comment:&quot;&quot;
+<span class="linenos">253</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/fstep.cpp  comment:&quot;&quot;
+<span class="linenos">254</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/gsymbol.cpp  comment:&quot;&quot;
+<span class="linenos">255</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/hook.cpp  comment:&quot;&quot;
+<span class="linenos">256</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/inlary.cpp  comment:&quot;&quot;
+<span class="linenos">257</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/lary.cpp  comment:&quot;&quot;
+<span class="linenos">258</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/lineiter.cpp  comment:&quot;&quot;
+<span class="linenos">259</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/lpool.cpp  comment:&quot;&quot;
+<span class="linenos">260</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/main.cpp  comment:&quot;&quot;
+<span class="linenos">261</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/msgcurs.cpp  comment:&quot;&quot;
+<span class="linenos">262</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/numstr.cpp  comment:&quot;&quot;
+<span class="linenos">263</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/opt.cpp  comment:&quot;&quot;
+<span class="linenos">264</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/pmask.cpp  comment:&quot;&quot;
+<span class="linenos">265</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/ptrary.cpp  comment:&quot;&quot;
+<span class="linenos">266</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/readstr.cpp  comment:&quot;&quot;
+<span class="linenos">267</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/sort.cpp  comment:&quot;&quot;
+<span class="linenos">268</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/strconv.cpp  comment:&quot;&quot;
+<span class="linenos">269</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/tary.cpp  comment:&quot;&quot;
+<span class="linenos">270</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/thash.cpp  comment:&quot;&quot;
+<span class="linenos">271</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/varlen.cpp  comment:&quot;&quot;
+<span class="linenos">272</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/zdlist.cpp  comment:&quot;&quot;
+<span class="linenos">273</span>dev.targsrc  targsrc:atf_amc/cpp/atf_amc/zslist.cpp  comment:&quot;&quot;
+<span class="linenos">274</span>dev.targsrc  targsrc:atf_amc/cpp/gen/atf_amc_gen.cpp  comment:&quot;&quot;
+<span class="linenos">275</span>dev.targsrc  targsrc:atf_amc/include/atf_amc.h  comment:&quot;&quot;
+<span class="linenos">276</span>dev.targsrc  targsrc:atf_amc/include/gen/atf_amc_gen.h  comment:&quot;&quot;
+<span class="linenos">277</span>dev.targsrc  targsrc:atf_amc/include/gen/atf_amc_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">278</span>dev.targsrc  targsrc:atf_ci/cpp/atf/ci/acr_ed.cpp  comment:&quot;&quot;
+<span class="linenos">279</span>dev.targsrc  targsrc:atf_ci/cpp/atf/ci/apm.cpp  comment:&quot;&quot;
+<span class="linenos">280</span>dev.targsrc  targsrc:atf_ci/cpp/atf/ci/bootstrap.cpp  comment:&quot;&quot;
+<span class="linenos">281</span>dev.targsrc  targsrc:atf_ci/cpp/atf/ci/cppcheck.cpp  comment:&quot;&quot;
+<span class="linenos">282</span>dev.targsrc  targsrc:atf_ci/cpp/atf/ci/dcli.cpp  comment:&quot;&quot;
+<span class="linenos">283</span>dev.targsrc  targsrc:atf_ci/cpp/atf/ci/fast.cpp  comment:&quot;&quot;
+<span class="linenos">284</span>dev.targsrc  targsrc:atf_ci/cpp/atf/ci/main.cpp  comment:&quot;&quot;
+<span class="linenos">285</span>dev.targsrc  targsrc:atf_ci/cpp/atf/ci/spnx.cpp  comment:&quot;&quot;
+<span class="linenos">286</span>dev.targsrc  targsrc:atf_ci/cpp/atf/ci/src.cpp  comment:&quot;source file (cpp/, include/) normalizations including amc&quot;
+<span class="linenos">287</span>dev.targsrc  targsrc:atf_ci/cpp/atf/ci/ssim.cpp  comment:&quot;ssim database normalizations&quot;
+<span class="linenos">288</span>dev.targsrc  targsrc:atf_ci/cpp/gen/atf_ci_gen.cpp  comment:&quot;&quot;
+<span class="linenos">289</span>dev.targsrc  targsrc:atf_ci/include/atf_ci.h  comment:&quot;&quot;
+<span class="linenos">290</span>dev.targsrc  targsrc:atf_ci/include/gen/atf_ci_gen.h  comment:&quot;&quot;
+<span class="linenos">291</span>dev.targsrc  targsrc:atf_ci/include/gen/atf_ci_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">292</span>dev.targsrc  targsrc:atf_cmdline/cpp/atf/atf_cmdline.cpp  comment:&quot;&quot;
+<span class="linenos">293</span>dev.targsrc  targsrc:atf_cmdline/cpp/gen/atf_cmdline_gen.cpp  comment:&quot;&quot;
+<span class="linenos">294</span>dev.targsrc  targsrc:atf_cmdline/include/atf_cmdline.h  comment:&quot;&quot;
+<span class="linenos">295</span>dev.targsrc  targsrc:atf_cmdline/include/gen/atf_cmdline_gen.h  comment:&quot;&quot;
+<span class="linenos">296</span>dev.targsrc  targsrc:atf_cmdline/include/gen/atf_cmdline_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">297</span>dev.targsrc  targsrc:atf_comp/cpp/atf/comp/edit.cpp  comment:&quot;Edit comptest&quot;
+<span class="linenos">298</span>dev.targsrc  targsrc:atf_comp/cpp/atf/comp/main.cpp  comment:&quot;&quot;
+<span class="linenos">299</span>dev.targsrc  targsrc:atf_comp/cpp/atf/comp/read.cpp  comment:&quot;Read comptest from input&quot;
+<span class="linenos">300</span>dev.targsrc  targsrc:atf_comp/cpp/gen/atf_comp_gen.cpp  comment:&quot;&quot;
+<span class="linenos">301</span>dev.targsrc  targsrc:atf_comp/include/atf_comp.h  comment:&quot;&quot;
+<span class="linenos">302</span>dev.targsrc  targsrc:atf_comp/include/gen/atf_comp_gen.h  comment:&quot;&quot;
+<span class="linenos">303</span>dev.targsrc  targsrc:atf_comp/include/gen/atf_comp_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">304</span>dev.targsrc  targsrc:atf_cov/cpp/atf/atf_cov.cpp  comment:&quot;&quot;
+<span class="linenos">305</span>dev.targsrc  targsrc:atf_cov/cpp/gen/atf_cov_gen.cpp  comment:&quot;&quot;
+<span class="linenos">306</span>dev.targsrc  targsrc:atf_cov/include/atf_cov.h  comment:&quot;&quot;
+<span class="linenos">307</span>dev.targsrc  targsrc:atf_cov/include/gen/atf_cov_gen.h  comment:&quot;&quot;
+<span class="linenos">308</span>dev.targsrc  targsrc:atf_cov/include/gen/atf_cov_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">309</span>dev.targsrc  targsrc:atf_fuzz/cpp/atf/atf_fuzz.cpp  comment:&quot;&quot;
+<span class="linenos">310</span>dev.targsrc  targsrc:atf_fuzz/cpp/gen/atf_fuzz_gen.cpp  comment:&quot;&quot;
+<span class="linenos">311</span>dev.targsrc  targsrc:atf_fuzz/include/atf_fuzz.h  comment:&quot;&quot;
+<span class="linenos">312</span>dev.targsrc  targsrc:atf_fuzz/include/gen/atf_fuzz_gen.h  comment:&quot;&quot;
+<span class="linenos">313</span>dev.targsrc  targsrc:atf_fuzz/include/gen/atf_fuzz_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">314</span>dev.targsrc  targsrc:atf_gcli/cpp/atf/atf_gcli.cpp  comment:&quot;&quot;
+<span class="linenos">315</span>dev.targsrc  targsrc:atf_gcli/cpp/gen/atf_gcli_gen.cpp  comment:&quot;&quot;
+<span class="linenos">316</span>dev.targsrc  targsrc:atf_gcli/include/atf_gcli.h  comment:&quot;&quot;
+<span class="linenos">317</span>dev.targsrc  targsrc:atf_gcli/include/gen/atf_gcli_gen.h  comment:&quot;&quot;
+<span class="linenos">318</span>dev.targsrc  targsrc:atf_gcli/include/gen/atf_gcli_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">319</span>dev.targsrc  targsrc:atf_netio/cpp/atf_netio/atf_netio.cpp  comment:&quot;&quot;
+<span class="linenos">320</span>dev.targsrc  targsrc:atf_netio/cpp/gen/atf_netio_gen.cpp  comment:&quot;&quot;
+<span class="linenos">321</span>dev.targsrc  targsrc:atf_netio/include/atf_netio.h  comment:&quot;&quot;
+<span class="linenos">322</span>dev.targsrc  targsrc:atf_netio/include/gen/atf_netio_gen.h  comment:&quot;&quot;
+<span class="linenos">323</span>dev.targsrc  targsrc:atf_netio/include/gen/atf_netio_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">324</span>dev.targsrc  targsrc:atf_nrun/cpp/atf/atf_nrun.cpp  comment:&quot;&quot;
+<span class="linenos">325</span>dev.targsrc  targsrc:atf_nrun/cpp/gen/atf_nrun_gen.cpp  comment:&quot;&quot;
+<span class="linenos">326</span>dev.targsrc  targsrc:atf_nrun/include/atf_nrun.h  comment:&quot;&quot;
+<span class="linenos">327</span>dev.targsrc  targsrc:atf_nrun/include/gen/atf_nrun_gen.h  comment:&quot;&quot;
+<span class="linenos">328</span>dev.targsrc  targsrc:atf_nrun/include/gen/atf_nrun_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">329</span>dev.targsrc  targsrc:atf_unit/cpp/atf_unit/acr.cpp  comment:&quot;&quot;
+<span class="linenos">330</span>dev.targsrc  targsrc:atf_unit/cpp/atf_unit/algo_fmt.cpp  comment:&quot;&quot;
+<span class="linenos">331</span>dev.targsrc  targsrc:atf_unit/cpp/atf_unit/algo_lib.cpp  comment:&quot;&quot;
+<span class="linenos">332</span>dev.targsrc  targsrc:atf_unit/cpp/atf_unit/ams.cpp  comment:&quot;&quot;
+<span class="linenos">333</span>dev.targsrc  targsrc:atf_unit/cpp/atf_unit/bash.cpp  comment:&quot;&quot;
+<span class="linenos">334</span>dev.targsrc  targsrc:atf_unit/cpp/atf_unit/charset.cpp  comment:&quot;&quot;
+<span class="linenos">335</span>dev.targsrc  targsrc:atf_unit/cpp/atf_unit/dcli_ed.cpp  comment:&quot;&quot;
+<span class="linenos">336</span>dev.targsrc  targsrc:atf_unit/cpp/atf_unit/decimal.cpp  comment:&quot;&quot;
+<span class="linenos">337</span>dev.targsrc  targsrc:atf_unit/cpp/atf_unit/fm.cpp  comment:&quot;&quot;
+<span class="linenos">338</span>dev.targsrc  targsrc:atf_unit/cpp/atf_unit/lib_ams.cpp  comment:&quot;&quot;
+<span class="linenos">339</span>dev.targsrc  targsrc:atf_unit/cpp/atf_unit/lib_exec.cpp  comment:&quot;&quot;
+<span class="linenos">340</span>dev.targsrc  targsrc:atf_unit/cpp/atf_unit/lib_json.cpp  comment:&quot;&quot;
+<span class="linenos">341</span>dev.targsrc  targsrc:atf_unit/cpp/atf_unit/lib_sql.cpp  comment:&quot;&quot;
+<span class="linenos">342</span>dev.targsrc  targsrc:atf_unit/cpp/atf_unit/line.cpp  comment:&quot;&quot;
+<span class="linenos">343</span>dev.targsrc  targsrc:atf_unit/cpp/atf_unit/lockfile.cpp  comment:&quot;&quot;
+<span class="linenos">344</span>dev.targsrc  targsrc:atf_unit/cpp/atf_unit/main.cpp  comment:&quot;&quot;
+<span class="linenos">345</span>dev.targsrc  targsrc:atf_unit/cpp/atf_unit/parsenum.cpp  comment:&quot;&quot;
+<span class="linenos">346</span>dev.targsrc  targsrc:atf_unit/cpp/atf_unit/regx.cpp  comment:&quot;&quot;
+<span class="linenos">347</span>dev.targsrc  targsrc:atf_unit/cpp/atf_unit/string.cpp  comment:&quot;&quot;
+<span class="linenos">348</span>dev.targsrc  targsrc:atf_unit/cpp/atf_unit/time.cpp  comment:&quot;&quot;
+<span class="linenos">349</span>dev.targsrc  targsrc:atf_unit/cpp/atf_unit/tuple.cpp  comment:&quot;&quot;
+<span class="linenos">350</span>dev.targsrc  targsrc:atf_unit/cpp/gen/atf_unit_gen.cpp  comment:&quot;&quot;
+<span class="linenos">351</span>dev.targsrc  targsrc:atf_unit/include/atf_unit.h  comment:&quot;&quot;
+<span class="linenos">352</span>dev.targsrc  targsrc:atf_unit/include/gen/atf_unit_gen.h  comment:&quot;&quot;
+<span class="linenos">353</span>dev.targsrc  targsrc:atf_unit/include/gen/atf_unit_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">354</span>dev.targsrc  targsrc:atf_wcli/cpp/atf/atf_wcli.cpp  comment:&quot;&quot;
+<span class="linenos">355</span>dev.targsrc  targsrc:atf_wcli/cpp/gen/atf_wcli_gen.cpp  comment:&quot;&quot;
+<span class="linenos">356</span>dev.targsrc  targsrc:atf_wcli/include/atf_wcli.h  comment:&quot;&quot;
+<span class="linenos">357</span>dev.targsrc  targsrc:atf_wcli/include/gen/atf_wcli_gen.h  comment:&quot;&quot;
+<span class="linenos">358</span>dev.targsrc  targsrc:atf_wcli/include/gen/atf_wcli_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">359</span>dev.targsrc  targsrc:atf_ws/cpp/atf/atf_ws.cpp  comment:&quot;&quot;
+<span class="linenos">360</span>dev.targsrc  targsrc:atf_ws/cpp/gen/atf_ws_gen.cpp  comment:&quot;&quot;
+<span class="linenos">361</span>dev.targsrc  targsrc:atf_ws/include/atf_ws.h  comment:&quot;&quot;
+<span class="linenos">362</span>dev.targsrc  targsrc:atf_ws/include/gen/atf_ws_gen.h  comment:&quot;&quot;
+<span class="linenos">363</span>dev.targsrc  targsrc:atf_ws/include/gen/atf_ws_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">364</span>dev.targsrc  targsrc:bash2html/cpp/bash2html.cpp  comment:&quot;&quot;
+<span class="linenos">365</span>dev.targsrc  targsrc:bash2html/cpp/gen/bash2html_gen.cpp  comment:&quot;&quot;
+<span class="linenos">366</span>dev.targsrc  targsrc:bash2html/include/bash2html.h  comment:&quot;&quot;
+<span class="linenos">367</span>dev.targsrc  targsrc:bash2html/include/gen/bash2html_gen.h  comment:&quot;&quot;
+<span class="linenos">368</span>dev.targsrc  targsrc:bash2html/include/gen/bash2html_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">369</span>dev.targsrc  targsrc:dcli/cpp/dcli/dockgen.cpp  comment:&quot;&quot;
+<span class="linenos">370</span>dev.targsrc  targsrc:dcli/cpp/dcli/main.cpp  comment:&quot;&quot;
+<span class="linenos">371</span>dev.targsrc  targsrc:dcli/cpp/dcli/rpc.cpp  comment:&quot;&quot;
+<span class="linenos">372</span>dev.targsrc  targsrc:dcli/cpp/gen/dcli_gen.cpp  comment:&quot;&quot;
+<span class="linenos">373</span>dev.targsrc  targsrc:dcli/include/dcli.h  comment:&quot;&quot;
+<span class="linenos">374</span>dev.targsrc  targsrc:dcli/include/gen/dcli_gen.h  comment:&quot;&quot;
+<span class="linenos">375</span>dev.targsrc  targsrc:dcli/include/gen/dcli_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">376</span>dev.targsrc  targsrc:dcli_ed/cpp/dcli/dcli_ed.cpp  comment:&quot;&quot;
+<span class="linenos">377</span>dev.targsrc  targsrc:dcli_ed/cpp/gen/dcli_ed_gen.cpp  comment:&quot;&quot;
+<span class="linenos">378</span>dev.targsrc  targsrc:dcli_ed/include/dcli_ed.h  comment:&quot;&quot;
+<span class="linenos">379</span>dev.targsrc  targsrc:dcli_ed/include/gen/dcli_ed_gen.h  comment:&quot;&quot;
+<span class="linenos">380</span>dev.targsrc  targsrc:dcli_ed/include/gen/dcli_ed_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">381</span>dev.targsrc  targsrc:fast/cpp/fast/genamc.cpp  comment:&quot;&quot;
+<span class="linenos">382</span>dev.targsrc  targsrc:fast/cpp/fast/main.cpp  comment:&quot;&quot;
+<span class="linenos">383</span>dev.targsrc  targsrc:fast/cpp/fast/ns.cpp  comment:&quot;&quot;
+<span class="linenos">384</span>dev.targsrc  targsrc:fast/cpp/fast/primitive.cpp  comment:&quot;&quot;
+<span class="linenos">385</span>dev.targsrc  targsrc:fast/cpp/fast/xml.cpp  comment:&quot;&quot;
+<span class="linenos">386</span>dev.targsrc  targsrc:fast/cpp/gen/fast_gen.cpp  comment:&quot;&quot;
+<span class="linenos">387</span>dev.targsrc  targsrc:fast/include/fast.h  comment:&quot;&quot;
+<span class="linenos">388</span>dev.targsrc  targsrc:fast/include/fast.inl.h  comment:&quot;&quot;
+<span class="linenos">389</span>dev.targsrc  targsrc:fast/include/gen/fast_gen.h  comment:&quot;&quot;
+<span class="linenos">390</span>dev.targsrc  targsrc:fast/include/gen/fast_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">391</span>dev.targsrc  targsrc:gcache/cpp/gcache/gcache.cpp  comment:&quot;&quot;
+<span class="linenos">392</span>dev.targsrc  targsrc:gcache/cpp/gen/gcache_gen.cpp  comment:&quot;&quot;
+<span class="linenos">393</span>dev.targsrc  targsrc:gcache/include/gcache.h  comment:&quot;&quot;
+<span class="linenos">394</span>dev.targsrc  targsrc:gcache/include/gen/gcache_gen.h  comment:&quot;&quot;
+<span class="linenos">395</span>dev.targsrc  targsrc:gcache/include/gen/gcache_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">396</span>dev.targsrc  targsrc:gcli/cpp/gcli/git.cpp  comment:&quot;&quot;
+<span class="linenos">397</span>dev.targsrc  targsrc:gcli/cpp/gcli/gtblact.cpp  comment:&quot;&quot;
+<span class="linenos">398</span>dev.targsrc  targsrc:gcli/cpp/gcli/help.cpp  comment:&quot;&quot;
+<span class="linenos">399</span>dev.targsrc  targsrc:gcli/cpp/gcli/issue.cpp  comment:&quot;&quot;
+<span class="linenos">400</span>dev.targsrc  targsrc:gcli/cpp/gcli/main.cpp  comment:&quot;&quot;
+<span class="linenos">401</span>dev.targsrc  targsrc:gcli/cpp/gcli/milestone.cpp  comment:&quot;&quot;
+<span class="linenos">402</span>dev.targsrc  targsrc:gcli/cpp/gcli/mr.cpp  comment:&quot;&quot;
+<span class="linenos">403</span>dev.targsrc  targsrc:gcli/cpp/gcli/note.cpp  comment:&quot;&quot;
+<span class="linenos">404</span>dev.targsrc  targsrc:gcli/cpp/gcli/repo.cpp  comment:&quot;&quot;
+<span class="linenos">405</span>dev.targsrc  targsrc:gcli/cpp/gcli/rest.cpp  comment:&quot;&quot;
+<span class="linenos">406</span>dev.targsrc  targsrc:gcli/cpp/gcli/search.cpp  comment:&quot;&quot;
+<span class="linenos">407</span>dev.targsrc  targsrc:gcli/cpp/gcli/user.cpp  comment:&quot;&quot;
+<span class="linenos">408</span>dev.targsrc  targsrc:gcli/cpp/gen/gcli_gen.cpp  comment:&quot;&quot;
+<span class="linenos">409</span>dev.targsrc  targsrc:gcli/include/gcli.h  comment:&quot;&quot;
+<span class="linenos">410</span>dev.targsrc  targsrc:gcli/include/gen/gcli_gen.h  comment:&quot;&quot;
+<span class="linenos">411</span>dev.targsrc  targsrc:gcli/include/gen/gcli_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">412</span>dev.targsrc  targsrc:gmv/cpp/gen/gmv_gen.cpp  comment:&quot;&quot;
+<span class="linenos">413</span>dev.targsrc  targsrc:gmv/cpp/gmv.cpp  comment:&quot;&quot;
+<span class="linenos">414</span>dev.targsrc  targsrc:gmv/include/gen/gmv_gen.h  comment:&quot;&quot;
+<span class="linenos">415</span>dev.targsrc  targsrc:gmv/include/gen/gmv_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">416</span>dev.targsrc  targsrc:gmv/include/gmv.h  comment:&quot;&quot;
+<span class="linenos">417</span>dev.targsrc  targsrc:lib_amcdb/cpp/gen/amcdb_gen.cpp  comment:&quot;&quot;
+<span class="linenos">418</span>dev.targsrc  targsrc:lib_amcdb/cpp/gen/lib_amcdb_gen.cpp  comment:&quot;&quot;
+<span class="linenos">419</span>dev.targsrc  targsrc:lib_amcdb/cpp/lib_amcdb/lib_amcdb.cpp  comment:&quot;&quot;
+<span class="linenos">420</span>dev.targsrc  targsrc:lib_amcdb/include/gen/amcdb_gen.h  comment:&quot;&quot;
+<span class="linenos">421</span>dev.targsrc  targsrc:lib_amcdb/include/gen/amcdb_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">422</span>dev.targsrc  targsrc:lib_amcdb/include/gen/lib_amcdb_gen.h  comment:&quot;&quot;
+<span class="linenos">423</span>dev.targsrc  targsrc:lib_amcdb/include/gen/lib_amcdb_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">424</span>dev.targsrc  targsrc:lib_amcdb/include/lib_amcdb.h  comment:&quot;&quot;
+<span class="linenos">425</span>dev.targsrc  targsrc:lib_ams/cpp/gen/lib_ams_gen.cpp  comment:&quot;&quot;
+<span class="linenos">426</span>dev.targsrc  targsrc:lib_ams/cpp/lib_ams/expect.cpp  comment:&quot;Expect implementation&quot;
+<span class="linenos">427</span>dev.targsrc  targsrc:lib_ams/cpp/lib_ams/file.cpp  comment:&quot;&quot;
+<span class="linenos">428</span>dev.targsrc  targsrc:lib_ams/cpp/lib_ams/stream.cpp  comment:&quot;&quot;
+<span class="linenos">429</span>dev.targsrc  targsrc:lib_ams/include/gen/lib_ams_gen.h  comment:&quot;&quot;
+<span class="linenos">430</span>dev.targsrc  targsrc:lib_ams/include/gen/lib_ams_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">431</span>dev.targsrc  targsrc:lib_ams/include/lib_ams.h  comment:&quot;&quot;
+<span class="linenos">432</span>dev.targsrc  targsrc:lib_ctype/cpp/gen/lib_ctype_gen.cpp  comment:&quot;&quot;
+<span class="linenos">433</span>dev.targsrc  targsrc:lib_ctype/cpp/lib/lib_ctype.cpp  comment:&quot;&quot;
+<span class="linenos">434</span>dev.targsrc  targsrc:lib_ctype/include/gen/lib_ctype_gen.h  comment:&quot;&quot;
+<span class="linenos">435</span>dev.targsrc  targsrc:lib_ctype/include/gen/lib_ctype_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">436</span>dev.targsrc  targsrc:lib_ctype/include/lib_ctype.h  comment:&quot;&quot;
+<span class="linenos">437</span>dev.targsrc  targsrc:lib_exec/cpp/gen/lib_exec_gen.cpp  comment:&quot;&quot;
+<span class="linenos">438</span>dev.targsrc  targsrc:lib_exec/cpp/lib/lib_exec.cpp  comment:&quot;&quot;
+<span class="linenos">439</span>dev.targsrc  targsrc:lib_exec/include/gen/lib_exec_gen.h  comment:&quot;&quot;
+<span class="linenos">440</span>dev.targsrc  targsrc:lib_exec/include/gen/lib_exec_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">441</span>dev.targsrc  targsrc:lib_exec/include/lib_exec.h  comment:&quot;&quot;
+<span class="linenos">442</span>dev.targsrc  targsrc:lib_fast/cpp/gen/lib_fast_gen.cpp  comment:&quot;&quot;
+<span class="linenos">443</span>dev.targsrc  targsrc:lib_fast/cpp/lib_fast/lib_fast.cpp  comment:&quot;&quot;
+<span class="linenos">444</span>dev.targsrc  targsrc:lib_fast/include/gen/lib_fast_gen.h  comment:&quot;&quot;
+<span class="linenos">445</span>dev.targsrc  targsrc:lib_fast/include/gen/lib_fast_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">446</span>dev.targsrc  targsrc:lib_fast/include/lib_fast.h  comment:&quot;&quot;
+<span class="linenos">447</span>dev.targsrc  targsrc:lib_fast/include/lib_fast.inl.h  comment:&quot;&quot;
+<span class="linenos">448</span>dev.targsrc  targsrc:lib_finprot/cpp/gen/emdi12_gen.cpp  comment:&quot;&quot;
+<span class="linenos">449</span>dev.targsrc  targsrc:lib_finprot/cpp/gen/fasttest_gen.cpp  comment:&quot;&quot;
+<span class="linenos">450</span>dev.targsrc  targsrc:lib_finprot/cpp/gen/lib_finprot_gen.cpp  comment:&quot;&quot;
+<span class="linenos">451</span>dev.targsrc  targsrc:lib_finprot/cpp/lib_finprot/lib_finprot.cpp  comment:&quot;&quot;
+<span class="linenos">452</span>dev.targsrc  targsrc:lib_finprot/include/gen/emdi12_gen.h  comment:&quot;&quot;
+<span class="linenos">453</span>dev.targsrc  targsrc:lib_finprot/include/gen/emdi12_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">454</span>dev.targsrc  targsrc:lib_finprot/include/gen/fasttest_gen.h  comment:&quot;&quot;
+<span class="linenos">455</span>dev.targsrc  targsrc:lib_finprot/include/gen/fasttest_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">456</span>dev.targsrc  targsrc:lib_finprot/include/gen/lib_finprot_gen.h  comment:&quot;&quot;
+<span class="linenos">457</span>dev.targsrc  targsrc:lib_finprot/include/gen/lib_finprot_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">458</span>dev.targsrc  targsrc:lib_finprot/include/lib_finprot.h  comment:&quot;&quot;
+<span class="linenos">459</span>dev.targsrc  targsrc:lib_fm/cpp/gen/lib_fm_gen.cpp  comment:&quot;&quot;
+<span class="linenos">460</span>dev.targsrc  targsrc:lib_fm/cpp/lib/lib_fm.cpp  comment:&quot;&quot;
+<span class="linenos">461</span>dev.targsrc  targsrc:lib_fm/include/gen/lib_fm_gen.h  comment:&quot;&quot;
+<span class="linenos">462</span>dev.targsrc  targsrc:lib_fm/include/gen/lib_fm_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">463</span>dev.targsrc  targsrc:lib_fm/include/lib_fm.h  comment:&quot;&quot;
+<span class="linenos">464</span>dev.targsrc  targsrc:lib_git/cpp/gen/lib_git_gen.cpp  comment:&quot;&quot;
+<span class="linenos">465</span>dev.targsrc  targsrc:lib_git/cpp/lib/lib_git.cpp  comment:&quot;&quot;
+<span class="linenos">466</span>dev.targsrc  targsrc:lib_git/include/gen/lib_git_gen.h  comment:&quot;&quot;
+<span class="linenos">467</span>dev.targsrc  targsrc:lib_git/include/gen/lib_git_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">468</span>dev.targsrc  targsrc:lib_git/include/lib_git.h  comment:&quot;&quot;
+<span class="linenos">469</span>dev.targsrc  targsrc:lib_iconv/cpp/gen/lib_iconv_gen.cpp  comment:&quot;&quot;
+<span class="linenos">470</span>dev.targsrc  targsrc:lib_iconv/cpp/lib/lib_iconv.cpp  comment:&quot;&quot;
+<span class="linenos">471</span>dev.targsrc  targsrc:lib_iconv/include/gen/lib_iconv_gen.h  comment:&quot;&quot;
+<span class="linenos">472</span>dev.targsrc  targsrc:lib_iconv/include/gen/lib_iconv_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">473</span>dev.targsrc  targsrc:lib_iconv/include/lib_iconv.h  comment:&quot;&quot;
+<span class="linenos">474</span>dev.targsrc  targsrc:lib_json/cpp/gen/lib_json_gen.cpp  comment:&quot;&quot;
+<span class="linenos">475</span>dev.targsrc  targsrc:lib_json/cpp/lib/lib_json.cpp  comment:&quot;&quot;
+<span class="linenos">476</span>dev.targsrc  targsrc:lib_json/include/gen/lib_json_gen.h  comment:&quot;&quot;
+<span class="linenos">477</span>dev.targsrc  targsrc:lib_json/include/gen/lib_json_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">478</span>dev.targsrc  targsrc:lib_json/include/lib_json.h  comment:&quot;&quot;
+<span class="linenos">479</span>dev.targsrc  targsrc:lib_json/include/lib_json.inl.h  comment:&quot;&quot;
+<span class="linenos">480</span>dev.targsrc  targsrc:lib_mysql/cpp/gen/lib_mysql_gen.cpp  comment:&quot;&quot;
+<span class="linenos">481</span>dev.targsrc  targsrc:lib_mysql/cpp/lib/lib_mysql.cpp  comment:&quot;&quot;
+<span class="linenos">482</span>dev.targsrc  targsrc:lib_mysql/include/gen/lib_mysql_gen.h  comment:&quot;&quot;
+<span class="linenos">483</span>dev.targsrc  targsrc:lib_mysql/include/gen/lib_mysql_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">484</span>dev.targsrc  targsrc:lib_mysql/include/lib_mysql.h  comment:&quot;&quot;
+<span class="linenos">485</span>dev.targsrc  targsrc:lib_netio/cpp/gen/lib_netio_gen.cpp  comment:&quot;&quot;
+<span class="linenos">486</span>dev.targsrc  targsrc:lib_netio/cpp/lib_netio/lib_netio.cpp  comment:&quot;&quot;
+<span class="linenos">487</span>dev.targsrc  targsrc:lib_netio/cpp/lib_netio/socket.cpp  comment:&quot;&quot;
+<span class="linenos">488</span>dev.targsrc  targsrc:lib_netio/include/gen/lib_netio_gen.h  comment:&quot;&quot;
+<span class="linenos">489</span>dev.targsrc  targsrc:lib_netio/include/gen/lib_netio_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">490</span>dev.targsrc  targsrc:lib_netio/include/lib_netio.h  comment:&quot;&quot;
+<span class="linenos">491</span>dev.targsrc  targsrc:lib_netio/include/lib_netio.inl.h  comment:&quot;&quot;
+<span class="linenos">492</span>dev.targsrc  targsrc:lib_prot/cpp/gen/ams_gen.cpp  comment:&quot;&quot;
+<span class="linenos">493</span>dev.targsrc  targsrc:lib_prot/cpp/gen/amsdb_gen.cpp  comment:&quot;&quot;
+<span class="linenos">494</span>dev.targsrc  targsrc:lib_prot/cpp/gen/atf_gen.cpp  comment:&quot;&quot;
+<span class="linenos">495</span>dev.targsrc  targsrc:lib_prot/cpp/gen/atfdb_gen.cpp  comment:&quot;&quot;
+<span class="linenos">496</span>dev.targsrc  targsrc:lib_prot/cpp/gen/dclidb_gen.cpp  comment:&quot;&quot;
+<span class="linenos">497</span>dev.targsrc  targsrc:lib_prot/cpp/gen/fm_gen.cpp  comment:&quot;&quot;
+<span class="linenos">498</span>dev.targsrc  targsrc:lib_prot/cpp/gen/fmdb_gen.cpp  comment:&quot;&quot;
+<span class="linenos">499</span>dev.targsrc  targsrc:lib_prot/cpp/gen/gclidb_gen.cpp  comment:&quot;&quot;
+<span class="linenos">500</span>dev.targsrc  targsrc:lib_prot/cpp/gen/gmvdb_gen.cpp  comment:&quot;&quot;
+<span class="linenos">501</span>dev.targsrc  targsrc:lib_prot/cpp/gen/ietf_gen.cpp  comment:&quot;&quot;
+<span class="linenos">502</span>dev.targsrc  targsrc:lib_prot/cpp/gen/lib_prot_gen.cpp  comment:&quot;&quot;
+<span class="linenos">503</span>dev.targsrc  targsrc:lib_prot/cpp/gen/netio_gen.cpp  comment:&quot;&quot;
+<span class="linenos">504</span>dev.targsrc  targsrc:lib_prot/cpp/gen/spnxdb_gen.cpp  comment:&quot;&quot;
+<span class="linenos">505</span>dev.targsrc  targsrc:lib_prot/cpp/gen/wclidb_gen.cpp  comment:&quot;&quot;
+<span class="linenos">506</span>dev.targsrc  targsrc:lib_prot/cpp/gen/ws_gen.cpp  comment:&quot;&quot;
+<span class="linenos">507</span>dev.targsrc  targsrc:lib_prot/cpp/gen/wsdb_gen.cpp  comment:&quot;&quot;
+<span class="linenos">508</span>dev.targsrc  targsrc:lib_prot/cpp/gen/x2_gen.cpp  comment:&quot;&quot;
+<span class="linenos">509</span>dev.targsrc  targsrc:lib_prot/cpp/gen/x2db_gen.cpp  comment:&quot;&quot;
+<span class="linenos">510</span>dev.targsrc  targsrc:lib_prot/include/gen/ams_gen.h  comment:&quot;&quot;
+<span class="linenos">511</span>dev.targsrc  targsrc:lib_prot/include/gen/ams_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">512</span>dev.targsrc  targsrc:lib_prot/include/gen/amsdb_gen.h  comment:&quot;&quot;
+<span class="linenos">513</span>dev.targsrc  targsrc:lib_prot/include/gen/amsdb_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">514</span>dev.targsrc  targsrc:lib_prot/include/gen/atf_gen.h  comment:&quot;&quot;
+<span class="linenos">515</span>dev.targsrc  targsrc:lib_prot/include/gen/atf_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">516</span>dev.targsrc  targsrc:lib_prot/include/gen/atfdb_gen.h  comment:&quot;&quot;
+<span class="linenos">517</span>dev.targsrc  targsrc:lib_prot/include/gen/atfdb_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">518</span>dev.targsrc  targsrc:lib_prot/include/gen/dclidb_gen.h  comment:&quot;&quot;
+<span class="linenos">519</span>dev.targsrc  targsrc:lib_prot/include/gen/dclidb_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">520</span>dev.targsrc  targsrc:lib_prot/include/gen/dmmeta_gen.h  comment:&quot;&quot;
+<span class="linenos">521</span>dev.targsrc  targsrc:lib_prot/include/gen/dmmeta_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">522</span>dev.targsrc  targsrc:lib_prot/include/gen/fm_gen.h  comment:&quot;&quot;
+<span class="linenos">523</span>dev.targsrc  targsrc:lib_prot/include/gen/fm_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">524</span>dev.targsrc  targsrc:lib_prot/include/gen/fmdb_gen.h  comment:&quot;&quot;
+<span class="linenos">525</span>dev.targsrc  targsrc:lib_prot/include/gen/fmdb_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">526</span>dev.targsrc  targsrc:lib_prot/include/gen/gclidb_gen.h  comment:&quot;&quot;
+<span class="linenos">527</span>dev.targsrc  targsrc:lib_prot/include/gen/gclidb_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">528</span>dev.targsrc  targsrc:lib_prot/include/gen/gmvdb_gen.h  comment:&quot;&quot;
+<span class="linenos">529</span>dev.targsrc  targsrc:lib_prot/include/gen/gmvdb_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">530</span>dev.targsrc  targsrc:lib_prot/include/gen/ietf_gen.h  comment:&quot;&quot;
+<span class="linenos">531</span>dev.targsrc  targsrc:lib_prot/include/gen/ietf_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">532</span>dev.targsrc  targsrc:lib_prot/include/gen/lib_prot_gen.h  comment:&quot;&quot;
+<span class="linenos">533</span>dev.targsrc  targsrc:lib_prot/include/gen/lib_prot_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">534</span>dev.targsrc  targsrc:lib_prot/include/gen/spnxdb_gen.h  comment:&quot;&quot;
+<span class="linenos">535</span>dev.targsrc  targsrc:lib_prot/include/gen/spnxdb_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">536</span>dev.targsrc  targsrc:lib_prot/include/gen/wclidb_gen.h  comment:&quot;&quot;
+<span class="linenos">537</span>dev.targsrc  targsrc:lib_prot/include/gen/wclidb_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">538</span>dev.targsrc  targsrc:lib_prot/include/gen/ws_gen.h  comment:&quot;&quot;
+<span class="linenos">539</span>dev.targsrc  targsrc:lib_prot/include/gen/ws_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">540</span>dev.targsrc  targsrc:lib_prot/include/gen/wsdb_gen.h  comment:&quot;&quot;
+<span class="linenos">541</span>dev.targsrc  targsrc:lib_prot/include/gen/wsdb_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">542</span>dev.targsrc  targsrc:lib_prot/include/gen/x2_gen.h  comment:&quot;&quot;
+<span class="linenos">543</span>dev.targsrc  targsrc:lib_prot/include/gen/x2_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">544</span>dev.targsrc  targsrc:lib_prot/include/gen/x2db_gen.h  comment:&quot;&quot;
+<span class="linenos">545</span>dev.targsrc  targsrc:lib_prot/include/gen/x2db_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">546</span>dev.targsrc  targsrc:lib_sql/cpp/gen/lib_sql_gen.cpp  comment:&quot;&quot;
+<span class="linenos">547</span>dev.targsrc  targsrc:lib_sql/cpp/lib/lib_sql.cpp  comment:&quot;&quot;
+<span class="linenos">548</span>dev.targsrc  targsrc:lib_sql/include/gen/lib_sql_gen.h  comment:&quot;&quot;
+<span class="linenos">549</span>dev.targsrc  targsrc:lib_sql/include/gen/lib_sql_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">550</span>dev.targsrc  targsrc:lib_sql/include/lib_sql.h  comment:&quot;&quot;
+<span class="linenos">551</span>dev.targsrc  targsrc:lib_ws/cpp/gen/lib_ws_gen.cpp  comment:&quot;&quot;
+<span class="linenos">552</span>dev.targsrc  targsrc:lib_ws/cpp/lib_ws/lib_ws.cpp  comment:&quot;&quot;
+<span class="linenos">553</span>dev.targsrc  targsrc:lib_ws/include/gen/lib_ws_gen.h  comment:&quot;&quot;
+<span class="linenos">554</span>dev.targsrc  targsrc:lib_ws/include/gen/lib_ws_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">555</span>dev.targsrc  targsrc:lib_ws/include/lib_ws.h  comment:&quot;&quot;
+<span class="linenos">556</span>dev.targsrc  targsrc:lib_x2/cpp/gen/lib_x2_gen.cpp  comment:&quot;&quot;
+<span class="linenos">557</span>dev.targsrc  targsrc:lib_x2/cpp/lib_x2/lib_x2.cpp  comment:&quot;&quot;
+<span class="linenos">558</span>dev.targsrc  targsrc:lib_x2/include/gen/lib_x2_gen.h  comment:&quot;&quot;
+<span class="linenos">559</span>dev.targsrc  targsrc:lib_x2/include/gen/lib_x2_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">560</span>dev.targsrc  targsrc:lib_x2/include/lib_x2.h  comment:&quot;&quot;
+<span class="linenos">561</span>dev.targsrc  targsrc:mdbg/cpp/gen/mdbg_gen.cpp  comment:&quot;&quot;
+<span class="linenos">562</span>dev.targsrc  targsrc:mdbg/cpp/mdbg/mdbg.cpp  comment:&quot;&quot;
+<span class="linenos">563</span>dev.targsrc  targsrc:mdbg/include/gen/mdbg_gen.h  comment:&quot;&quot;
+<span class="linenos">564</span>dev.targsrc  targsrc:mdbg/include/gen/mdbg_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">565</span>dev.targsrc  targsrc:mysql2ssim/cpp/gen/mysql2ssim_gen.cpp  comment:&quot;&quot;
+<span class="linenos">566</span>dev.targsrc  targsrc:mysql2ssim/cpp/mysql2ssim.cpp  comment:&quot;&quot;
+<span class="linenos">567</span>dev.targsrc  targsrc:mysql2ssim/include/gen/mysql2ssim_gen.h  comment:&quot;&quot;
+<span class="linenos">568</span>dev.targsrc  targsrc:mysql2ssim/include/gen/mysql2ssim_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">569</span>dev.targsrc  targsrc:orgfile/cpp/gen/orgfile_gen.cpp  comment:&quot;&quot;
+<span class="linenos">570</span>dev.targsrc  targsrc:orgfile/cpp/orgfile.cpp  comment:&quot;&quot;
+<span class="linenos">571</span>dev.targsrc  targsrc:orgfile/include/gen/orgfile_gen.h  comment:&quot;&quot;
+<span class="linenos">572</span>dev.targsrc  targsrc:orgfile/include/gen/orgfile_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">573</span>dev.targsrc  targsrc:orgfile/include/orgfile.h  comment:&quot;&quot;
+<span class="linenos">574</span>dev.targsrc  targsrc:samp_regx/cpp/gen/samp_regx_gen.cpp  comment:&quot;&quot;
+<span class="linenos">575</span>dev.targsrc  targsrc:samp_regx/cpp/samp/samp_regx.cpp  comment:&quot;&quot;
+<span class="linenos">576</span>dev.targsrc  targsrc:samp_regx/include/gen/samp_regx_gen.h  comment:&quot;&quot;
+<span class="linenos">577</span>dev.targsrc  targsrc:samp_regx/include/gen/samp_regx_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">578</span>dev.targsrc  targsrc:samp_regx/include/samp_regx.h  comment:&quot;&quot;
+<span class="linenos">579</span>dev.targsrc  targsrc:samp_ws/cpp/gen/samp_ws_gen.cpp  comment:&quot;&quot;
+<span class="linenos">580</span>dev.targsrc  targsrc:samp_ws/cpp/samp/samp_ws.cpp  comment:&quot;&quot;
+<span class="linenos">581</span>dev.targsrc  targsrc:samp_ws/include/gen/samp_ws_gen.h  comment:&quot;&quot;
+<span class="linenos">582</span>dev.targsrc  targsrc:samp_ws/include/gen/samp_ws_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">583</span>dev.targsrc  targsrc:samp_ws/include/samp_ws.h  comment:&quot;&quot;
+<span class="linenos">584</span>dev.targsrc  targsrc:sandbox/cpp/gen/sandbox_gen.cpp  comment:&quot;&quot;
+<span class="linenos">585</span>dev.targsrc  targsrc:sandbox/cpp/sandbox.cpp  comment:&quot;&quot;
+<span class="linenos">586</span>dev.targsrc  targsrc:sandbox/include/gen/sandbox_gen.h  comment:&quot;&quot;
+<span class="linenos">587</span>dev.targsrc  targsrc:sandbox/include/gen/sandbox_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">588</span>dev.targsrc  targsrc:sandbox/include/sandbox.h  comment:&quot;&quot;
+<span class="linenos">589</span>dev.targsrc  targsrc:spnx/cpp/gen/spnx_gen.cpp  comment:&quot;&quot;
+<span class="linenos">590</span>dev.targsrc  targsrc:spnx/cpp/spnx/main.cpp  comment:&quot;&quot;
+<span class="linenos">591</span>dev.targsrc  targsrc:spnx/cpp/spnx/nginx.cpp  comment:&quot;&quot;
+<span class="linenos">592</span>dev.targsrc  targsrc:spnx/cpp/spnx/pages.cpp  comment:&quot;&quot;
+<span class="linenos">593</span>dev.targsrc  targsrc:spnx/cpp/spnx/sitedoc.cpp  comment:&quot;&quot;
+<span class="linenos">594</span>dev.targsrc  targsrc:spnx/include/gen/spnx_gen.h  comment:&quot;&quot;
+<span class="linenos">595</span>dev.targsrc  targsrc:spnx/include/gen/spnx_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">596</span>dev.targsrc  targsrc:spnx/include/spnx.h  comment:&quot;&quot;
+<span class="linenos">597</span>dev.targsrc  targsrc:src_func/cpp/gen/src_func_gen.cpp  comment:&quot;&quot;
+<span class="linenos">598</span>dev.targsrc  targsrc:src_func/cpp/src_func/edit.cpp  comment:&quot;Implementation of -e&quot;
+<span class="linenos">599</span>dev.targsrc  targsrc:src_func/cpp/src_func/fileloc.cpp  comment:&quot;Location in file, for each function&quot;
+<span class="linenos">600</span>dev.targsrc  targsrc:src_func/cpp/src_func/header.cpp  comment:&quot;Generate prototypes in header&quot;
+<span class="linenos">601</span>dev.targsrc  targsrc:src_func/cpp/src_func/iffy.cpp  comment:&quot;Check iffy function prototypes&quot;
+<span class="linenos">602</span>dev.targsrc  targsrc:src_func/cpp/src_func/list.cpp  comment:&quot;Print list of functions&quot;
+<span class="linenos">603</span>dev.targsrc  targsrc:src_func/cpp/src_func/main.cpp  comment:&quot;Main file&quot;
+<span class="linenos">604</span>dev.targsrc  targsrc:src_func/cpp/src_func/nextfile.cpp  comment:&quot;Find next file in target&quot;
+<span class="linenos">605</span>dev.targsrc  targsrc:src_func/cpp/src_func/scan.cpp  comment:&quot;Scan sources to collect functions&quot;
+<span class="linenos">606</span>dev.targsrc  targsrc:src_func/include/gen/src_func_gen.h  comment:&quot;&quot;
+<span class="linenos">607</span>dev.targsrc  targsrc:src_func/include/gen/src_func_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">608</span>dev.targsrc  targsrc:src_func/include/src_func.h  comment:&quot;&quot;
+<span class="linenos">609</span>dev.targsrc  targsrc:src_hdr/cpp/gen/src_hdr_gen.cpp  comment:&quot;&quot;
+<span class="linenos">610</span>dev.targsrc  targsrc:src_hdr/cpp/src_hdr/hdr.cpp  comment:&quot;&quot;
+<span class="linenos">611</span>dev.targsrc  targsrc:src_hdr/include/gen/src_hdr_gen.h  comment:&quot;&quot;
+<span class="linenos">612</span>dev.targsrc  targsrc:src_hdr/include/gen/src_hdr_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">613</span>dev.targsrc  targsrc:src_lim/cpp/gen/src_lim_gen.cpp  comment:&quot;&quot;
+<span class="linenos">614</span>dev.targsrc  targsrc:src_lim/cpp/src_lim/lim.cpp  comment:&quot;&quot;
+<span class="linenos">615</span>dev.targsrc  targsrc:src_lim/include/gen/src_lim_gen.h  comment:&quot;&quot;
+<span class="linenos">616</span>dev.targsrc  targsrc:src_lim/include/gen/src_lim_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">617</span>dev.targsrc  targsrc:ssim2csv/cpp/gen/ssim2csv_gen.cpp  comment:&quot;&quot;
+<span class="linenos">618</span>dev.targsrc  targsrc:ssim2csv/cpp/ssim2csv.cpp  comment:&quot;&quot;
+<span class="linenos">619</span>dev.targsrc  targsrc:ssim2csv/include/gen/ssim2csv_gen.h  comment:&quot;&quot;
+<span class="linenos">620</span>dev.targsrc  targsrc:ssim2csv/include/gen/ssim2csv_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">621</span>dev.targsrc  targsrc:ssim2mysql/cpp/gen/ssim2mysql_gen.cpp  comment:&quot;&quot;
+<span class="linenos">622</span>dev.targsrc  targsrc:ssim2mysql/cpp/ssim2mysql.cpp  comment:&quot;&quot;
+<span class="linenos">623</span>dev.targsrc  targsrc:ssim2mysql/include/gen/ssim2mysql_gen.h  comment:&quot;&quot;
+<span class="linenos">624</span>dev.targsrc  targsrc:ssim2mysql/include/gen/ssim2mysql_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">625</span>dev.targsrc  targsrc:ssimfilt/cpp/gen/ssimfilt_gen.cpp  comment:&quot;&quot;
+<span class="linenos">626</span>dev.targsrc  targsrc:ssimfilt/cpp/ssimfilt.cpp  comment:&quot;&quot;
+<span class="linenos">627</span>dev.targsrc  targsrc:ssimfilt/include/gen/ssimfilt_gen.h  comment:&quot;&quot;
+<span class="linenos">628</span>dev.targsrc  targsrc:ssimfilt/include/gen/ssimfilt_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">629</span>dev.targsrc  targsrc:ssimfilt/include/ssimfilt.h  comment:&quot;&quot;
+<span class="linenos">630</span>dev.targsrc  targsrc:strconv/cpp/gen/strconv_gen.cpp  comment:&quot;&quot;
+<span class="linenos">631</span>dev.targsrc  targsrc:strconv/cpp/strconv/strconv.cpp  comment:&quot;&quot;
+<span class="linenos">632</span>dev.targsrc  targsrc:strconv/include/gen/strconv_gen.h  comment:&quot;&quot;
+<span class="linenos">633</span>dev.targsrc  targsrc:strconv/include/gen/strconv_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">634</span>dev.targsrc  targsrc:strconv/include/strconv.h  comment:&quot;&quot;
+<span class="linenos">635</span>dev.targsrc  targsrc:sv2ssim/cpp/gen/sv2ssim_gen.cpp  comment:&quot;&quot;
+<span class="linenos">636</span>dev.targsrc  targsrc:sv2ssim/cpp/sv2ssim.cpp  comment:&quot;&quot;
+<span class="linenos">637</span>dev.targsrc  targsrc:sv2ssim/include/gen/sv2ssim_gen.h  comment:&quot;&quot;
+<span class="linenos">638</span>dev.targsrc  targsrc:sv2ssim/include/gen/sv2ssim_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">639</span>dev.targsrc  targsrc:sv2ssim/include/sv2ssim.h  comment:&quot;&quot;
+<span class="linenos">640</span>dev.targsrc  targsrc:ttrack/cpp/gen/ttrack_gen.cpp  comment:&quot;&quot;
+<span class="linenos">641</span>dev.targsrc  targsrc:ttrack/cpp/ttrack/ttrack.cpp  comment:&quot;&quot;
+<span class="linenos">642</span>dev.targsrc  targsrc:ttrack/include/gen/ttrack_gen.h  comment:&quot;&quot;
+<span class="linenos">643</span>dev.targsrc  targsrc:ttrack/include/gen/ttrack_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">644</span>dev.targsrc  targsrc:ttrack/include/ttrack.h  comment:&quot;&quot;
+<span class="linenos">645</span>dev.targsrc  targsrc:wcli/cpp/gen/wcli_gen.cpp  comment:&quot;&quot;
+<span class="linenos">646</span>dev.targsrc  targsrc:wcli/cpp/wcli/file.cpp  comment:&quot;&quot;
+<span class="linenos">647</span>dev.targsrc  targsrc:wcli/cpp/wcli/help.cpp  comment:&quot;&quot;
+<span class="linenos">648</span>dev.targsrc  targsrc:wcli/cpp/wcli/main.cpp  comment:&quot;&quot;
+<span class="linenos">649</span>dev.targsrc  targsrc:wcli/cpp/wcli/page.cpp  comment:&quot;&quot;
+<span class="linenos">650</span>dev.targsrc  targsrc:wcli/cpp/wcli/rest.cpp  comment:&quot;&quot;
+<span class="linenos">651</span>dev.targsrc  targsrc:wcli/cpp/wcli/user.cpp  comment:&quot;&quot;
+<span class="linenos">652</span>dev.targsrc  targsrc:wcli/cpp/wcli/wiki.cpp  comment:&quot;&quot;
+<span class="linenos">653</span>dev.targsrc  targsrc:wcli/cpp/wcli/wtblact.cpp  comment:&quot;&quot;
+<span class="linenos">654</span>dev.targsrc  targsrc:wcli/include/gen/wcli_gen.h  comment:&quot;&quot;
+<span class="linenos">655</span>dev.targsrc  targsrc:wcli/include/gen/wcli_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">656</span>dev.targsrc  targsrc:wcli/include/wcli.h  comment:&quot;&quot;
+<span class="linenos">657</span>dev.targsrc  targsrc:x2admin/cpp/gen/x2admin_gen.cpp  comment:&quot;&quot;
+<span class="linenos">658</span>dev.targsrc  targsrc:x2admin/cpp/x2admin/host.cpp  comment:&quot;&quot;
+<span class="linenos">659</span>dev.targsrc  targsrc:x2admin/cpp/x2admin/main.cpp  comment:&quot;&quot;
+<span class="linenos">660</span>dev.targsrc  targsrc:x2admin/cpp/x2admin/script.cpp  comment:&quot;&quot;
+<span class="linenos">661</span>dev.targsrc  targsrc:x2admin/cpp/x2admin/sshconfig.cpp  comment:&quot;&quot;
+<span class="linenos">662</span>dev.targsrc  targsrc:x2admin/include/gen/x2admin_gen.h  comment:&quot;&quot;
+<span class="linenos">663</span>dev.targsrc  targsrc:x2admin/include/gen/x2admin_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">664</span>dev.targsrc  targsrc:x2admin/include/x2admin.h  comment:&quot;&quot;
+<span class="linenos">665</span>dev.targsrc  targsrc:x2cmt/cpp/gen/x2cmt_gen.cpp  comment:&quot;&quot;
+<span class="linenos">666</span>dev.targsrc  targsrc:x2cmt/cpp/x2cmt/x2cmt.cpp  comment:&quot;&quot;
+<span class="linenos">667</span>dev.targsrc  targsrc:x2cmt/include/gen/x2cmt_gen.h  comment:&quot;&quot;
+<span class="linenos">668</span>dev.targsrc  targsrc:x2cmt/include/gen/x2cmt_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">669</span>dev.targsrc  targsrc:x2cmt/include/x2cmt.h  comment:&quot;&quot;
+<span class="linenos">670</span>dev.targsrc  targsrc:x2gf/cpp/gen/x2gf_gen.cpp  comment:&quot;&quot;
+<span class="linenos">671</span>dev.targsrc  targsrc:x2gf/cpp/x2gf/x2gf.cpp  comment:&quot;&quot;
+<span class="linenos">672</span>dev.targsrc  targsrc:x2gf/include/gen/x2gf_gen.h  comment:&quot;&quot;
+<span class="linenos">673</span>dev.targsrc  targsrc:x2gf/include/gen/x2gf_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">674</span>dev.targsrc  targsrc:x2gf/include/x2gf.h  comment:&quot;&quot;
+<span class="linenos">675</span>dev.targsrc  targsrc:x2gw/cpp/gen/x2gw_gen.cpp  comment:&quot;&quot;
+<span class="linenos">676</span>dev.targsrc  targsrc:x2gw/cpp/x2gw/x2gw.cpp  comment:&quot;&quot;
+<span class="linenos">677</span>dev.targsrc  targsrc:x2gw/include/gen/x2gw_gen.h  comment:&quot;&quot;
+<span class="linenos">678</span>dev.targsrc  targsrc:x2gw/include/gen/x2gw_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">679</span>dev.targsrc  targsrc:x2gw/include/x2gw.h  comment:&quot;&quot;
+<span class="linenos">680</span>dev.targsrc  targsrc:x2mon/cpp/gen/x2mon_gen.cpp  comment:&quot;&quot;
+<span class="linenos">681</span>dev.targsrc  targsrc:x2mon/cpp/x2mon/x2mon.cpp  comment:&quot;&quot;
+<span class="linenos">682</span>dev.targsrc  targsrc:x2mon/include/gen/x2mon_gen.h  comment:&quot;&quot;
+<span class="linenos">683</span>dev.targsrc  targsrc:x2mon/include/gen/x2mon_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">684</span>dev.targsrc  targsrc:x2mon/include/x2mon.h  comment:&quot;&quot;
+<span class="linenos">685</span>dev.targsrc  targsrc:x2node/cpp/gen/x2node_gen.cpp  comment:&quot;&quot;
+<span class="linenos">686</span>dev.targsrc  targsrc:x2node/cpp/x2node/main.cpp  comment:&quot;&quot;
+<span class="linenos">687</span>dev.targsrc  targsrc:x2node/include/gen/x2node_gen.h  comment:&quot;&quot;
+<span class="linenos">688</span>dev.targsrc  targsrc:x2node/include/gen/x2node_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">689</span>dev.targsrc  targsrc:x2node/include/x2node.h  comment:&quot;&quot;
+<span class="linenos">690</span>dev.targsrc  targsrc:x2read/cpp/gen/x2read_gen.cpp  comment:&quot;&quot;
+<span class="linenos">691</span>dev.targsrc  targsrc:x2read/cpp/x2read/x2read.cpp  comment:&quot;&quot;
+<span class="linenos">692</span>dev.targsrc  targsrc:x2read/include/gen/x2read_gen.h  comment:&quot;&quot;
+<span class="linenos">693</span>dev.targsrc  targsrc:x2read/include/gen/x2read_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">694</span>dev.targsrc  targsrc:x2read/include/x2read.h  comment:&quot;&quot;
+<span class="linenos">695</span>dev.targsrc  targsrc:x2sup/cpp/gen/x2sup_gen.cpp  comment:&quot;&quot;
+<span class="linenos">696</span>dev.targsrc  targsrc:x2sup/cpp/x2sup/x2sup.cpp  comment:&quot;&quot;
+<span class="linenos">697</span>dev.targsrc  targsrc:x2sup/include/gen/x2sup_gen.h  comment:&quot;&quot;
+<span class="linenos">698</span>dev.targsrc  targsrc:x2sup/include/gen/x2sup_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">699</span>dev.targsrc  targsrc:x2sup/include/x2sup.h  comment:&quot;&quot;
+<span class="linenos">700</span>dev.targsrc  targsrc:x2txn/cpp/gen/x2txn_gen.cpp  comment:&quot;&quot;
+<span class="linenos">701</span>dev.targsrc  targsrc:x2txn/cpp/x2txn/x2txn.cpp  comment:&quot;&quot;
+<span class="linenos">702</span>dev.targsrc  targsrc:x2txn/include/gen/x2txn_gen.h  comment:&quot;&quot;
+<span class="linenos">703</span>dev.targsrc  targsrc:x2txn/include/gen/x2txn_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">704</span>dev.targsrc  targsrc:x2txn/include/x2txn.h  comment:&quot;&quot;
+<span class="linenos">705</span>dev.targsrc  targsrc:x2write/cpp/gen/x2write_gen.cpp  comment:&quot;&quot;
+<span class="linenos">706</span>dev.targsrc  targsrc:x2write/cpp/x2write/x2write.cpp  comment:&quot;&quot;
+<span class="linenos">707</span>dev.targsrc  targsrc:x2write/include/gen/x2write_gen.h  comment:&quot;&quot;
+<span class="linenos">708</span>dev.targsrc  targsrc:x2write/include/gen/x2write_gen.inl.h  comment:&quot;&quot;
+<span class="linenos">709</span>dev.targsrc  targsrc:x2write/include/x2write.h  comment:&quot;&quot;
+</pre></div>
+</div>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024, AlgoRND
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            <div class="last-updated">
+              Last updated on Apr 25, 2024</div>
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link " href="algornd/arnd.313/-/commit/f8df17b9ffe2ee281b418863917c6ef10eaf02fa" aria-label="gitlab"><p style="font-family: Courier, monospace; font-size:12px; "> commit:2024-04-25.f8df17b9 </p></a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/furo.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    </body>
+</html>

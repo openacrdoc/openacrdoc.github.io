@@ -1,0 +1,1421 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Tutorial 3: Scheduling And Main Loop" href="tut3.html" /><link rel="prev" title="Tutorial 1: Parts And Projects Tutorial" href="tut1.html" />
+
+    <!-- Generated with Sphinx 6.2.1 and Furo 2024.01.29 -->
+        <title>Tutorial 2: Parts And Projects in SQL - Openacr Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=369552022d0b975c8e74270ce6eabe0fb7978f24" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  --sidebar-item-spacing-horizontal: 1.0rem;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --sidebar-item-spacing-horizontal: 1.0rem;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --sidebar-item-spacing-horizontal: 1.0rem;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">Openacr Documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  
+  <span class="sidebar-brand-text">Openacr Documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../start/setup.html">Setup And Installation</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../fun/README.html">Fundamentals</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Fundamentals</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../fun/cpp/README.html">C++ integration</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of C++ integration</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../fun/cpp/coding-style.html">Coding Style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fun/cpp/fun_06.html">C++ target</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fun/cpp/intro.html">AMC Intro</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../fun/ssim/README.html">Ssimfiles for Information Management</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Ssimfiles for Information Management</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../fun/ssim/fun_01.html"><strong>ssim</strong> tuples and <strong>ssimfiles</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fun/ssim/fun_02.html"><strong>ssim</strong> tuples and SQL Database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fun/ssim/fun_03.html"><strong>fldfunc fields</strong> in <strong>ssim</strong> tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fun/ssim/fun_04.html"><strong>ssimfile</strong> cross-references</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fun/ssim/fun_05.html">Information Management Insights</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../recipe/README.html">Recipes</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Recipes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../recipe/cpp/README.html">C++</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of C++</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../recipe/cpp/recipe_04.html">How to create C++ <strong>target</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../recipe/ssim/README.html">Ssimfiles</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Ssimfiles</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../recipe/ssim/recipe_01.html">How to define a new ssimfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../recipe/ssim/recipe_02.html">How to edit an existing ssimfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../recipe/ssim/recipe_03.html">How to display an existing ssimfile</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="README.html">Tutorials</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tut1.html">Tutorial 1: Parts And Projects Tutorial</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Tutorial 2: Parts And Projects in SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut3.html">Tutorial 3: Scheduling And Main Loop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut4.html">Tutorial 4: Command Lines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut5.html">Tutorial 5: Running multiple subprocesses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut6.html">Iohook &amp; Fbuf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut7.html">Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut8.html">tut8 - ACR live tutorial</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ssimdb/README.html">Ssim Databases</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Ssim Databases</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../ssimdb/amcdb/README.html">amcdb - Algo Model Compiler support tables</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of amcdb - Algo Model Compiler support tables</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/amcdb/bltin.html">amcdb.bltin - Specify properties of a C built-in type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/amcdb/curstype.html">amcdb.curstype - Cursor type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/amcdb/gen.html">amcdb.gen -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/amcdb/regxtype.html">amcdb.regxtype -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/amcdb/tclass.html">amcdb.tclass - AMC template class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/amcdb/tcurs.html">amcdb.tcurs - Cursor template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/amcdb/tfunc.html">amcdb.tfunc - AMC template function</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../ssimdb/amsdb/README.html">amsdb - AMS configuration (ssim database)</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of amsdb - AMS configuration (ssim database)</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/amsdb/proctype.html">amsdb.proctype -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/amsdb/streamtype.html">amsdb.streamtype -</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../ssimdb/atfdb/README.html">atfdb - Support tables for testing</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of atfdb - Support tables for testing</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/atfdb/amctest.html">atfdb.amctest -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/atfdb/cijob.html">atfdb.cijob -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/atfdb/cipackage.html">atfdb.cipackage -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/atfdb/citest.html">atfdb.citest -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/atfdb/comptest.html">atfdb.comptest -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/atfdb/fuzzstrat.html">atfdb.fuzzstrat -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/atfdb/msgdir.html">atfdb.msgdir -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/atfdb/targs.html">atfdb.targs -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/atfdb/test_gsymbol_char.html">atfdb.test_gsymbol_char -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/atfdb/test_gsymbol_pkey.html">atfdb.test_gsymbol_pkey -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/atfdb/test_gsymbol_strptr.html">atfdb.test_gsymbol_strptr -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/atfdb/tfilt.html">atfdb.tfilt -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/atfdb/tmsg.html">atfdb.tmsg -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/atfdb/unittest.html">atfdb.unittest -</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../ssimdb/dclidb/README.html">dclidb - docker db</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of dclidb - docker db</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dclidb/dclicmd.html">dclidb.dclicmd -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dclidb/dclicmdsel.html">dclidb.dclicmdsel -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dclidb/dclicmdstep.html">dclidb.dclicmdstep -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dclidb/dclisel.html">dclidb.dclisel -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dclidb/dctr.html">dclidb.dctr - Container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dclidb/dctrhost.html">dclidb.dctrhost - Container/host</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dclidb/dctrua.html">dclidb.dctrua - User attribute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dclidb/dhost.html">dclidb.dhost - Host</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dclidb/duascript.html">dclidb.duascript - Script type (step in preparation of container)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dclidb/duascriptstep.html">dclidb.duascriptstep - Script step ordering</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../ssimdb/dev/README.html">dev - Tables supporting compilation of programs</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of dev - Tables supporting compilation of programs</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/arch.html">dev.arch - System architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/badline.html">dev.badline - Regex of a dubious source code line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/builddir.html">dev.builddir - Directory where object files/executables go. Determines compile/link options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/cfg.html">dev.cfg - Compiler configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/compiler.html">dev.compiler - One of the known compilers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/copyright.html">dev.copyright - Copyrighting entity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/covfile.html">dev.covfile -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/covline.html">dev.covline -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/covtarget.html">dev.covtarget -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/edaction.html">dev.edaction - acr_ed editing action (only one can exist at a time)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/edacttype.html">dev.edacttype - acr_ed editing action type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/gitfile.html">dev.gitfile - File managed by git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/gitinfo.html">dev.gitinfo -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/hilite.html">dev.hilite - Mapping of perl regx-&gt;hilite pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/htmlentity.html">dev.htmlentity - Known HTML entity strings &amp; codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/include.html">dev.include - A site where one file includes another</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/license.html">dev.license - Source code license</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/linelim.html">dev.linelim -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/mdsection.html">dev.mdsection - Template for updating a markdown file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/msgfile.html">dev.msgfile - File in repo containing messages that should be normalized during CI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/noindent.html">dev.noindent - Indicates that a file should not be automatically indented</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/opt_type.html">dev.opt_type - Type of option (used in tool_opt)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/package.html">dev.package - OpenACR package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/pkgdep.html">dev.pkgdep - OpenACR Package dependency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/pkgkey.html">dev.pkgkey - Keys belonging to the OpenACR package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/readme.html">dev.readme - File containing documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/readmecat.html">dev.readmecat - sorted categories of txt/ *.md files presented in dev.readme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/sandbox.html">dev.sandbox - Registered sandbox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/sbpath.html">dev.sbpath - Extra files to copy into the sandbox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/scriptfile.html">dev.scriptfile - Known script file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/srcfile.html">dev.srcfile - Source file or header (key is pathname)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/syscmd.html">dev.syscmd - System command to execute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/syscmddep.html">dev.syscmddep - Dependency between two commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/syslib.html">dev.syslib - Registered system library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/targdep.html">dev.targdep - Dependency between targets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/target.html">dev.target - Build target</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/targsrc.html">dev.targsrc - List of sources for target</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/targsyslib.html">dev.targsyslib - Use of system library by target</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/tgtcov.html">dev.tgtcov - Captured line coverate information by target</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/timefmt.html">dev.timefmt - Time formats supported by orgfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/tool_opt.html">dev.tool_opt - Compiler/linker options to use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/uname.html">dev.uname - List of known unames</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dev/unstablefld.html">dev.unstablefld - Fields that should be stripped from component test output because they contain timestamps etc.</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../ssimdb/dmmeta/README.html">dmmeta - Tables holding metadata (data model meta)</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of dmmeta - Tables holding metadata (data model meta)</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/anonfld.html">dmmeta.anonfld - Omit field name where possible (command line, enums, constants)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/argvtype.html">dmmeta.argvtype - Customize parsing of command lines (rarely used)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/basepool.html">dmmeta.basepool - Specify pool to be used for allocating elements of a type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/bitfld.html">dmmeta.bitfld - Specify offset/width of a bitfield within another field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/cafter.html">dmmeta.cafter - Control amc processing order for unrelated types (used in rare situations)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/cascdel.html">dmmeta.cascdel - Request cascading delete of referenced rows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/ccmp.html">dmmeta.ccmp - Generate hash function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/cdflt.html">dmmeta.cdflt - Specify default value for single-value types that lack fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/cextern.html">dmmeta.cextern - Externally defined ctype (a struct from system header, or from a c++ library)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/cfast.html">dmmeta.cfast - FAST properties for ctype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/cfmt.html">dmmeta.cfmt - Specify options for printing/reading ctypes into multiple formats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/cget.html">dmmeta.cget - Generate state functions for these ctypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/charset.html">dmmeta.charset - Generate functions to determine if a character is a member of a set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/chash.html">dmmeta.chash - Generate hash function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/cppfunc.html">dmmeta.cppfunc - Value of field provided by this expression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/cppkeyword.html">dmmeta.cppkeyword - Built-in C++ keyword</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/cpptype.html">dmmeta.cpptype - Specify whether a ctype can be passed by value, and other c++ options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/csize.html">dmmeta.csize - Specify size/alignment for built-in C++ types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/cstr.html">dmmeta.cstr - Specify that type behaves like a string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/ctype.html">dmmeta.ctype - Struct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/ctypelen.html">dmmeta.ctypelen - Size of Ctype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/dispatch.html">dmmeta.dispatch - Generate code for a multi-way branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/dispatch_msg.html">dmmeta.dispatch_msg - Add message to a dispatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/dispctx.html">dmmeta.dispctx - Use context with dispatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/dispfilter.html">dmmeta.dispfilter - Generate filter function on dispatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/dispsig.html">dmmeta.dispsig - Cryptographic signature of all dispatches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/dispsigcheck.html">dmmeta.dispsigcheck - Check signature of input data against executable’s version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/disptrace.html">dmmeta.disptrace - Generate trace fields (cycles, counts) for all dispatch branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/falias.html">dmmeta.falias - Alias field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fastenc.html">dmmeta.fastenc -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fastinstr.html">dmmeta.fastinstr -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fastop.html">dmmeta.fastop -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fbase.html">dmmeta.fbase - Customize imported Base fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fbigend.html">dmmeta.fbigend - Annotate field as having big-endian storage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fbitset.html">dmmeta.fbitset - Generate bitset functions over integer field or array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fbuf.html">dmmeta.fbuf - Buffer for reading/writing messages, works with Iohook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fbufdir.html">dmmeta.fbufdir - Buffer direction (in,out)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fbuftype.html">dmmeta.fbuftype - Buffer type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fcast.html">dmmeta.fcast - Generate implicit conversion from field to c++ expression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fcleanup.html">dmmeta.fcleanup - Request user-implemented function to be called at Uninit time for a field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fcmap.html">dmmeta.fcmap - Bidirectional mapping between fconst values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fcmdline.html">dmmeta.fcmdline - Annotate field that holds process command line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fcmp.html">dmmeta.fcmp - Request versionsort or case-insensitive sort for field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fcompact.html">dmmeta.fcompact - Request compaction upon removal from index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fconst.html">dmmeta.fconst - Specify enum value (integer + string constant) for a field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fcurs.html">dmmeta.fcurs - Request generation of custom cursor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fdec.html">dmmeta.fdec - Specify that field has an implied # of decimal places and specify formatting options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fdelay.html">dmmeta.fdelay - Control elapsed time between execution of a step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/ffast.html">dmmeta.ffast - FAST properties for field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fflag.html">dmmeta.fflag - Options for command-line flags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/field.html">dmmeta.field - Specify field of a struct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/findrem.html">dmmeta.findrem - Request generation of FindRemove function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/finput.html">dmmeta.finput - Describe input table of a program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fldoffset.html">dmmeta.fldoffset - Assert field offset - will result in compile-time error if violated</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/floadtuples.html">dmmeta.floadtuples - Request that process automatically load any input tables on startup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fnoremove.html">dmmeta.fnoremove - Omit any functions for removing elements from table; Table is append-only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/foutput.html">dmmeta.foutput - Generate function to save index/table back to disk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fprefix.html">dmmeta.fprefix - Mapping between field prefix and Reftype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fregx.html">dmmeta.fregx - Specify options for command-line regx field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fsort.html">dmmeta.fsort - Generate custom sort function for array field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fstep.html">dmmeta.fstep - Generate a main loop step to be executed whenever a field is non-empty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/ftrace.html">dmmeta.ftrace - Generate cycle/step counting fields for a step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/ftuple.html">dmmeta.ftuple -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/func.html">dmmeta.func -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/funique.html">dmmeta.funique - This field must be unique in the table. Not needed for primary key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fuserinit.html">dmmeta.fuserinit - Add user-defined initialization function for field (see fcleanup)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/fwddecl.html">dmmeta.fwddecl - Request forward declaration of a field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/gconst.html">dmmeta.gconst - Import ssim table columns as fconst for a field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/gstatic.html">dmmeta.gstatic - Load entries for this table at startup time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/gsymbol.html">dmmeta.gsymbol - Create C++ symbols from entries in ssim table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/hashtype.html">dmmeta.hashtype - Hash function type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/hook.html">dmmeta.hook - Required on Hook fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/inlary.html">dmmeta.inlary - Generate inline array of fixed or variable length (all entries fit within parent struct)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/lenfld.html">dmmeta.lenfld - Specify which gives length of varlen portion in bytes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/listtype.html">dmmeta.listtype - Specify structure of linked list based on field prefix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/llist.html">dmmeta.llist - Options for Llist field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/logcat.html">dmmeta.logcat - Log category</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/main.html">dmmeta.main - Generate Main function for namespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/msgtype.html">dmmeta.msgtype - Specify message type for each eligible message, controls dispatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/nocascdel.html">dmmeta.nocascdel - Remove cascade delete for this index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/nossimfile.html">dmmeta.nossimfile - Indicates that ssimfile does not exist for this ssimdb ctype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/noxref.html">dmmeta.noxref - Explicitly specify that no x-ref exists between tables (don’t use unless forced)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/ns.html">dmmeta.ns - Namespace (for in-memory database, protocol, etc)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/nscpp.html">dmmeta.nscpp - Generate C++ code for this namespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/nsdb.html">dmmeta.nsdb - Annotate ssimdb namespaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/nsfast.html">dmmeta.nsfast - Whether namespace is FAST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/nsinclude.html">dmmeta.nsinclude - Explicitly specify a C++ include file for namespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/nsjs.html">dmmeta.nsjs - Generate JavaScript code for this namespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/nsproto.html">dmmeta.nsproto - Annotate protocol namespace (collection of types, no state)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/nstype.html">dmmeta.nstype - Namespace type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/nsversion.html">dmmeta.nsversion - Namespace version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/nsx.html">dmmeta.nsx - Control code-generation and exception handling options for process/library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/numstr.html">dmmeta.numstr - Add functions to read numbers out of a string field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/pack.html">dmmeta.pack - Request byte-packing of structure fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/pmaskfld.html">dmmeta.pmaskfld - Specify which field holds presence mask bits (one for each field in struct)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/pmaskfld_member.html">dmmeta.pmaskfld_member - Explicit field-to-pmask association</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/pnew.html">dmmeta.pnew - Generate custom constructor (placement new), for use with binary protocols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/pnewtype.html">dmmeta.pnewtype - Type of fbuf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/printfmt.html">dmmeta.printfmt - Print format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/ptrary.html">dmmeta.ptrary - Required for fields with reftype:Ptrary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/reftype.html">dmmeta.reftype - Field type constructor (e.g. reference type)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/rowid.html">dmmeta.rowid - Initialize field to row id of element</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/smallstr.html">dmmeta.smallstr - Generated fixed-length padded or length-delimited string field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/sortfld.html">dmmeta.sortfld - Specify what field an index (Bheap,Atree) is sorted on</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/sorttype.html">dmmeta.sorttype - Sort type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/sqltype.html">dmmeta.sqltype - Mapping of ctype -&gt; SQL expression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/ssimfile.html">dmmeta.ssimfile - File with ssim tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/ssimreq.html">dmmeta.ssimreq - Extended constraints for ssim records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/ssimsort.html">dmmeta.ssimsort - Define sort order for ssimfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/ssimvolatile.html">dmmeta.ssimvolatile - Types based on ssim files marked this way cannot be cross-referenced</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/steptype.html">dmmeta.steptype - Type of scheduler step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/strfmt.html">dmmeta.strfmt - Cfmt conversion type (misnomer, not necessarily a string)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/strtype.html">dmmeta.strtype - Type of small string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/substr.html">dmmeta.substr - Specify that the field value is computed from a substring of another field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/svtype.html">dmmeta.svtype - Table for determining ctype from separated value file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/tary.html">dmmeta.tary - Indirect linear dynamically alocated array (used for strings, arrays of data, etc)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/thash.html">dmmeta.thash - Hash index, required for fields with reftype Thash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/tracefld.html">dmmeta.tracefld - Trace fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/tracerec.html">dmmeta.tracerec - Trace record</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/typefld.html">dmmeta.typefld - Specifies which field of a message carries the type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/usertracefld.html">dmmeta.usertracefld - Add custom user trace fields to process’s trace struct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/dmmeta/xref.html">dmmeta.xref - Specify how to cross-reference (i.e. project, or group-by) one record with another</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../ssimdb/fmdb/README.html">fmdb - Fault management tables (ssim database)</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle navigation of fmdb - Fault management tables (ssim database)</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/fmdb/alarm.html">fmdb.alarm -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/fmdb/alm_code.html">fmdb.alm_code -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/fmdb/alm_objtype.html">fmdb.alm_objtype - Alarm resource type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/fmdb/alm_source.html">fmdb.alm_source - Subsystem where alarm has been detected</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../ssimdb/gclidb/README.html">gclidb - gcli db</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle navigation of gclidb - gcli db</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/gact.html">gclidb.gact - Action that may be performed on a table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/gatv.html">gclidb.gatv -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/gclicmd.html">gclidb.gclicmd -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/gclicmdf2j.html">gclidb.gclicmdf2j - Mapping of internal fields to JSON fields for gitlab/github</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/gclicmdt.html">gclidb.gclicmdt - Internal test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/gclienv.html">gclidb.gclienv -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/gclienvsub.html">gclidb.gclienvsub -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/gclisub.html">gclidb.gclisub -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/gfld.html">gclidb.gfld - Gitlab/github field name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/githost.html">gclidb.githost -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/gmethod.html">gclidb.gmethod - HTTP method list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/grepo.html">gclidb.grepo - Repo table (acr grepo -in ~/.ssim)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/grepogitport.html">gclidb.grepogitport - Default ports for repositories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/grepossh.html">gclidb.grepossh - Ssh key table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/gstate.html">gclidb.gstate - Issue/MR state list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/gstatet.html">gclidb.gstatet - Internal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/gtbl.html">gclidb.gtbl - Supported gcli tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/gtblact.html">gclidb.gtblact -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/gtblactfld.html">gclidb.gtblactfld - List of available for each table &amp; action combination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/gtblacttst.html">gclidb.gtblacttst -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/gtblacttstout.html">gclidb.gtblacttstout -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/gtype.html">gclidb.gtype - Platform type (ghp=github; glpat=gitlab)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/gtypeh.html">gclidb.gtypeh - HTTP heaaderes for user with platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/gtypeprefix.html">gclidb.gtypeprefix - Token prefix mapping to platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/issue.html">gclidb.issue - Gitlab project issue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/issuenote.html">gclidb.issuenote - Issue note</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/issuepipeline.html">gclidb.issuepipeline - Issue pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/label.html">gclidb.label - List of labels for gitlab/github</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/milestone.html">gclidb.milestone - Gclidb project milestone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/mr.html">gclidb.mr - Gitlab project mr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/mrjob.html">gclidb.mrjob - Mr job</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/mrnote.html">gclidb.mrnote - Issue note</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/project.html">gclidb.project - Gitlab project mr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gclidb/user.html">gclidb.user -</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../ssimdb/gmvdb/README.html">gmvdb - gmv db</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle navigation of gmvdb - gmv db</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gmvdb/gmvproj.html">gmvdb.gmvproj -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gmvdb/gmvscript.html">gmvdb.gmvscript - action type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/gmvdb/gmvua.html">gmvdb.gmvua - User attribute</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../ssimdb/spnxdb/README.html">spnxdb - Sphinx-based Websites build tool DB</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><div class="visually-hidden">Toggle navigation of spnxdb - Sphinx-based Websites build tool DB</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/spnxdb/build.html">spnxdb.build - list of actions supported by sphinx-build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/spnxdb/pkgapt.html">spnxdb.pkgapt - required packages to be installed by apt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/spnxdb/pkgpip.html">spnxdb.pkgpip - required packages to be installed by pip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/spnxdb/site.html">spnxdb.site - list of sites supported by bin/spnx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/spnxdb/siteattr.html">spnxdb.siteattr - list of attributes and values by the site</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/spnxdb/srcext.html">spnxdb.srcext - source extensions read as md by sphinx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/spnxdb/theme.html">spnxdb.theme -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/spnxdb/userattr.html">spnxdb.userattr - list of possible attributes referred by spnxdb.siteattr</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../ssimdb/wclidb/README.html">wclidb - wiki db</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><div class="visually-hidden">Toggle navigation of wclidb - wiki db</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/atfwclicmd.html">wclidb.atfwclicmd - management commands for atf_wcli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/atfwclicmdfld.html">wclidb.atfwclicmdfld - arguments taken by management commands for atf_wcli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/curlarg.html">wclidb.curlarg - an internal list of curl arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/ftype.html">wclidb.ftype - wiki file ftype types used by wcli to copy files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/page.html">wclidb.page - a form for wcli page operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/pagesec.html">wclidb.pagesec - a from for wcli page sections operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/pagetitle.html">wclidb.pagetitle - a form for wcli page reporting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/wact.html">wclidb.wact - wcli actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/wcliapi.html">wclidb.wcliapi - api tokens for wcli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/wclicmd.html">wclidb.wclicmd - wcli api commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/wclicmdapi.html">wclidb.wclicmdapi - wcli api commands with arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/wclicmdf2j.html">wclidb.wclicmdf2j - Mapping of internal fields to JSON fields for gitlab/github</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/wfld.html">wclidb.wfld - Wiki field name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/wikiext.html">wclidb.wikiext - wiki allowed file extensions, dynamic read</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/wikigroup.html">wclidb.wikigroup - wiki default user groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/wikins.html">wclidb.wikins - wiki namespaces, dynamic read</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/wikisite.html">wclidb.wikisite - wiki site types supported by wcli - the main wcli key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/wikisitesub.html">wclidb.wikisitesub - atf_wcli args substitution table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/wikisub.html">wclidb.wikisub - atf_wcli substitutions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/wikitoken.html">wclidb.wikitoken - wcli medaiwiki auth token types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/wikitokenapi.html">wclidb.wikitokenapi - wcli tie-in of a token to an api action</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/wikiuser.html">wclidb.wikiuser -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/wikiuseruser.html">wclidb.wikiuseruser -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/wlogin.html">wclidb.wlogin - a form for wcli login operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/wtbl.html">wclidb.wtbl - scope for wcli actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/wtblact.html">wclidb.wtblact - a wcli tie-in of table and action</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/wtblactfld.html">wclidb.wtblactfld - List of available for each table &amp; action combination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/wtblacttst.html">wclidb.wtblacttst - atf_wcli wcli regression testcases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/wtblacttstout.html">wclidb.wtblacttstout - atf_wcli wcli regression results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wclidb/wwiki.html">wclidb.wwiki - user/auth tokens holding structure</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../ssimdb/wsdb/README.html">wsdb - WebSocket db</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><div class="visually-hidden">Toggle navigation of wsdb - WebSocket db</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/wsdb/status.html">wsdb.status -</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../ssimdb/x2db/README.html">x2db - operational info for algornd</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle navigation of x2db - operational info for algornd</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/x2db/admact.html">x2db.admact - x2admin actions for startup scripts generation and use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/x2db/admsvc.html">x2db.admsvc - x2admin scope for services like user, host, ssh applied to envnodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/x2db/admsvcact.html">x2db.admsvcact - x2admin coupling for the scope and the actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/x2db/dctrport.html">x2db.dctrport - tie-in docker ports with uids for containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/x2db/env.html">x2db.env - x2 environments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/x2db/envctr.html">x2db.envctr - envnode to container tie-in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/x2db/envhost.html">x2db.envhost - envnode to hosts tie-in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/x2db/envktypeuser.html">x2db.envktypeuser - environment to “ssh key type” to a user and its public key tie in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/x2db/envnode.html">x2db.envnode - environment to node tie in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/x2db/envnodeacct.html">x2db.envnodeacct - envnode to its users accounts tie in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/x2db/envnodeacctuser.html">x2db.envnodeacctuser - envnode accounts to users tie in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/x2db/envnodecname.html">x2db.envnodecname - envnode to cname tie in - cname used in /etc/hosts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/x2db/ktype.html">x2db.ktype - “ssh key types” list for different purposes/env</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/x2db/node.html">x2db.node - node name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/x2db/nodektype.html">x2db.nodektype - A node to “ssh key type” assignment list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/x2db/uid.html">x2db.uid - x2 user linux uid list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssimdb/x2db/user.html">x2db.user - x2 users list</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../protocol/README.html">Protocols</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><div class="visually-hidden">Toggle navigation of Protocols</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../protocol/algo/README.html">algo - Basic types and functions</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" role="switch" type="checkbox"/><label for="toctree-checkbox-23"><div class="visually-hidden">Toggle navigation of algo - Basic types and functions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/Attr.html">txt/protocol/algo/Attr.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/Bool.html">txt/protocol/algo/Bool.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/Charset.html">txt/protocol/algo/Charset.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/Comment.html">txt/protocol/algo/Comment.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/CppExpr.html">txt/protocol/algo/CppExpr.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/DateCache.html">txt/protocol/algo/DateCache.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/Decimal.html">txt/protocol/algo/Decimal.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/DirEntry.html">txt/protocol/algo/DirEntry.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/Errcode.html">txt/protocol/algo/Errcode.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/Errns.html">txt/protocol/algo/Errns.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/Fildes.html">txt/protocol/algo/Fildes.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/FileFlags.html">txt/protocol/algo/FileFlags.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/IOEvtFlags.html">txt/protocol/algo/IOEvtFlags.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/IPoint.html">txt/protocol/algo/IPoint.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/Imtable.html">txt/protocol/algo/Imtable.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/Ipmask.html">txt/protocol/algo/Ipmask.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/LineBuf.html">txt/protocol/algo/LineBuf.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/Md5Digest.html">txt/protocol/algo/Md5Digest.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/Month.html">txt/protocol/algo/Month.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/NumParseFlags.html">txt/protocol/algo/NumParseFlags.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/PrlogFcn.html">txt/protocol/algo/PrlogFcn.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/SchedTime.html">txt/protocol/algo/SchedTime.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/SeqType.html">txt/protocol/algo/SeqType.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/Sha1sig.html">txt/protocol/algo/Sha1sig.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/TFNNtTestAlert.html">txt/protocol/algo/TFNNtTestAlert.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/TermStyle.html">txt/protocol/algo/TermStyle.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/TextJust.html">txt/protocol/algo/TextJust.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/TstampCache.html">txt/protocol/algo/TstampCache.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/Tuple.html">txt/protocol/algo/Tuple.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/URL.html">txt/protocol/algo/URL.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/UnDiff.html">txt/protocol/algo/UnDiff.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/UnTime.html">txt/protocol/algo/UnTime.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/UnixDiff.html">txt/protocol/algo/UnixDiff.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/UnixTime.html">txt/protocol/algo/UnixTime.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/cstring.html">txt/protocol/algo/cstring.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/memptr.html">txt/protocol/algo/memptr.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/algo/strptr.html">txt/protocol/algo/strptr.md</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../protocol/ams/README.html">ams - Algo Messaging System protocol</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" role="switch" type="checkbox"/><label for="toctree-checkbox-24"><div class="visually-hidden">Toggle navigation of ams - Algo Messaging System protocol</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/AlarmSyncMsg.html">txt/protocol/ams/AlarmSyncMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/DfltStream.html">txt/protocol/ams/DfltStream.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/DumpStreamTableMsg.html">txt/protocol/ams/DumpStreamTableMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/ExpectMsg.html">txt/protocol/ams/ExpectMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/HeartbeatMsg.html">txt/protocol/ams/HeartbeatMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/InputLineMsg.html">txt/protocol/ams/InputLineMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/LogMsg.html">txt/protocol/ams/LogMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/Member.html">txt/protocol/ams/Member.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/MsgBlock.html">txt/protocol/ams/MsgBlock.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/MsgHeader.html">txt/protocol/ams/MsgHeader.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/OpenMsg.html">txt/protocol/ams/OpenMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/PrlogMsg.html">txt/protocol/ams/PrlogMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/ProcAddMsg.html">txt/protocol/ams/ProcAddMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/ProcId.html">txt/protocol/ams/ProcId.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/ProcRemoveMsg.html">txt/protocol/ams/ProcRemoveMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/ProcType.html">txt/protocol/ams/ProcType.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/Seqmsg.html">txt/protocol/ams/Seqmsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/SeqmsgId.html">txt/protocol/ams/SeqmsgId.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/SeqmsgTrace.html">txt/protocol/ams/SeqmsgTrace.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/StreamFlags.html">txt/protocol/ams/StreamFlags.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/StreamHbMsg.html">txt/protocol/ams/StreamHbMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/StreamId.html">txt/protocol/ams/StreamId.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/StreamPos.html">txt/protocol/ams/StreamPos.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/StreamType.html">txt/protocol/ams/StreamType.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/TerminateMsg.html">txt/protocol/ams/TerminateMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/Trace2Msg.html">txt/protocol/ams/Trace2Msg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/TraceInfo2Msg.html">txt/protocol/ams/TraceInfo2Msg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/TraceInfoMsg.html">txt/protocol/ams/TraceInfoMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/TraceMsg.html">txt/protocol/ams/TraceMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/ams/UdpFrame.html">txt/protocol/ams/UdpFrame.md</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../protocol/atf/README.html">atf - Algo Testing Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocol/command/README.html">command - Command line descriptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocol/emdi12/README.html">emdi12 -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocol/fasttest/README.html">fasttest -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocol/fm/README.html">fm - Fault management types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocol/ietf/README.html">ietf - Some IETF structs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocol/js/README.html">js - Reserved for JavaScript builtin types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocol/report/README.html">report - Command reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocol/ws/README.html">ws - WebSocket binary protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocol/x2/README.html">x2 - X2 protocol</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lib/README.html">Libraries</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" role="switch" type="checkbox"/><label for="toctree-checkbox-25"><div class="visually-hidden">Toggle navigation of Libraries</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lib/algo_lib/README.html">algo_lib - Support library for all executables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lib/lib_amcdb/README.html">lib_amcdb - Library used by amc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lib/lib_ams/README.html">lib_ams - Library for AMS middleware, supporting file format &amp; messaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lib/lib_ams/README.html#ams-library">AMS Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lib/lib_ams/README.html#list-of-ams-messages">List of AMS Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lib/lib_ams/README.html#in-memory-stream-format-flow-control">In-memory stream format; Flow control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lib/lib_ctype/README.html">lib_ctype - Helpful library for reading/writing ctypes as text tuples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lib/lib_exec/README.html">lib_exec - Build and run a dag of subprocesses with N parallel jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lib/lib_fast/README.html">lib_fast - FAST prococol support library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lib/lib_finprot/README.html">lib_finprot - Library of financial protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lib/lib_fm/README.html">lib_fm - Library for dynamic alarm management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lib/lib_git/README.html">lib_git - Helpful git wrappers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lib/lib_iconv/README.html">lib_iconv - Iconv wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lib/lib_json/README.html">lib_json - Full json support library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lib/lib_mysql/README.html">lib_mysql - Mysql adaptor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lib/lib_prot/README.html">lib_prot - Library covering all protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lib/lib_sql/README.html">lib_sql - SQL formatting functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lib/lib_ws/README.html">lib_ws - WebSocket library</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../exe/README.html">Executables</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" role="switch" type="checkbox"/><label for="toctree-checkbox-26"><div class="visually-hidden">Toggle navigation of Executables</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../exe/abt/README.html">abt - Algo Build Tool - build &amp; link C++ targets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/abt_md/README.html">abt_md - Tool to generate markdown documentation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../exe/acr/README.html">acr - Algo Cross-Reference - ssimfile database &amp; update tool</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" role="switch" type="checkbox"/><label for="toctree-checkbox-27"><div class="visually-hidden">Toggle navigation of acr - Algo Cross-Reference - ssimfile database &amp; update tool</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../exe/acr/relnotes.html">ACR release notes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/acr_compl/README.html">acr_compl - ACR shell auto-complete for all targets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/acr_dm/README.html">acr_dm - ACR Diff/Merge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/acr_ed/README.html">acr_ed - Script generator for common dev tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/acr_in/README.html">acr_in - ACR Input - compute set of ssimfiles or tuples used by a specific target</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/acr_my/README.html">acr_my - ACR &lt;-&gt; MariaDB adaptor</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../exe/amc/README.html">amc - Algo Model Compiler: generate code under include/gen and cpp/gen</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" role="switch" type="checkbox"/><label for="toctree-checkbox-28"><div class="visually-hidden">Toggle navigation of amc - Algo Model Compiler: generate code under include/gen and cpp/gen</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../exe/amc/enum.html">AMC Enumerated Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exe/amc/exec.html">AMC Subprocess Invocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exe/amc/pmask.html">AMC Presence Masks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exe/amc/pools.html">AMC Memory Pools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exe/amc/proto.html">AMC Protocols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exe/amc/reflection.html">AMC Reflection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exe/amc/reftypes.html">AMC Reftypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exe/amc/relnotes.html">AMC release notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exe/amc/runtime.html">AMC Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exe/amc/strings.html">AMC Strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exe/amc/xref.html">AMC Cross-References (xrefs)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/amc_gc/README.html">amc_gc - Garbage collector for in-memory databases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/amc_js/README.html">amc_js - Model compiler for javascript targets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/amc_vis/README.html">amc_vis - Draw access path diagrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/ams_cat/README.html">ams_cat - Algo Messaging System sample tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/ams_sendtest/README.html">ams_sendtest - Algo Messaging System test tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/apm/README.html">apm - Algo Package Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/atf_amc/README.html">atf_amc - Unit tests for amc (see amctest table)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/atf_ci/README.html">atf_ci - Normalization tests (see citest table)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/atf_cmdline/README.html">atf_cmdline - Test tool for command line parsing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/atf_comp/README.html">atf_comp - Algo Test Framework - Component test execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/atf_cov/README.html">atf_cov - Line coverage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/atf_cov/README.html#line-coverage">Line coverage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/atf_fuzz/README.html">atf_fuzz - Generator of bad inputs for targets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/atf_gcli/README.html">atf_gcli - test harness for gcli</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/atf_netio/README.html">atf_netio - Test driver for netio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/atf_nrun/README.html">atf_nrun - Run N subprocesses in parallel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/atf_unit/README.html">atf_unit - Unit tests (see unittest table)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/atf_wcli/README.html">atf_wcli - wiki management and test harness for wcli tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/atf_ws/README.html">atf_ws - Component test driver for lib_ws</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/bash2html/README.html">bash2html - Convert bash output and colours to html</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/dcli/README.html">dcli - command line tool for container operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/dcli_ed/README.html">dcli_ed - Docker Client Editor - generator of dcli commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/fast/README.html">fast - FAST utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/gcache/README.html">gcache - Compiler cache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/gcli/README.html">gcli - Gcli - gitlab/github command-line client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/gmv/README.html">gmv - Utility to move parts of the project in or out to a different project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/lib_x2/README.html">lib_x2 -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/mdbg/README.html">mdbg - Gdb front-end</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/mysql2ssim/README.html">mysql2ssim - mysql -&gt; ssim conversion tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/orgfile/README.html">orgfile - Organize and deduplicate files by timestamp and by contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/samp_regx/README.html">samp_regx - Test tool for regular expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/samp_ws/README.html">samp_ws - WebSocket sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/sandbox/README.html">sandbox - Sandbox - sandbox management tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/spnx/README.html">spnx - website generator based on sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/src_func/README.html">src_func - Access / edit functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/src_hdr/README.html">src_hdr - Manage source copyright+license header in source files and scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/src_lim/README.html">src_lim - Enforce line length, function length, and indentation limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/ssim2csv/README.html">ssim2csv - Ssim -&gt; csv conversion tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/ssim2mysql/README.html">ssim2mysql - Ssim -&gt; mysql</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/ssimfilt/README.html">ssimfilt - Tuple utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/strconv/README.html">strconv - A simple string utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/sv2ssim/README.html">sv2ssim - sv2ssim - Separated Value file processor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/ttrack/README.html">ttrack - Tool for keeping track of work time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/wcli/README.html">wcli - wiki cli to operate on wikis via API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/x2admin/README.html">x2admin - utility to generate admsvc control for containers etc…</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/x2cmt/README.html">x2cmt - X2 - Commit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/x2gf/README.html">x2gf - X2 - Gapfill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/x2gw/README.html">x2gw - X2 - Gateway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/x2mon/README.html">x2mon - X2 - Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/x2node/README.html">x2node - ssh tool to access varios aops nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/x2read/README.html">x2read - X2 - Read client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/x2sup/README.html">x2sup - X2 - Supervisor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/x2txn/README.html">x2txn - X2 - Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exe/x2write/README.html">x2write - X2 - Write client</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../script/README.html">Scripts</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" role="switch" type="checkbox"/><label for="toctree-checkbox-29"><div class="visually-hidden">Toggle navigation of Scripts</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../script/abt_md_filt.html">bin/abt_md_filt - Eliminate unstable fields from inline-command output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/ai.html">bin/ai - Bootstrapped compilation script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/alexei-setup-soft-links.html">bin/alexei-setup-soft-links -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/break-long-lines.html">bin/break-long-lines - Read input and break long lines into multiple lines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/ci-show-log.html">bin/ci-show-log - Fetch gitlab runner output for current issue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/cpp-indent.html">bin/cpp-indent - Indent specified files using emacs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/delete-duplicate-lines.html">bin/delete-duplicate-lines - Read input and eliminate duplicate lines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/diff-to-errlist.html">bin/diff-to-errlist - Read standard diff format on input and produce output suitable for errlist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/edit-conflicts.html">bin/edit-conflicts - Open any files marked as being in confict using EDITOR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/em.html">bin/em - Alias for ‘emacs -nw’</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/errlist.html">bin/errlist - Open error list in editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/ff.html">bin/ff - Find files and inside files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/find-non-copyrighted.html">bin/find-non-copyrighted - Find any files with missing copyrights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/fix-gen-conflicts.html">bin/fix-gen-conflicts - Auto-fix for git merge- or rebase-related conflicts by re-running generator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/git-add-to-last-commit.html">bin/git-add-to-last-commit - Add any currently modified changes to the most recent commit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/git-branch-gc.html">bin/git-branch-gc - Attempt to rebase all branches and delete branches merged into HEAD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/git-clean-branches.html">bin/git-clean-branches -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/git-commits-per-user.html">bin/git-commits-per-user -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/git-current-ref.html">bin/git-current-ref - Print gitref of current HEAD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/git-diff-annotate.html">bin/git-diff-annotate -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/git-grep-reflog.html">bin/git-grep-reflog - Find a commit in reflog whose delta contains given regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/git-mdiff.html">bin/git-mdiff - Git diff but exclude generated files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/git-mod-plot.html">bin/git-mod-plot -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/git-praise.html">bin/git-praise -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/git-rebase-origin.html">bin/git-rebase-origin - Rebase current branch onto origin master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/git-rebase-remote.html">bin/git-rebase-remote - Rebase current branch onto given <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/git-recent-branches.html">bin/git-recent-branches - List recent branches that you worked on</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/git-rollback-file.html">bin/git-rollback-file - Roll back specified files to the previous commit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/git-update-config.html">bin/git-update-config -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/gitconfig-setup.html">bin/gitconfig-setup -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/grephunk.html">bin/grephunk - Patch file filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/hilite-error.html">bin/hilite-error - Read input and highlight errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/hilite.html">bin/hilite - Inline highlighter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/limit-output.html">bin/limit-output - Read input and show at most N lines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/lines-to-dots.html">bin/lines-to-dots - Read input and print a dot for each input line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/lsfunc.html">bin/lsfunc - List all functions from all source files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/msloc.pl.html">bin/msloc.pl - Word count statistics for non-generated source files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/normalize.html">bin/normalize - Run standard normalization tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/select-bootstrap.html">bin/select-bootstrap -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/sha1.html">bin/sha1 -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/sloc.pl.html">bin/sloc.pl - Word count statistics for specified list of source files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/tags.html">bin/tags -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/targ-diff.html">bin/targ-diff - Show changes in TARG’s source code between this branch and REF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/test-orgfile.html">bin/test-orgfile -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/timestamps.html">bin/timestamps - Read input and timestamp each line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/toamc.html">bin/toamc - Try to extract amc schema from specified C++ file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/todo.html">bin/todo -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/update-gitfile.html">bin/update-gitfile -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/update-hdr.html">bin/update-hdr -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/update-scriptfile.html">bin/update-scriptfile -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/zfs_snapshot.pl.html">bin/zfs_snapshot.pl -</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="tutorial-2-parts-and-projects-in-sql">
+<h1>Tutorial 2: Parts And Projects in SQL<a class="headerlink" href="#tutorial-2-parts-and-projects-in-sql" title="Permalink to this heading">#</a></h1>
+<p><a href="#tutorial-2-parts-and-projects-in-sql"></a>
+In this tutorial, I’ll introduce the idea of storing data in ASCII files
+by analogy with SQL database tables, and then extend this idea to the so-called <code class="docutils literal notranslate"><span class="pre">schema</span></code>,
+or the description of data, using these same files.</p>
+<section id="codd-1970-and-anomalies">
+<h2>Codd 1970 And Anomalies<a class="headerlink" href="#codd-1970-and-anomalies" title="Permalink to this heading">#</a></h2>
+<p><a href="#codd-1970-and-anomalies"></a>
+Let’s begin with a classic modeling example involving projects and parts.
+This is the example from Codd 1970 paper
+<a class="reference external" href="https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf">A Relational Model of Data For Large Shared Data Banks</a></p>
+<p>Codd considers a modeling situation involving some shop, which has
+a few projects, some number of parts, and each part may be allocated to at most one project.
+He then considers 5 different schemas, all quite natural and frequently seen in the wild,
+even today, almost fifty years after the publication of the paper. The first four schemas
+have <em>access path anomalies</em> – i.e. they are unable to represent conditions such as an ownership
+of a part that’s not associated with any project, or a project with no parts. If you are a software
+developer and want to write programs without bugs, I would really recommend reading at least the
+first few pages of Codd’s paper and meditating on them for a long, long time, because the paper
+illustrates where pretty much all software bugs come from.</p>
+<p>When presenting his four schemas with anomalies, Codd is
+describing what programmers know as a data structure, i.e. a structuring of data into layers,
+where you access subsequent layers from previous layers.
+He is pointing out a fatal flaw that lies in the idea of <em>subordination</em> of one set to another:
+by introducing an access path dependence into your data model,
+you lose the ability to represent configurations that lie outside of your narrowed world view.</p>
+<p>It is hard to overestimate the importance of this idea:
+If even a simple projects-and-parts example has five possible schemas that can represent it, out of which
+four have inherent design bugs with provably bad consequences, then what can be said about
+a larger software project?</p>
+<p>Any software project can be viewed as a large database
+with a veritable rat’s nest of references; it doesn’t matter if the language provides for safe pointers
+or garbage collection, that is a different issue: if it’s a database, but not a carefully structured
+one (perhaps it came about by some natural accretion of code, as usually happens with software), then what
+are the chances that it is free of anomalies? The answer is, there is no chance. There are bugs.</p>
+</section>
+<section id="creating-mariadb-tables">
+<h2>Creating MariaDB Tables<a class="headerlink" href="#creating-mariadb-tables" title="Permalink to this heading">#</a></h2>
+<p><a href="#creating-mariadb-tables"></a>
+In any case, let’s use a MariaDB interactive shell and model this example.
+You can start one manually, or you can use a provided
+tool <code class="docutils literal notranslate"><span class="pre">acr_my</span></code> (assuming you successfully built everything),
+to create a local networkless instance.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ acr_my -start -shell
+</pre></div>
+</div>
+<p>Let’s create a new database.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MariaDB [none]&gt; create database test;
+MariaDB [none]&gt; use test;
+</pre></div>
+</div>
+<p>Let’s create Codd’s project schema. In his paper, Codd used the name <code class="docutils literal notranslate"><span class="pre">commit</span></code> to represent
+the part-to-project commitment relationship. This is an SQL reserved keyword, so we’ll use
+the name <code class="docutils literal notranslate"><span class="pre">partproj</span></code> instead.
+The table <code class="docutils literal notranslate"><span class="pre">project</span></code> has a column called <code class="docutils literal notranslate"><span class="pre">project</span></code>.
+The table <code class="docutils literal notranslate"><span class="pre">part</span></code> has a column called <code class="docutils literal notranslate"><span class="pre">part</span></code>.
+And the table <code class="docutils literal notranslate"><span class="pre">partproj</span></code> has two columns, one named <code class="docutils literal notranslate"><span class="pre">part</span></code> and the second named <code class="docutils literal notranslate"><span class="pre">project</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MariaDB [test]&gt; create table project (project varchar(50));
+MariaDB [test]&gt; create table part (part varchar(50));
+MariaDB [test]&gt; create table partproj (part varchar(50), project varchar(50));
+</pre></div>
+</div>
+<p>Now let’s set up the primary keys. For all three tables, the first column is the primary key.
+Primary keys have their own names which are independent of table or column names. We name
+the keys to be the same as the columns.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MariaDB [test]&gt; alter table project add primary key project (project);
+MariaDB [test]&gt; alter table part add primary key part (part);
+MariaDB [test]&gt; alter table partproj add primary key part (part);
+</pre></div>
+</div>
+<p>Now let’s add the foreign key constraints. Only <code class="docutils literal notranslate"><span class="pre">partproj</span></code> table has these.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MariaDB [test]&gt; alter table partproj add foreign key (part) references part(part);
+MariaDB [test]&gt; alter table partproj add foreign key (project) references project(project);
+</pre></div>
+</div>
+<p>It’s time to populate some data. As a reminder, the MariaDB syntax for the <code class="docutils literal notranslate"><span class="pre">insert</span></code> statement
+is as follows:</p>
+<p><code class="docutils literal notranslate"><span class="pre">insert</span> <span class="pre">into</span> <span class="pre">&lt;tablename&gt;</span> <span class="pre">(column1,column2)</span> <span class="pre">values</span> <span class="pre">(&quot;row1.col1&quot;,&quot;row1.col2&quot;),</span> <span class="pre">(&quot;row2.col1&quot;,&quot;row2.col2&quot;)</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MariaDB [test]&gt; insert into part (part) values (&quot;part1&quot;), (&quot;part2&quot;);
+MariaDB [test]&gt; insert into project (project) values (&quot;project1&quot;), (&quot;project2&quot;);
+MariaDB [test]&gt; insert into partproj (part,project) values (&quot;part1&quot;,&quot;project1&quot;), (&quot;part2&quot;,&quot;project1&quot;);
+</pre></div>
+</div>
+<p>We’re mostly done.
+Let’s check if the projects are there:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MariaDB [test]&gt; select * from project;
++----------+
+| project  |
++----------+
+| project1 |
+| project2 |
++----------+
+2 rows in set (0.00 sec)
+</pre></div>
+</div>
+<p>So far so good. Now let’s check the parts:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MariaDB [test]&gt; select * from part;
++-------+
+| part  |
++-------+
+| part1 |
+| part2 |
++-------+
+2 rows in set (0.00 sec)
+</pre></div>
+</div>
+<p>Also good. And now the part-to-project assignment.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MariaDB [test]&gt; select * from partproj;
++-------+----------+
+| part  | project  |
++-------+----------+
+| part1 | project1 |
+| part2 | project1 |
++-------+----------+
+2 rows in set (0.00 sec)
+</pre></div>
+</div>
+<p>Now that we have a database instance and some data in it, we can do all the things one does with the database –
+connect to it, submit various queries, and serve up the results. Not only is it extremely useful
+(which is why everybody does it), but the table-based approach is universal, which means that if you keep adding
+tables like shown above, you won’t hit any fundamental limit and will be able to support a project of any size.</p>
+<p>If you’re curious about the universality claim, the
+<a class="reference external" href="https://en.wikipedia.org/wiki/Zermelo%E2%80%93Fraenkel_set_theory">Zermelo-Fraenkel Set Theory</a>,
+first proposed in 1908, essentially says that all of constructible mathematical facts can be represented by N
+sets, either simple ones, or constructed from other sets (i.e. by taking a cross-product of some other 2 sets).</p>
+</section>
+<section id="same-thing-in-text">
+<h2>Same Thing In Text<a class="headerlink" href="#same-thing-in-text" title="Permalink to this heading">#</a></h2>
+<p><a href="#same-thing-in-text"></a>
+The first thing we want is a way to move database records down to the level of text lines, so we can work with
+them outside of MariaDB or any other database. <code class="docutils literal notranslate"><span class="pre">Perl</span></code> and <code class="docutils literal notranslate"><span class="pre">sed</span></code> and <code class="docutils literal notranslate"><span class="pre">grep</span></code> are great tools, and so is <code class="docutils literal notranslate"><span class="pre">git</span></code>.
+We want to keep records in plain text files, version them, and treat them like source code.
+We’ll need a tool that manipulates these text records and does various useful things with them.</p>
+<p>We introduce the idea of a super-simple tuple, or ssim tuple, that consists
+of a type tag followed by some key-value pairs on a single line.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>test.project  project:project1
+</pre></div>
+</div>
+<p>The first word, <code class="docutils literal notranslate"><span class="pre">test.project</span></code> is the tuple head, or type tag.
+If you think of a shell command line, it’s the name of the command being invoked.
+But here, <code class="docutils literal notranslate"><span class="pre">test</span></code> is the database name, and <code class="docutils literal notranslate"><span class="pre">project</span></code> is the table name. Instead of <code class="docutils literal notranslate"><span class="pre">database</span></code>,
+we will say <code class="docutils literal notranslate"><span class="pre">namespace</span></code>, or <code class="docutils literal notranslate"><span class="pre">ns</span></code>.</p>
+<p>We are going to keep these, and only these records in the file</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>data/test/project.ssim
+</pre></div>
+</div>
+<p>Similarly, we will be keeping parts and partprojs in files</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>data/test/part.ssim
+data/test/partproj.ssim
+</pre></div>
+</div>
+<p>And so we are going to place the following text lines in the corresponding files.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cat &gt; data/test/project.ssim &lt;&lt; EOF
+test.project  project:project1
+test.project  project:project2
+EOF
+
+$ cat &gt; data/test/part.ssim &lt;&lt; EOF
+test.part  part:part1
+test.part  part:part2
+EOF
+
+$ cat &gt; data/test/partproj.ssim &lt;&lt; EOF
+test.partproj  part:part1  project:project1
+test.partproj  part:part2  project:project1
+EOF
+</pre></div>
+</div>
+<p>And that’s it for now.</p>
+</section>
+<section id="describing-the-tuple-schema">
+<h2>Describing The Tuple Schema<a class="headerlink" href="#describing-the-tuple-schema" title="Permalink to this heading">#</a></h2>
+<p><a href="#describing-the-tuple-schema"></a>
+Now here comes the interesting part.</p>
+<p>If we want our query tool to find this data, we would need to specify exactly
+which ssimfiles and namespaces we want in our system. We would also need a description
+of the various columns, and what they refer to.</p>
+<p>We will place the list of ssimfiles in the ssimfile called <code class="docutils literal notranslate"><span class="pre">data/dmmeta/ssimfile.ssim</span></code>
+and in it, by the above convention, each tuple will start work the word <code class="docutils literal notranslate"><span class="pre">dmmeta.ssimfile</span></code>.
+The ns <code class="docutils literal notranslate"><span class="pre">dmmeta</span></code> is short for <em>Data Model Meta-information</em>.
+The entries will be sorted alphabetically.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cat &gt; data/dmmeta/ssimfile.ssim &lt;&lt; EOF
+dmmeta.ssimfile  ssimfile:dmmeta.ssimfile
+dmmeta.ssimfile  ssimfile:test.part
+dmmeta.ssimfile  ssimfile:test.partproj
+dmmeta.ssimfile  ssimfile:test.project
+EOF
+</pre></div>
+</div>
+<p>Notice that the <code class="docutils literal notranslate"><span class="pre">dmmeta.ssimfile</span></code> entry, referring to the file itself, is
+part of that list.</p>
+<p>We will then place the list of known namespaces in the
+table <code class="docutils literal notranslate"><span class="pre">data/dmmeta/ns.ssim</span></code> and these will all be tagged as <code class="docutils literal notranslate"><span class="pre">dmmeta.ns</span></code>.
+Because we already have a namespace <code class="docutils literal notranslate"><span class="pre">dmmeta</span></code>, we will include its definition.
+So far we have two namespaces:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cat &gt; data/dmmeta/ns.ssim &lt;&lt; EOF
+dmmeta.ns  ns:dmmeta
+dmmeta.ns  ns:test
+EOF
+</pre></div>
+</div>
+<p>Since we want to write a C++ programs with these tuples, we will need a name for the type
+to use in C++. In addition, we anticipate having C types that have no associated ssimfiles.
+Using the CamelCase convention for C++ type names, we create a new table <code class="docutils literal notranslate"><span class="pre">dmmeta.ctype</span></code>.
+We must include ctypes for all ctypes mentioned so far, this includes <code class="docutils literal notranslate"><span class="pre">ns</span></code> and <code class="docutils literal notranslate"><span class="pre">ctype</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cat &gt; data/dmmeta/ctype.ssim &lt;&lt; EOF
+dmmeta.ctype  ctype:dmmeta.Ctype
+dmmeta.ctype  ctype:dmmeta.Ns 
+dmmeta.ctype  ctype:test.Part
+dmmeta.ctype  ctype:test.Partproj 
+dmmeta.ctype  ctype:test.Project
+EOF
+</pre></div>
+</div>
+<p>We then modify the ssimfile table so that each ssimfile has a related ctype, because we
+want all ssimfiles to be mappable to C++.
+(This is analogous to the <code class="docutils literal notranslate"><span class="pre">partproj</span></code> relation).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cat &gt; data/dmmeta/ssimfile.ssim &lt;&lt; EOF
+dmmeta.ssimfile  ssimfile:dmmeta.ssimfile ctype:dmmeta.Ssimfile
+dmmeta.ssimfile  ssimfile:test.part       ctype:test.Part
+dmmeta.ssimfile  ssimfile:test.partproj   ctype:test.Partproj
+dmmeta.ssimfile  ssimfile:test.project    ctype:test.Project
+EOF
+</pre></div>
+</div>
+<p>It is not necessary to align the columns in a ssimfile, but it looks nicer.
+Also, leading and trailing whitespace on each line will be ignored. And the order of the lines
+shouldn’t matter either.</p>
+<p>At this point, the only thing that’s missing is some description of the columns.</p>
+</section>
+<section id="describing-the-columns">
+<h2>Describing The Columns<a class="headerlink" href="#describing-the-columns" title="Permalink to this heading">#</a></h2>
+<p><a href="#describing-the-columns"></a>
+We will need a new table, with one record for every column we have used so far.
+We will call it <code class="docutils literal notranslate"><span class="pre">dmmeta.field</span></code>, so now we need to add field’s <code class="docutils literal notranslate"><span class="pre">ssimfile</span></code> and <code class="docutils literal notranslate"><span class="pre">ctype</span></code> lines to
+the appropriate ssmifiles:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cat &gt;&gt; data/dmmeta/ctype.ssim &lt;&lt; EOF
+dmmeta.ctype  ctype:dmmeta.Field
+
+$ cat &gt;&gt; data/dmmeta/ssimfile.ssim &lt;&lt; EOF
+dmmeta.ssimfile  ssimfile:dmmeta.field  ctype:dmmeta.Field
+EOF
+</pre></div>
+</div>
+<p>The primary key for a field will be formed by concatenating the parent <code class="docutils literal notranslate"><span class="pre">ctype</span></code> with the
+field name, with a dot in between, e.g. <code class="docutils literal notranslate"><span class="pre">dmmeta.Ns.ns</span></code> will be the name of the field
+describing the primary key of <code class="docutils literal notranslate"><span class="pre">ns</span></code>. We decide that whenever we need to look for a primary
+key, we will just take the first field from the ctype. This convention means that
+we don’t have to annotate the fields as being primary keys or not.</p>
+<p>In addition, as we describe the field, we will need to address the concept of a constraint.
+In our schema, there are two types of fields: a value type, and a reference to a primary key
+of another table. We will call these <code class="docutils literal notranslate"><span class="pre">reftypes</span></code>. We can easily enter the description of the
+reftypes, and some reftype records, using the tools we have so far:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cat &gt;&gt; data/dmmeta/ctype.ssim &lt;&lt; EOF
+dmmeta.ctype  ctype:dmmeta.Reftype
+EOF
+
+cat &gt;&gt; data/dmmeta/ssimfile.ssim &lt;&lt; EOF
+dmmeta.ssimfile  ssimfile:dmmeta.reftype  ctype:dmmeta.Reftype
+EOF
+
+$ cat &gt; data/dmmeta/reftype.ssim &lt;&lt; EOF
+dmmeta.reftype  reftype:Val
+dmmeta.reftype  reftype:Pkey
+EOF
+</pre></div>
+</div>
+<p>In order to describe value types, we will add a single type called <code class="docutils literal notranslate"><span class="pre">algo.Smallstr50</span></code>.
+This will be our equivalent of <code class="docutils literal notranslate"><span class="pre">varchar(50)</span></code>.
+We create a new namespace called <code class="docutils literal notranslate"><span class="pre">algo</span></code>, because we want the <code class="docutils literal notranslate"><span class="pre">dmmeta</span></code>
+namespace to be used exclusively for ctypes that have ssimfiles associated with them.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cat &gt;&gt; data/dmmeta/ns.ssim &lt;&lt; EOF
+dmmeta.ns ns:algo
+EOF
+
+cat &gt;&gt; data/dmmeta/ctype.ssim &lt;&lt; EOF
+dmmeta.ctype ctype:algo.Smallstr50
+EOF
+</pre></div>
+</div>
+<p>And now we are ready to describe the fields. The table below includes descriptions of
+all fields we referenced so far.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cat &gt; data/dmmeta/field.ssim &lt;&lt; EOF
+dmmeta.field  field:dmmeta.Ctype.ctype        arg:algo.Smallstr50  reftype:Val 
+dmmeta.field  field:dmmeta.Field.arg          arg:dmmeta.Ctype     reftype:Pkey
+dmmeta.field  field:dmmeta.Field.field        arg:algo.Smallstr50  reftype:Val 
+dmmeta.field  field:dmmeta.Field.reftype      arg:dmmeta.Reftype  reftype:Pkey
+dmmeta.field  field:dmmeta.Ns.ns              arg:algo.Smallstr50  reftype:Val 
+dmmeta.field  field:dmmeta.Reftype.reftype    arg.algo.Smallstr50  reftype:Val
+dmmeta.field  field:dmmeta.Ssimfile.ctype     arg:dmmeta.Ctype     reftype:Pkey
+dmmeta.field  field:dmmeta.Ssimfile.ssimfile  arg:algo.Smallstr50  reftype:Val 
+dmmeta.field  field:test.Part.part            arg:algo.Smallstr50  reftype:Val
+dmmeta.field  field:test.Partproj.part        arg:test.Part        reftype:Pkey
+dmmeta.field  field:test.Partproj.project     arg:test.Project     reftype:Pkey
+dmmeta.field  field:test.Project.project      arg:algo.Smallstr50  reftype:Val
+EOF
+</pre></div>
+</div>
+<p>The method we have been following so far is as follows: for each set of things that
+we want to operate on, create a ssimfile and populate it with the names of those things.
+There is a certain magic in the fact that you end up with self-describing lines like
+the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>dmmeta.field  field:dmmeta.Field.reftype      arg:dmmeta.Reftype  reftype:Pkey
+</pre></div>
+</div>
+<p>All of our moves so far have been forced. We are simply adding descriptions
+of things as they pop up.</p>
+<p>We are almost done. All that remains is adding a description of the constraint for substrings
+of fields. For instance, a substring of the field’s primary key must refer to a valid ctype,
+and similarly a substring of ctype’s primary key must refer to a namespace.
+For this, we will add some records describing the substrings, and place them all
+into the appropriate ssimfiles. Below I will simply list those records and from the type tags
+alone it is clear which files they should go into:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>dmmeta.ctype  ctype:dmmeta.Substr  comment:&quot;Computed field&quot;
+  dmmeta.field  field:dmmeta.Substr.field     arg:dmmeta.Field    reftype:Pkey  dflt:&quot;&quot;  comment:&quot;&quot;
+  dmmeta.field  field:dmmeta.Substr.expr      arg:algo.Smallstr50 reftype:Val   dflt:&quot;&quot;  comment:&quot;&quot;
+  dmmeta.field  field:dmmeta.Substr.srcfield  arg:dmmeta.Field    reftype:Pkey  dflt:&quot;&quot;  comment:&quot;&quot;
+
+dmmeta.ssimfile  ssimfile:dmmeta.substr  ctype:dmmeta.Substr
+</pre></div>
+</div>
+<p>And now we can describe the fields which are implicitly contained in other fields:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>dmmeta.field  field:dmmeta.Field.ctype  arg:dmmeta.Ctype  reftype:Pkey  dflt:&quot;&quot;  comment:&quot;enclosing structure&quot;
+  dmmeta.substr  field:dmmeta.Field.ctype  expr:.RL  srcfield:dmmeta.Field.field
+
+dmmeta.field  field:dmmeta.Ctype.ns  arg:dmmeta.Ns  reftype:Pkey  dflt:&quot;&quot;  comment:&quot;translates to c++ namespace&quot;
+  dmmeta.substr  field:dmmeta.Ctype.ns  expr:.RL  srcfield:dmmeta.Ctype.ctype
+</pre></div>
+</div>
+<p>And place these records into their corresponding files as well.
+The expression <code class="docutils literal notranslate"><span class="pre">.RL</span></code> means “scan for character . from the Right. then take everything to the Left of the found character”.
+We will also allow expressions with any number of triples and any search characters, e.g. <code class="docutils literal notranslate"><span class="pre">/RR&#64;LL</span></code> or <code class="docutils literal notranslate"><span class="pre">.LR.LR.LR</span></code>.
+We may want to describe additional substrings (such as field’s name), but this should be sufficient
+to show the process of building up the concepts.</p>
+</section>
+<section id="adding-tools">
+<h2>Adding Tools<a class="headerlink" href="#adding-tools" title="Permalink to this heading">#</a></h2>
+<p><a href="#adding-tools"></a>
+First, we need a query tool that can fetch records of a given type, and then find all related
+records as a transitive closure over the Pkey references. Because the tool
+automatically cross-references all the tables in our system, we will call it <code class="docutils literal notranslate"><span class="pre">Auto</span> <span class="pre">Cross</span> <span class="pre">Reference</span></code>
+or <code class="docutils literal notranslate"><span class="pre">acr</span></code>. We will equip <code class="docutils literal notranslate"><span class="pre">acr</span></code> with options like <code class="docutils literal notranslate"><span class="pre">-check</span></code> so that it can find any broken
+<code class="docutils literal notranslate"><span class="pre">Pkey</span></code> references, and other options to make it useful.
+We will also add an option <code class="docutils literal notranslate"><span class="pre">-insert</span></code>, which reads tuples from stdin, and places them into appropriate ssimfiles.</p>
+<p>We will describe all the command-line for acr with a ctype called <code class="docutils literal notranslate"><span class="pre">command.acr</span></code>, introducing the <code class="docutils literal notranslate"><span class="pre">command</span></code>
+namespace. All of the options that <code class="docutils literal notranslate"><span class="pre">acr</span></code> takes will become fields of <code class="docutils literal notranslate"><span class="pre">command.acr</span></code>. This means that
+we can add new command-line flags to <code class="docutils literal notranslate"><span class="pre">acr</span></code> using <code class="docutils literal notranslate"><span class="pre">acr</span></code> itself, having implemented the <code class="docutils literal notranslate"><span class="pre">-insert</span></code> option.</p>
+<p>As we introduce other tools, we will describe their command lines with <code class="docutils literal notranslate"><span class="pre">command.&lt;ns&gt;</span></code>.
+For shell command-line completion, we introduce the tool <code class="docutils literal notranslate"><span class="pre">acr_compl</span></code>, which will now be able to auto-complete
+command-line options of all tools in the system, including itself of course. We will use <code class="docutils literal notranslate"><span class="pre">acr</span></code> to add
+command-line options to <code class="docutils literal notranslate"><span class="pre">acr_compl</span></code> and <code class="docutils literal notranslate"><span class="pre">acr_compl</span></code> to auto-complete <code class="docutils literal notranslate"><span class="pre">acr</span></code> queries.
+Both of these tools are of course already in the system, and can be readily used.</p>
+<p>Second, we will need a tool that takes some command lines and prints shell scripts of the
+sort we used above, which we can then pipe through <code class="docutils literal notranslate"><span class="pre">sh</span></code> in order to make the edits.
+We will call this tool <code class="docutils literal notranslate"><span class="pre">acr_ed</span></code>, by analogy with <code class="docutils literal notranslate"><span class="pre">sed</span></code>.</p>
+<p>Third, since we already have all the descriptions of our records nicely arranged in tables,
+we will generate the C++ structs, with fields and
+everything, by reading the <code class="docutils literal notranslate"><span class="pre">ctype</span></code>, <code class="docutils literal notranslate"><span class="pre">field</span></code> and <code class="docutils literal notranslate"><span class="pre">ns</span></code> tables, and creating C++ headers and source
+files with corresponding structs, and whatever operations are applicable to them.
+Then, as we load these tables, we will map them onto the structs
+and everything will be nice and strictly typed. This model compiler will be called <code class="docutils literal notranslate"><span class="pre">amc</span></code>, or
+<code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">Model</span> <span class="pre">Compiler</span></code>.</p>
+<p>In order to compile all these tools, we will need <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">Build</span> <span class="pre">Tool</span></code>, or <code class="docutils literal notranslate"><span class="pre">abt</span></code>. A regular Makefile-based
+systrem won’t do, because we already have a lot of data in <code class="docutils literal notranslate"><span class="pre">ssimfiles</span></code>, and we have the <code class="docutils literal notranslate"><span class="pre">ctypes</span></code> to handle
+them in C++. We would be introducing a lot of extra manual maintenance work (and anomalies)
+if we were to go outside this model.</p>
+</section>
+<section id="describing-the-tools">
+<h2>Describing The Tools<a class="headerlink" href="#describing-the-tools" title="Permalink to this heading">#</a></h2>
+<p><a href="#describing-the-tools"></a>
+As mentioned above, any running program is nothing more than a temporary database containing some number of tables
+and records. If it doesn’t look like that, consider the following: a C++ program uses some built-in types
+and a finite number of structs. At any given time, the memory of the program is populated with instances of these
+structs, sitting at various memory locations (on the stack, hidden inside some buffers, allocated with malloc,
+sitting in arrays, etc). How these instances were allocated, and whether they are all discoverable is irrelevant.
+The set of all the instances of some struct X is to be considered the <code class="docutils literal notranslate"><span class="pre">table</span> <span class="pre">X</span></code> in that program.</p>
+<p>At any given time, the program performs an instruction that either reads some field of some
+row from some in-memory table, or writes some field of some row to some in-memory table.</p>
+<p>And so we can use the <code class="docutils literal notranslate"><span class="pre">ns</span></code> table to describe all the tools that we plan to introduce:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cat &gt;&gt; data/dmmeta/ns.ssim &lt;&lt; EOF
+dmmeta.ns ns:abt
+dmmeta.ns ns:amc
+dmmeta.ns ns:acr
+dmmeta.ns ns:acr_ed
+EOF
+</pre></div>
+</div>
+<p>(The difference between <code class="docutils literal notranslate"><span class="pre">acr</span></code> and <code class="docutils literal notranslate"><span class="pre">dmmeta</span></code> is that <code class="docutils literal notranslate"><span class="pre">acr</span></code> is a database of structs in RAM
+while <code class="docutils literal notranslate"><span class="pre">dmmeta</span></code> is a database of ssim files on disk).</p>
+<p>Now comes the tricky part: we want <code class="docutils literal notranslate"><span class="pre">amc</span></code> to generate the ctype called <code class="docutils literal notranslate"><span class="pre">Ctype</span></code> in namespace <code class="docutils literal notranslate"><span class="pre">dmmeta</span></code>,
+by virtue of loading the <code class="docutils literal notranslate"><span class="pre">dmmeta.ctype</span>&#160; <span class="pre">ctype:dmmeta.Ctype</span></code> record. There is a real dependency here,
+of a different type than what we had with ssimfiles: with ssimfiles, even though they seemed to be
+circular in their descriptions, they were not. The solution is to manually enter the definition of
+<code class="docutils literal notranslate"><span class="pre">dmmeta::Ctype</span></code> into <code class="docutils literal notranslate"><span class="pre">amc</span></code>’s source code, but only in order to read the <code class="docutils literal notranslate"><span class="pre">dmmeta.ctype</span></code> records into it.
+After we do that, the output of amc will include <code class="docutils literal notranslate"><span class="pre">dmmeta::Ctype</span></code> simply because it has loaded that record.
+We then take the output of amc, and link it back to <code class="docutils literal notranslate"><span class="pre">amc</span></code>. At this point we will get a link error,
+since we already have the original, manually entered definition of <code class="docutils literal notranslate"><span class="pre">dmmeta::Ctype</span></code>. We can now delete
+the manual version, making <code class="docutils literal notranslate"><span class="pre">amc</span></code>’s source code smaller. We repeat this many times, re-creating different
+bits of <code class="docutils literal notranslate"><span class="pre">amc</span></code> carefully, always using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> to checkpoint and rolling back when <code class="docutils literal notranslate"><span class="pre">amc</span></code> generates
+code that no longer compiles.</p>
+<p>Slowly but surely, we can cause about 95% of all the code we need to be generated from ssimfiles.
+The remaining 5% could also be generated <code class="docutils literal notranslate"><span class="pre">as-is</span></code>, just by <code class="docutils literal notranslate"><span class="pre">printf()</span></code>-ing the lines verbatim, but this
+would actually be counter-productive, and no more impressive than <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">cvf</span></code>-ing the whole thing.
+It is only interesting to generate code that’s used in more than one place.</p>
+<p>In subsequent chapters, I will describe the <code class="docutils literal notranslate"><span class="pre">amc</span></code> memory model for an executable, and things like pools
+(for holding records) and x-refs (for creating group-by’s).</p>
+<p>The presence of <code class="docutils literal notranslate"><span class="pre">ssimfile</span></code> in our data set was dictated by the way we organized the data set.
+The presence of <code class="docutils literal notranslate"><span class="pre">amc</span></code> in this model was dictated by our desire to use C++ to write the query tool <code class="docutils literal notranslate"><span class="pre">acr</span></code>,
+which keeping the data description in a single place.</p>
+<p>There is a more general pattern here:</p>
+</section>
+<section id="representation-manipulation">
+<h2>Representation &amp; Manipulation<a class="headerlink" href="#representation-manipulation" title="Permalink to this heading">#</a></h2>
+<p><a href="#representation---manipulation"></a>
+We can represent any concept as a point in a multi-dimensional sparse space of tuples (this follows from ZFC).
+Whenever we extend our representable universe with
+additional concepts, such as a physcial set of C++ files on disk, or a set of dev and production environments
+with some configuration, we include its description as a set of tables in our data set.
+We then write tools that enforce a unidirectional or bidirectional correspondence between this new object and
+the records that describe it. In this way we make the object programmable and editable with the
+same fundamental set of tools we use on the tuples themselves.</p>
+</section>
+<section id="ordering-dependencies">
+<h2>Ordering Dependencies<a class="headerlink" href="#ordering-dependencies" title="Permalink to this heading">#</a></h2>
+<p><a href="#ordering-dependencies"></a>
+There are many examples of systems in the software world
+where the rules created by a system begin to apply to the system itself.
+Let’s briefly consider some such systems.</p>
+<ul class="simple">
+<li><p>The most famous one is the LISP interpreter as expressed in LISP itself,
+described by the famous self-referential expression <code class="docutils literal notranslate"><span class="pre">(loop</span> <span class="pre">(print</span> <span class="pre">(eval</span> <span class="pre">(read))))</span></code>.</p></li>
+<li><p>Another example is the <a class="reference external" href="https://en.wikipedia.org/wiki/Bootstrapping_(compilers)">self-compiling compiler</a>.
+All compiled languages have one (and <em>no</em> interpreted language has one).</p></li>
+<li><p>And a third example is the template meta-programming sublanguage of C++,
+using which you can manipulate, using substitution, the very types from which the underlying
+C++ program is written.</p></li>
+</ul>
+<p>Joining this list is OpenACR, which is of a different kind:
+it not only generates most of its own source code and lets you modify this source code with
+plain command-line tools like sed and awk, and even SQL, without introducing
+any new language or even an interpreter; but it serves as a sort of planter from which
+you can grow other applications that share these same properties and inter-operate with existing tools.</p>
+<p>Let’s go back to our three examples and consider one cycle of application development using them.</p>
+<ul class="simple">
+<li><p>When a LISP interpreter written in LISP interprets more LISP, it is
+qualitatively different: it is slower. It can only
+run smaller jobs than its parent. In order to be the same, the homoiconic interpreter
+would have to be vastly different; At the very least it would have to contain a
+memory model of the underlying computer and its file system, so it could then target them.
+That’s why no interpreted language today uses a self-hosting interpreter – nobody
+wants to pay for the quadratic slowdown.</p></li>
+<li><p>The output of a self-compiling compiler is an object file – unreadable
+for all practical purposes. So even though the compiler can compile itself, and the resulting
+compiler can run even faster than the one before (the opposite of what happens in LISP),
+this is a one-time gain, because the object file is not source code.</p></li>
+<li><p>Finally, the C++ template sublanguage, our third example, is strictly less powerful
+than its parent language; you can’t loop over the fields of a struct,
+or check how many structs are defined, or delete fields, or check if the name of a
+function contains an uppercase S. Neither the C++ language, nor its template sublanguage
+contain words that describe themselves, even though their descriptions contain a lot of other words.</p></li>
+</ul>
+<p>So, after one cycle of application of these tools, you get to a new and better place, but that place is
+either inaccessible (e.g. object file), or built at some unmaintainable expense;
+in either case, the gains are temporary. Yet <em>it is</em> possible to lock them in.
+For that, we need tools whose input is readable and writable
+by both human and the machine, and where the system of names applies equally well to the
+description of itself and the tools.</p>
+<p>When the input format is both machine and human-readable and most of the source code
+is generated, any tool works with almost any other tool, yielding an insanely compact
+and powerful development environment.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;abt acr&#39; builds acr.
+&#39;abt abt&#39; builds itself.
+
+&#39;acr field:dmmeta.Field.field&#39; describes its own primary key.
+&#39;acr ctype:dmmeta.Ctype&#39; describes the struct type (C type).
+
+&#39;amc acr.%&#39; generates from scratch (most of) the source code for acr
+&#39;amc amc.%&#39; generates from scratch the source code of itself.
+
+&#39;src_func abt&#39; shows the hand-written source code of abt.
+&#39;src_func src_func&#39; shows the hand-written source code of itself.
+
+&#39;acr_in -data amc&#39; shows all of the inputs that amc takes
+&#39;acr_in -data acr_in&#39; shows all of the inputs that it takes.
+
+&#39;acr_compl -line amc&#39; shows bash completions for amc
+&#39;acr_compl -line acr_compl&#39; shows bash completions for acr_compl itself
+
+&#39;acr ns:abt -t&#39; shows the definitions of all abt structures
+&#39;acr ns:acr -t&#39; shows the definitions of its own structures
+
+&#39;amc_gc acr -key:ctype:acr.%&#39; analyzes and elimintes unused records in acr
+&#39;amc_gc acr -key:ctype:amc_gc.%&#39; analyzes and elimintes unused records in amc_gc
+
+&#39;atf_fuzz acr&#39; performs input fuzzing on acr, based on its declared inputs
+&#39;atf_fuzz atf_fuzz&#39; performs input fuzzing on atf_fuzz, based on its declared inputs
+
+&#39;mdbg acr&#39; debugs acr
+&#39;mdbg &quot;mdbg acr&quot;&#39; debugs the debugger debugging acr (in principle)
+
+&#39;abt_md -ns:acr&#39; generates documentation for acr
+&#39;abt_md -ns:abt_md&#39; generates documentation for abt_md
+</pre></div>
+</div>
+<p>And of course, even though this is fun,
+the point of these tools is not to compile themselves: that economy is just a by-product of the naming conventions.
+The point is to allow the creation of new applications,
+using plain-text files to describe new domains while continuing
+to apply the same small set of tools – bash, acr, perl, etc. on each cycle.</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="tut3.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Tutorial 3: Scheduling And Main Loop</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="tut1.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Tutorial 1: Parts And Projects Tutorial</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024, AlgoRND
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            <div class="last-updated">
+              Last updated on Apr 25, 2024</div>
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link " href="algornd/arnd.313/-/commit/f8df17b9ffe2ee281b418863917c6ef10eaf02fa" aria-label="gitlab"><p style="font-family: Courier, monospace; font-size:12px; "> commit:2024-04-25.f8df17b9 </p></a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Tutorial 2: Parts And Projects in SQL</a><ul>
+<li><a class="reference internal" href="#codd-1970-and-anomalies">Codd 1970 And Anomalies</a></li>
+<li><a class="reference internal" href="#creating-mariadb-tables">Creating MariaDB Tables</a></li>
+<li><a class="reference internal" href="#same-thing-in-text">Same Thing In Text</a></li>
+<li><a class="reference internal" href="#describing-the-tuple-schema">Describing The Tuple Schema</a></li>
+<li><a class="reference internal" href="#describing-the-columns">Describing The Columns</a></li>
+<li><a class="reference internal" href="#adding-tools">Adding Tools</a></li>
+<li><a class="reference internal" href="#describing-the-tools">Describing The Tools</a></li>
+<li><a class="reference internal" href="#representation-manipulation">Representation &amp; Manipulation</a></li>
+<li><a class="reference internal" href="#ordering-dependencies">Ordering Dependencies</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/furo.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    </body>
+</html>

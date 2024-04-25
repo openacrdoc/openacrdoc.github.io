@@ -1,0 +1,1318 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
+
+    <!-- Generated with Sphinx 6.2.1 and Furo 2024.01.29 -->
+        <title>data/dmmeta/ffast.ssim - Openacr Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=369552022d0b975c8e74270ce6eabe0fb7978f24" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  --sidebar-item-spacing-horizontal: 1.0rem;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --sidebar-item-spacing-horizontal: 1.0rem;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --sidebar-item-spacing-horizontal: 1.0rem;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">Openacr Documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  
+  <span class="sidebar-brand-text">Openacr Documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../txt/intro/about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../txt/start/setup.html">Setup And Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../txt/fun/README.html">Fundamentals</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Fundamentals</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/fun/cpp/README.html">C++ integration</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of C++ integration</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/fun/cpp/coding-style.html">Coding Style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/fun/cpp/fun_06.html">C++ target</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/fun/cpp/intro.html">AMC Intro</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/fun/ssim/README.html">Ssimfiles for Information Management</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Ssimfiles for Information Management</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/fun/ssim/fun_01.html"><strong>ssim</strong> tuples and <strong>ssimfiles</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/fun/ssim/fun_02.html"><strong>ssim</strong> tuples and SQL Database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/fun/ssim/fun_03.html"><strong>fldfunc fields</strong> in <strong>ssim</strong> tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/fun/ssim/fun_04.html"><strong>ssimfile</strong> cross-references</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/fun/ssim/fun_05.html">Information Management Insights</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../txt/recipe/README.html">Recipes</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Recipes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/recipe/cpp/README.html">C++</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of C++</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/recipe/cpp/recipe_04.html">How to create C++ <strong>target</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/recipe/ssim/README.html">Ssimfiles</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Ssimfiles</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/recipe/ssim/recipe_01.html">How to define a new ssimfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/recipe/ssim/recipe_02.html">How to edit an existing ssimfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/recipe/ssim/recipe_03.html">How to display an existing ssimfile</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../txt/tut/README.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/tut/tut1.html">Tutorial 1: Parts And Projects Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/tut/tut2.html">Tutorial 2: Parts And Projects in SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/tut/tut3.html">Tutorial 3: Scheduling And Main Loop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/tut/tut4.html">Tutorial 4: Command Lines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/tut/tut5.html">Tutorial 5: Running multiple subprocesses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/tut/tut6.html">Iohook &amp; Fbuf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/tut/tut7.html">Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/tut/tut8.html">tut8 - ACR live tutorial</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../txt/ssimdb/README.html">Ssim Databases</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Ssim Databases</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/ssimdb/amcdb/README.html">amcdb - Algo Model Compiler support tables</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of amcdb - Algo Model Compiler support tables</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/amcdb/bltin.html">amcdb.bltin - Specify properties of a C built-in type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/amcdb/curstype.html">amcdb.curstype - Cursor type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/amcdb/gen.html">amcdb.gen -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/amcdb/regxtype.html">amcdb.regxtype -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/amcdb/tclass.html">amcdb.tclass - AMC template class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/amcdb/tcurs.html">amcdb.tcurs - Cursor template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/amcdb/tfunc.html">amcdb.tfunc - AMC template function</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/ssimdb/amsdb/README.html">amsdb - AMS configuration (ssim database)</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of amsdb - AMS configuration (ssim database)</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/amsdb/proctype.html">amsdb.proctype -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/amsdb/streamtype.html">amsdb.streamtype -</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/ssimdb/atfdb/README.html">atfdb - Support tables for testing</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of atfdb - Support tables for testing</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/amctest.html">atfdb.amctest -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/cijob.html">atfdb.cijob -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/cipackage.html">atfdb.cipackage -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/citest.html">atfdb.citest -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/comptest.html">atfdb.comptest -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/fuzzstrat.html">atfdb.fuzzstrat -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/msgdir.html">atfdb.msgdir -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/targs.html">atfdb.targs -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/test_gsymbol_char.html">atfdb.test_gsymbol_char -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/test_gsymbol_pkey.html">atfdb.test_gsymbol_pkey -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/test_gsymbol_strptr.html">atfdb.test_gsymbol_strptr -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/tfilt.html">atfdb.tfilt -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/tmsg.html">atfdb.tmsg -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/atfdb/unittest.html">atfdb.unittest -</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/ssimdb/dclidb/README.html">dclidb - docker db</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of dclidb - docker db</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dclidb/dclicmd.html">dclidb.dclicmd -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dclidb/dclicmdsel.html">dclidb.dclicmdsel -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dclidb/dclicmdstep.html">dclidb.dclicmdstep -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dclidb/dclisel.html">dclidb.dclisel -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dclidb/dctr.html">dclidb.dctr - Container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dclidb/dctrhost.html">dclidb.dctrhost - Container/host</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dclidb/dctrua.html">dclidb.dctrua - User attribute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dclidb/dhost.html">dclidb.dhost - Host</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dclidb/duascript.html">dclidb.duascript - Script type (step in preparation of container)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dclidb/duascriptstep.html">dclidb.duascriptstep - Script step ordering</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/ssimdb/dev/README.html">dev - Tables supporting compilation of programs</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of dev - Tables supporting compilation of programs</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/arch.html">dev.arch - System architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/badline.html">dev.badline - Regex of a dubious source code line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/builddir.html">dev.builddir - Directory where object files/executables go. Determines compile/link options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/cfg.html">dev.cfg - Compiler configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/compiler.html">dev.compiler - One of the known compilers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/copyright.html">dev.copyright - Copyrighting entity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/covfile.html">dev.covfile -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/covline.html">dev.covline -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/covtarget.html">dev.covtarget -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/edaction.html">dev.edaction - acr_ed editing action (only one can exist at a time)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/edacttype.html">dev.edacttype - acr_ed editing action type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/gitfile.html">dev.gitfile - File managed by git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/gitinfo.html">dev.gitinfo -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/hilite.html">dev.hilite - Mapping of perl regx-&gt;hilite pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/htmlentity.html">dev.htmlentity - Known HTML entity strings &amp; codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/include.html">dev.include - A site where one file includes another</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/license.html">dev.license - Source code license</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/linelim.html">dev.linelim -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/mdsection.html">dev.mdsection - Template for updating a markdown file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/msgfile.html">dev.msgfile - File in repo containing messages that should be normalized during CI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/noindent.html">dev.noindent - Indicates that a file should not be automatically indented</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/opt_type.html">dev.opt_type - Type of option (used in tool_opt)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/package.html">dev.package - OpenACR package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/pkgdep.html">dev.pkgdep - OpenACR Package dependency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/pkgkey.html">dev.pkgkey - Keys belonging to the OpenACR package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/readme.html">dev.readme - File containing documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/readmecat.html">dev.readmecat - sorted categories of txt/ *.md files presented in dev.readme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/sandbox.html">dev.sandbox - Registered sandbox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/sbpath.html">dev.sbpath - Extra files to copy into the sandbox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/scriptfile.html">dev.scriptfile - Known script file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/srcfile.html">dev.srcfile - Source file or header (key is pathname)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/syscmd.html">dev.syscmd - System command to execute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/syscmddep.html">dev.syscmddep - Dependency between two commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/syslib.html">dev.syslib - Registered system library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/targdep.html">dev.targdep - Dependency between targets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/target.html">dev.target - Build target</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/targsrc.html">dev.targsrc - List of sources for target</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/targsyslib.html">dev.targsyslib - Use of system library by target</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/tgtcov.html">dev.tgtcov - Captured line coverate information by target</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/timefmt.html">dev.timefmt - Time formats supported by orgfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/tool_opt.html">dev.tool_opt - Compiler/linker options to use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/uname.html">dev.uname - List of known unames</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dev/unstablefld.html">dev.unstablefld - Fields that should be stripped from component test output because they contain timestamps etc.</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/ssimdb/dmmeta/README.html">dmmeta - Tables holding metadata (data model meta)</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of dmmeta - Tables holding metadata (data model meta)</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/anonfld.html">dmmeta.anonfld - Omit field name where possible (command line, enums, constants)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/argvtype.html">dmmeta.argvtype - Customize parsing of command lines (rarely used)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/basepool.html">dmmeta.basepool - Specify pool to be used for allocating elements of a type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/bitfld.html">dmmeta.bitfld - Specify offset/width of a bitfield within another field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/cafter.html">dmmeta.cafter - Control amc processing order for unrelated types (used in rare situations)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/cascdel.html">dmmeta.cascdel - Request cascading delete of referenced rows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/ccmp.html">dmmeta.ccmp - Generate hash function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/cdflt.html">dmmeta.cdflt - Specify default value for single-value types that lack fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/cextern.html">dmmeta.cextern - Externally defined ctype (a struct from system header, or from a c++ library)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/cfast.html">dmmeta.cfast - FAST properties for ctype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/cfmt.html">dmmeta.cfmt - Specify options for printing/reading ctypes into multiple formats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/cget.html">dmmeta.cget - Generate state functions for these ctypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/charset.html">dmmeta.charset - Generate functions to determine if a character is a member of a set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/chash.html">dmmeta.chash - Generate hash function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/cppfunc.html">dmmeta.cppfunc - Value of field provided by this expression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/cppkeyword.html">dmmeta.cppkeyword - Built-in C++ keyword</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/cpptype.html">dmmeta.cpptype - Specify whether a ctype can be passed by value, and other c++ options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/csize.html">dmmeta.csize - Specify size/alignment for built-in C++ types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/cstr.html">dmmeta.cstr - Specify that type behaves like a string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/ctype.html">dmmeta.ctype - Struct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/ctypelen.html">dmmeta.ctypelen - Size of Ctype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/dispatch.html">dmmeta.dispatch - Generate code for a multi-way branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/dispatch_msg.html">dmmeta.dispatch_msg - Add message to a dispatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/dispctx.html">dmmeta.dispctx - Use context with dispatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/dispfilter.html">dmmeta.dispfilter - Generate filter function on dispatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/dispsig.html">dmmeta.dispsig - Cryptographic signature of all dispatches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/dispsigcheck.html">dmmeta.dispsigcheck - Check signature of input data against executable’s version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/disptrace.html">dmmeta.disptrace - Generate trace fields (cycles, counts) for all dispatch branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/falias.html">dmmeta.falias - Alias field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fastenc.html">dmmeta.fastenc -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fastinstr.html">dmmeta.fastinstr -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fastop.html">dmmeta.fastop -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fbase.html">dmmeta.fbase - Customize imported Base fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fbigend.html">dmmeta.fbigend - Annotate field as having big-endian storage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fbitset.html">dmmeta.fbitset - Generate bitset functions over integer field or array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fbuf.html">dmmeta.fbuf - Buffer for reading/writing messages, works with Iohook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fbufdir.html">dmmeta.fbufdir - Buffer direction (in,out)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fbuftype.html">dmmeta.fbuftype - Buffer type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fcast.html">dmmeta.fcast - Generate implicit conversion from field to c++ expression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fcleanup.html">dmmeta.fcleanup - Request user-implemented function to be called at Uninit time for a field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fcmap.html">dmmeta.fcmap - Bidirectional mapping between fconst values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fcmdline.html">dmmeta.fcmdline - Annotate field that holds process command line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fcmp.html">dmmeta.fcmp - Request versionsort or case-insensitive sort for field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fcompact.html">dmmeta.fcompact - Request compaction upon removal from index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fconst.html">dmmeta.fconst - Specify enum value (integer + string constant) for a field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fcurs.html">dmmeta.fcurs - Request generation of custom cursor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fdec.html">dmmeta.fdec - Specify that field has an implied # of decimal places and specify formatting options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fdelay.html">dmmeta.fdelay - Control elapsed time between execution of a step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/ffast.html">dmmeta.ffast - FAST properties for field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fflag.html">dmmeta.fflag - Options for command-line flags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/field.html">dmmeta.field - Specify field of a struct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/findrem.html">dmmeta.findrem - Request generation of FindRemove function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/finput.html">dmmeta.finput - Describe input table of a program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fldoffset.html">dmmeta.fldoffset - Assert field offset - will result in compile-time error if violated</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/floadtuples.html">dmmeta.floadtuples - Request that process automatically load any input tables on startup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fnoremove.html">dmmeta.fnoremove - Omit any functions for removing elements from table; Table is append-only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/foutput.html">dmmeta.foutput - Generate function to save index/table back to disk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fprefix.html">dmmeta.fprefix - Mapping between field prefix and Reftype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fregx.html">dmmeta.fregx - Specify options for command-line regx field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fsort.html">dmmeta.fsort - Generate custom sort function for array field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fstep.html">dmmeta.fstep - Generate a main loop step to be executed whenever a field is non-empty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/ftrace.html">dmmeta.ftrace - Generate cycle/step counting fields for a step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/ftuple.html">dmmeta.ftuple -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/func.html">dmmeta.func -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/funique.html">dmmeta.funique - This field must be unique in the table. Not needed for primary key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fuserinit.html">dmmeta.fuserinit - Add user-defined initialization function for field (see fcleanup)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/fwddecl.html">dmmeta.fwddecl - Request forward declaration of a field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/gconst.html">dmmeta.gconst - Import ssim table columns as fconst for a field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/gstatic.html">dmmeta.gstatic - Load entries for this table at startup time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/gsymbol.html">dmmeta.gsymbol - Create C++ symbols from entries in ssim table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/hashtype.html">dmmeta.hashtype - Hash function type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/hook.html">dmmeta.hook - Required on Hook fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/inlary.html">dmmeta.inlary - Generate inline array of fixed or variable length (all entries fit within parent struct)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/lenfld.html">dmmeta.lenfld - Specify which gives length of varlen portion in bytes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/listtype.html">dmmeta.listtype - Specify structure of linked list based on field prefix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/llist.html">dmmeta.llist - Options for Llist field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/logcat.html">dmmeta.logcat - Log category</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/main.html">dmmeta.main - Generate Main function for namespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/msgtype.html">dmmeta.msgtype - Specify message type for each eligible message, controls dispatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/nocascdel.html">dmmeta.nocascdel - Remove cascade delete for this index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/nossimfile.html">dmmeta.nossimfile - Indicates that ssimfile does not exist for this ssimdb ctype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/noxref.html">dmmeta.noxref - Explicitly specify that no x-ref exists between tables (don’t use unless forced)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/ns.html">dmmeta.ns - Namespace (for in-memory database, protocol, etc)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/nscpp.html">dmmeta.nscpp - Generate C++ code for this namespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/nsdb.html">dmmeta.nsdb - Annotate ssimdb namespaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/nsfast.html">dmmeta.nsfast - Whether namespace is FAST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/nsinclude.html">dmmeta.nsinclude - Explicitly specify a C++ include file for namespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/nsjs.html">dmmeta.nsjs - Generate JavaScript code for this namespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/nsproto.html">dmmeta.nsproto - Annotate protocol namespace (collection of types, no state)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/nstype.html">dmmeta.nstype - Namespace type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/nsversion.html">dmmeta.nsversion - Namespace version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/nsx.html">dmmeta.nsx - Control code-generation and exception handling options for process/library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/numstr.html">dmmeta.numstr - Add functions to read numbers out of a string field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/pack.html">dmmeta.pack - Request byte-packing of structure fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/pmaskfld.html">dmmeta.pmaskfld - Specify which field holds presence mask bits (one for each field in struct)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/pmaskfld_member.html">dmmeta.pmaskfld_member - Explicit field-to-pmask association</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/pnew.html">dmmeta.pnew - Generate custom constructor (placement new), for use with binary protocols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/pnewtype.html">dmmeta.pnewtype - Type of fbuf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/printfmt.html">dmmeta.printfmt - Print format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/ptrary.html">dmmeta.ptrary - Required for fields with reftype:Ptrary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/reftype.html">dmmeta.reftype - Field type constructor (e.g. reference type)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/rowid.html">dmmeta.rowid - Initialize field to row id of element</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/smallstr.html">dmmeta.smallstr - Generated fixed-length padded or length-delimited string field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/sortfld.html">dmmeta.sortfld - Specify what field an index (Bheap,Atree) is sorted on</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/sorttype.html">dmmeta.sorttype - Sort type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/sqltype.html">dmmeta.sqltype - Mapping of ctype -&gt; SQL expression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/ssimfile.html">dmmeta.ssimfile - File with ssim tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/ssimreq.html">dmmeta.ssimreq - Extended constraints for ssim records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/ssimsort.html">dmmeta.ssimsort - Define sort order for ssimfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/ssimvolatile.html">dmmeta.ssimvolatile - Types based on ssim files marked this way cannot be cross-referenced</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/steptype.html">dmmeta.steptype - Type of scheduler step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/strfmt.html">dmmeta.strfmt - Cfmt conversion type (misnomer, not necessarily a string)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/strtype.html">dmmeta.strtype - Type of small string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/substr.html">dmmeta.substr - Specify that the field value is computed from a substring of another field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/svtype.html">dmmeta.svtype - Table for determining ctype from separated value file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/tary.html">dmmeta.tary - Indirect linear dynamically alocated array (used for strings, arrays of data, etc)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/thash.html">dmmeta.thash - Hash index, required for fields with reftype Thash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/tracefld.html">dmmeta.tracefld - Trace fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/tracerec.html">dmmeta.tracerec - Trace record</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/typefld.html">dmmeta.typefld - Specifies which field of a message carries the type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/usertracefld.html">dmmeta.usertracefld - Add custom user trace fields to process’s trace struct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/dmmeta/xref.html">dmmeta.xref - Specify how to cross-reference (i.e. project, or group-by) one record with another</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/ssimdb/fmdb/README.html">fmdb - Fault management tables (ssim database)</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle navigation of fmdb - Fault management tables (ssim database)</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/fmdb/alarm.html">fmdb.alarm -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/fmdb/alm_code.html">fmdb.alm_code -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/fmdb/alm_objtype.html">fmdb.alm_objtype - Alarm resource type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/fmdb/alm_source.html">fmdb.alm_source - Subsystem where alarm has been detected</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/ssimdb/gclidb/README.html">gclidb - gcli db</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle navigation of gclidb - gcli db</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gact.html">gclidb.gact - Action that may be performed on a table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gatv.html">gclidb.gatv -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gclicmd.html">gclidb.gclicmd -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gclicmdf2j.html">gclidb.gclicmdf2j - Mapping of internal fields to JSON fields for gitlab/github</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gclicmdt.html">gclidb.gclicmdt - Internal test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gclienv.html">gclidb.gclienv -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gclienvsub.html">gclidb.gclienvsub -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gclisub.html">gclidb.gclisub -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gfld.html">gclidb.gfld - Gitlab/github field name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/githost.html">gclidb.githost -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gmethod.html">gclidb.gmethod - HTTP method list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/grepo.html">gclidb.grepo - Repo table (acr grepo -in ~/.ssim)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/grepogitport.html">gclidb.grepogitport - Default ports for repositories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/grepossh.html">gclidb.grepossh - Ssh key table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gstate.html">gclidb.gstate - Issue/MR state list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gstatet.html">gclidb.gstatet - Internal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gtbl.html">gclidb.gtbl - Supported gcli tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gtblact.html">gclidb.gtblact -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gtblactfld.html">gclidb.gtblactfld - List of available for each table &amp; action combination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gtblacttst.html">gclidb.gtblacttst -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gtblacttstout.html">gclidb.gtblacttstout -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gtype.html">gclidb.gtype - Platform type (ghp=github; glpat=gitlab)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gtypeh.html">gclidb.gtypeh - HTTP heaaderes for user with platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/gtypeprefix.html">gclidb.gtypeprefix - Token prefix mapping to platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/issue.html">gclidb.issue - Gitlab project issue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/issuenote.html">gclidb.issuenote - Issue note</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/issuepipeline.html">gclidb.issuepipeline - Issue pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/label.html">gclidb.label - List of labels for gitlab/github</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/milestone.html">gclidb.milestone - Gclidb project milestone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/mr.html">gclidb.mr - Gitlab project mr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/mrjob.html">gclidb.mrjob - Mr job</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/mrnote.html">gclidb.mrnote - Issue note</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/project.html">gclidb.project - Gitlab project mr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gclidb/user.html">gclidb.user -</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/ssimdb/gmvdb/README.html">gmvdb - gmv db</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle navigation of gmvdb - gmv db</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gmvdb/gmvproj.html">gmvdb.gmvproj -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gmvdb/gmvscript.html">gmvdb.gmvscript - action type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/gmvdb/gmvua.html">gmvdb.gmvua - User attribute</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/ssimdb/spnxdb/README.html">spnxdb - Sphinx-based Websites build tool DB</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><div class="visually-hidden">Toggle navigation of spnxdb - Sphinx-based Websites build tool DB</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/spnxdb/build.html">spnxdb.build - list of actions supported by sphinx-build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/spnxdb/pkgapt.html">spnxdb.pkgapt - required packages to be installed by apt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/spnxdb/pkgpip.html">spnxdb.pkgpip - required packages to be installed by pip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/spnxdb/site.html">spnxdb.site - list of sites supported by bin/spnx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/spnxdb/siteattr.html">spnxdb.siteattr - list of attributes and values by the site</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/spnxdb/srcext.html">spnxdb.srcext - source extensions read as md by sphinx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/spnxdb/theme.html">spnxdb.theme -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/spnxdb/userattr.html">spnxdb.userattr - list of possible attributes referred by spnxdb.siteattr</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/ssimdb/wclidb/README.html">wclidb - wiki db</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><div class="visually-hidden">Toggle navigation of wclidb - wiki db</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/atfwclicmd.html">wclidb.atfwclicmd - management commands for atf_wcli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/atfwclicmdfld.html">wclidb.atfwclicmdfld - arguments taken by management commands for atf_wcli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/curlarg.html">wclidb.curlarg - an internal list of curl arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/ftype.html">wclidb.ftype - wiki file ftype types used by wcli to copy files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/page.html">wclidb.page - a form for wcli page operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/pagesec.html">wclidb.pagesec - a from for wcli page sections operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/pagetitle.html">wclidb.pagetitle - a form for wcli page reporting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wact.html">wclidb.wact - wcli actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wcliapi.html">wclidb.wcliapi - api tokens for wcli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wclicmd.html">wclidb.wclicmd - wcli api commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wclicmdapi.html">wclidb.wclicmdapi - wcli api commands with arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wclicmdf2j.html">wclidb.wclicmdf2j - Mapping of internal fields to JSON fields for gitlab/github</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wfld.html">wclidb.wfld - Wiki field name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wikiext.html">wclidb.wikiext - wiki allowed file extensions, dynamic read</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wikigroup.html">wclidb.wikigroup - wiki default user groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wikins.html">wclidb.wikins - wiki namespaces, dynamic read</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wikisite.html">wclidb.wikisite - wiki site types supported by wcli - the main wcli key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wikisitesub.html">wclidb.wikisitesub - atf_wcli args substitution table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wikisub.html">wclidb.wikisub - atf_wcli substitutions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wikitoken.html">wclidb.wikitoken - wcli medaiwiki auth token types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wikitokenapi.html">wclidb.wikitokenapi - wcli tie-in of a token to an api action</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wikiuser.html">wclidb.wikiuser -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wikiuseruser.html">wclidb.wikiuseruser -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wlogin.html">wclidb.wlogin - a form for wcli login operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wtbl.html">wclidb.wtbl - scope for wcli actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wtblact.html">wclidb.wtblact - a wcli tie-in of table and action</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wtblactfld.html">wclidb.wtblactfld - List of available for each table &amp; action combination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wtblacttst.html">wclidb.wtblacttst - atf_wcli wcli regression testcases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wtblacttstout.html">wclidb.wtblacttstout - atf_wcli wcli regression results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wclidb/wwiki.html">wclidb.wwiki - user/auth tokens holding structure</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/ssimdb/wsdb/README.html">wsdb - WebSocket db</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><div class="visually-hidden">Toggle navigation of wsdb - WebSocket db</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/wsdb/status.html">wsdb.status -</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/ssimdb/x2db/README.html">x2db - operational info for algornd</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle navigation of x2db - operational info for algornd</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/admact.html">x2db.admact - x2admin actions for startup scripts generation and use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/admsvc.html">x2db.admsvc - x2admin scope for services like user, host, ssh applied to envnodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/admsvcact.html">x2db.admsvcact - x2admin coupling for the scope and the actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/dctrport.html">x2db.dctrport - tie-in docker ports with uids for containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/env.html">x2db.env - x2 environments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/envctr.html">x2db.envctr - envnode to container tie-in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/envhost.html">x2db.envhost - envnode to hosts tie-in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/envktypeuser.html">x2db.envktypeuser - environment to “ssh key type” to a user and its public key tie in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/envnode.html">x2db.envnode - environment to node tie in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/envnodeacct.html">x2db.envnodeacct - envnode to its users accounts tie in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/envnodeacctuser.html">x2db.envnodeacctuser - envnode accounts to users tie in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/envnodecname.html">x2db.envnodecname - envnode to cname tie in - cname used in /etc/hosts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/ktype.html">x2db.ktype - “ssh key types” list for different purposes/env</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/node.html">x2db.node - node name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/nodektype.html">x2db.nodektype - A node to “ssh key type” assignment list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/uid.html">x2db.uid - x2 user linux uid list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/ssimdb/x2db/user.html">x2db.user - x2 users list</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../txt/protocol/README.html">Protocols</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><div class="visually-hidden">Toggle navigation of Protocols</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/protocol/algo/README.html">algo - Basic types and functions</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" role="switch" type="checkbox"/><label for="toctree-checkbox-23"><div class="visually-hidden">Toggle navigation of algo - Basic types and functions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Attr.html">txt/protocol/algo/Attr.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Bool.html">txt/protocol/algo/Bool.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Charset.html">txt/protocol/algo/Charset.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Comment.html">txt/protocol/algo/Comment.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/CppExpr.html">txt/protocol/algo/CppExpr.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/DateCache.html">txt/protocol/algo/DateCache.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Decimal.html">txt/protocol/algo/Decimal.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/DirEntry.html">txt/protocol/algo/DirEntry.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Errcode.html">txt/protocol/algo/Errcode.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Errns.html">txt/protocol/algo/Errns.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Fildes.html">txt/protocol/algo/Fildes.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/FileFlags.html">txt/protocol/algo/FileFlags.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/IOEvtFlags.html">txt/protocol/algo/IOEvtFlags.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/IPoint.html">txt/protocol/algo/IPoint.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Imtable.html">txt/protocol/algo/Imtable.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Ipmask.html">txt/protocol/algo/Ipmask.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/LineBuf.html">txt/protocol/algo/LineBuf.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Md5Digest.html">txt/protocol/algo/Md5Digest.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Month.html">txt/protocol/algo/Month.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/NumParseFlags.html">txt/protocol/algo/NumParseFlags.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/PrlogFcn.html">txt/protocol/algo/PrlogFcn.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/SchedTime.html">txt/protocol/algo/SchedTime.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/SeqType.html">txt/protocol/algo/SeqType.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Sha1sig.html">txt/protocol/algo/Sha1sig.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/TFNNtTestAlert.html">txt/protocol/algo/TFNNtTestAlert.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/TermStyle.html">txt/protocol/algo/TermStyle.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/TextJust.html">txt/protocol/algo/TextJust.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/TstampCache.html">txt/protocol/algo/TstampCache.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/Tuple.html">txt/protocol/algo/Tuple.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/URL.html">txt/protocol/algo/URL.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/UnDiff.html">txt/protocol/algo/UnDiff.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/UnTime.html">txt/protocol/algo/UnTime.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/UnixDiff.html">txt/protocol/algo/UnixDiff.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/UnixTime.html">txt/protocol/algo/UnixTime.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/cstring.html">txt/protocol/algo/cstring.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/memptr.html">txt/protocol/algo/memptr.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/algo/strptr.html">txt/protocol/algo/strptr.md</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/protocol/ams/README.html">ams - Algo Messaging System protocol</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" role="switch" type="checkbox"/><label for="toctree-checkbox-24"><div class="visually-hidden">Toggle navigation of ams - Algo Messaging System protocol</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/AlarmSyncMsg.html">txt/protocol/ams/AlarmSyncMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/DfltStream.html">txt/protocol/ams/DfltStream.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/DumpStreamTableMsg.html">txt/protocol/ams/DumpStreamTableMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/ExpectMsg.html">txt/protocol/ams/ExpectMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/HeartbeatMsg.html">txt/protocol/ams/HeartbeatMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/InputLineMsg.html">txt/protocol/ams/InputLineMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/LogMsg.html">txt/protocol/ams/LogMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/Member.html">txt/protocol/ams/Member.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/MsgBlock.html">txt/protocol/ams/MsgBlock.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/MsgHeader.html">txt/protocol/ams/MsgHeader.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/OpenMsg.html">txt/protocol/ams/OpenMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/PrlogMsg.html">txt/protocol/ams/PrlogMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/ProcAddMsg.html">txt/protocol/ams/ProcAddMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/ProcId.html">txt/protocol/ams/ProcId.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/ProcRemoveMsg.html">txt/protocol/ams/ProcRemoveMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/ProcType.html">txt/protocol/ams/ProcType.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/Seqmsg.html">txt/protocol/ams/Seqmsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/SeqmsgId.html">txt/protocol/ams/SeqmsgId.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/SeqmsgTrace.html">txt/protocol/ams/SeqmsgTrace.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/StreamFlags.html">txt/protocol/ams/StreamFlags.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/StreamHbMsg.html">txt/protocol/ams/StreamHbMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/StreamId.html">txt/protocol/ams/StreamId.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/StreamPos.html">txt/protocol/ams/StreamPos.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/StreamType.html">txt/protocol/ams/StreamType.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/TerminateMsg.html">txt/protocol/ams/TerminateMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/Trace2Msg.html">txt/protocol/ams/Trace2Msg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/TraceInfo2Msg.html">txt/protocol/ams/TraceInfo2Msg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/TraceInfoMsg.html">txt/protocol/ams/TraceInfoMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/TraceMsg.html">txt/protocol/ams/TraceMsg.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/protocol/ams/UdpFrame.html">txt/protocol/ams/UdpFrame.md</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/protocol/atf/README.html">atf - Algo Testing Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/protocol/command/README.html">command - Command line descriptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/protocol/emdi12/README.html">emdi12 -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/protocol/fasttest/README.html">fasttest -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/protocol/fm/README.html">fm - Fault management types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/protocol/ietf/README.html">ietf - Some IETF structs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/protocol/js/README.html">js - Reserved for JavaScript builtin types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/protocol/report/README.html">report - Command reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/protocol/ws/README.html">ws - WebSocket binary protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/protocol/x2/README.html">x2 - X2 protocol</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../txt/lib/README.html">Libraries</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" role="switch" type="checkbox"/><label for="toctree-checkbox-25"><div class="visually-hidden">Toggle navigation of Libraries</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/algo_lib/README.html">algo_lib - Support library for all executables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_amcdb/README.html">lib_amcdb - Library used by amc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_ams/README.html">lib_ams - Library for AMS middleware, supporting file format &amp; messaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_ams/README.html#ams-library">AMS Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_ams/README.html#list-of-ams-messages">List of AMS Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_ams/README.html#in-memory-stream-format-flow-control">In-memory stream format; Flow control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_ctype/README.html">lib_ctype - Helpful library for reading/writing ctypes as text tuples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_exec/README.html">lib_exec - Build and run a dag of subprocesses with N parallel jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_fast/README.html">lib_fast - FAST prococol support library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_finprot/README.html">lib_finprot - Library of financial protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_fm/README.html">lib_fm - Library for dynamic alarm management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_git/README.html">lib_git - Helpful git wrappers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_iconv/README.html">lib_iconv - Iconv wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_json/README.html">lib_json - Full json support library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_mysql/README.html">lib_mysql - Mysql adaptor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_prot/README.html">lib_prot - Library covering all protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_sql/README.html">lib_sql - SQL formatting functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/lib/lib_ws/README.html">lib_ws - WebSocket library</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../txt/exe/README.html">Executables</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" role="switch" type="checkbox"/><label for="toctree-checkbox-26"><div class="visually-hidden">Toggle navigation of Executables</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/abt/README.html">abt - Algo Build Tool - build &amp; link C++ targets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/abt_md/README.html">abt_md - Tool to generate markdown documentation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/exe/acr/README.html">acr - Algo Cross-Reference - ssimfile database &amp; update tool</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" role="switch" type="checkbox"/><label for="toctree-checkbox-27"><div class="visually-hidden">Toggle navigation of acr - Algo Cross-Reference - ssimfile database &amp; update tool</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/exe/acr/relnotes.html">ACR release notes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/acr_compl/README.html">acr_compl - ACR shell auto-complete for all targets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/acr_dm/README.html">acr_dm - ACR Diff/Merge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/acr_ed/README.html">acr_ed - Script generator for common dev tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/acr_in/README.html">acr_in - ACR Input - compute set of ssimfiles or tuples used by a specific target</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/acr_my/README.html">acr_my - ACR &lt;-&gt; MariaDB adaptor</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../txt/exe/amc/README.html">amc - Algo Model Compiler: generate code under include/gen and cpp/gen</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" role="switch" type="checkbox"/><label for="toctree-checkbox-28"><div class="visually-hidden">Toggle navigation of amc - Algo Model Compiler: generate code under include/gen and cpp/gen</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/exe/amc/enum.html">AMC Enumerated Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/exe/amc/exec.html">AMC Subprocess Invocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/exe/amc/pmask.html">AMC Presence Masks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/exe/amc/pools.html">AMC Memory Pools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/exe/amc/proto.html">AMC Protocols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/exe/amc/reflection.html">AMC Reflection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/exe/amc/reftypes.html">AMC Reftypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/exe/amc/relnotes.html">AMC release notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/exe/amc/runtime.html">AMC Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/exe/amc/strings.html">AMC Strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txt/exe/amc/xref.html">AMC Cross-References (xrefs)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/amc_gc/README.html">amc_gc - Garbage collector for in-memory databases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/amc_js/README.html">amc_js - Model compiler for javascript targets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/amc_vis/README.html">amc_vis - Draw access path diagrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/ams_cat/README.html">ams_cat - Algo Messaging System sample tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/ams_sendtest/README.html">ams_sendtest - Algo Messaging System test tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/apm/README.html">apm - Algo Package Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/atf_amc/README.html">atf_amc - Unit tests for amc (see amctest table)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/atf_ci/README.html">atf_ci - Normalization tests (see citest table)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/atf_cmdline/README.html">atf_cmdline - Test tool for command line parsing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/atf_comp/README.html">atf_comp - Algo Test Framework - Component test execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/atf_cov/README.html">atf_cov - Line coverage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/atf_cov/README.html#line-coverage">Line coverage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/atf_fuzz/README.html">atf_fuzz - Generator of bad inputs for targets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/atf_gcli/README.html">atf_gcli - test harness for gcli</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/atf_netio/README.html">atf_netio - Test driver for netio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/atf_nrun/README.html">atf_nrun - Run N subprocesses in parallel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/atf_unit/README.html">atf_unit - Unit tests (see unittest table)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/atf_wcli/README.html">atf_wcli - wiki management and test harness for wcli tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/atf_ws/README.html">atf_ws - Component test driver for lib_ws</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/bash2html/README.html">bash2html - Convert bash output and colours to html</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/dcli/README.html">dcli - command line tool for container operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/dcli_ed/README.html">dcli_ed - Docker Client Editor - generator of dcli commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/fast/README.html">fast - FAST utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/gcache/README.html">gcache - Compiler cache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/gcli/README.html">gcli - Gcli - gitlab/github command-line client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/gmv/README.html">gmv - Utility to move parts of the project in or out to a different project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/lib_x2/README.html">lib_x2 -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/mdbg/README.html">mdbg - Gdb front-end</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/mysql2ssim/README.html">mysql2ssim - mysql -&gt; ssim conversion tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/orgfile/README.html">orgfile - Organize and deduplicate files by timestamp and by contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/samp_regx/README.html">samp_regx - Test tool for regular expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/samp_ws/README.html">samp_ws - WebSocket sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/sandbox/README.html">sandbox - Sandbox - sandbox management tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/spnx/README.html">spnx - website generator based on sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/src_func/README.html">src_func - Access / edit functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/src_hdr/README.html">src_hdr - Manage source copyright+license header in source files and scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/src_lim/README.html">src_lim - Enforce line length, function length, and indentation limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/ssim2csv/README.html">ssim2csv - Ssim -&gt; csv conversion tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/ssim2mysql/README.html">ssim2mysql - Ssim -&gt; mysql</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/ssimfilt/README.html">ssimfilt - Tuple utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/strconv/README.html">strconv - A simple string utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/sv2ssim/README.html">sv2ssim - sv2ssim - Separated Value file processor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/ttrack/README.html">ttrack - Tool for keeping track of work time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/wcli/README.html">wcli - wiki cli to operate on wikis via API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/x2admin/README.html">x2admin - utility to generate admsvc control for containers etc…</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/x2cmt/README.html">x2cmt - X2 - Commit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/x2gf/README.html">x2gf - X2 - Gapfill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/x2gw/README.html">x2gw - X2 - Gateway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/x2mon/README.html">x2mon - X2 - Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/x2node/README.html">x2node - ssh tool to access varios aops nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/x2read/README.html">x2read - X2 - Read client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/x2sup/README.html">x2sup - X2 - Supervisor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/x2txn/README.html">x2txn - X2 - Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/exe/x2write/README.html">x2write - X2 - Write client</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../txt/script/README.html">Scripts</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" role="switch" type="checkbox"/><label for="toctree-checkbox-29"><div class="visually-hidden">Toggle navigation of Scripts</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/abt_md_filt.html">bin/abt_md_filt - Eliminate unstable fields from inline-command output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/ai.html">bin/ai - Bootstrapped compilation script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/alexei-setup-soft-links.html">bin/alexei-setup-soft-links -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/break-long-lines.html">bin/break-long-lines - Read input and break long lines into multiple lines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/ci-show-log.html">bin/ci-show-log - Fetch gitlab runner output for current issue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/cpp-indent.html">bin/cpp-indent - Indent specified files using emacs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/delete-duplicate-lines.html">bin/delete-duplicate-lines - Read input and eliminate duplicate lines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/diff-to-errlist.html">bin/diff-to-errlist - Read standard diff format on input and produce output suitable for errlist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/edit-conflicts.html">bin/edit-conflicts - Open any files marked as being in confict using EDITOR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/em.html">bin/em - Alias for ‘emacs -nw’</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/errlist.html">bin/errlist - Open error list in editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/ff.html">bin/ff - Find files and inside files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/find-non-copyrighted.html">bin/find-non-copyrighted - Find any files with missing copyrights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/fix-gen-conflicts.html">bin/fix-gen-conflicts - Auto-fix for git merge- or rebase-related conflicts by re-running generator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-add-to-last-commit.html">bin/git-add-to-last-commit - Add any currently modified changes to the most recent commit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-branch-gc.html">bin/git-branch-gc - Attempt to rebase all branches and delete branches merged into HEAD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-clean-branches.html">bin/git-clean-branches -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-commits-per-user.html">bin/git-commits-per-user -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-current-ref.html">bin/git-current-ref - Print gitref of current HEAD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-diff-annotate.html">bin/git-diff-annotate -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-grep-reflog.html">bin/git-grep-reflog - Find a commit in reflog whose delta contains given regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-mdiff.html">bin/git-mdiff - Git diff but exclude generated files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-mod-plot.html">bin/git-mod-plot -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-praise.html">bin/git-praise -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-rebase-origin.html">bin/git-rebase-origin - Rebase current branch onto origin master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-rebase-remote.html">bin/git-rebase-remote - Rebase current branch onto given <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-recent-branches.html">bin/git-recent-branches - List recent branches that you worked on</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-rollback-file.html">bin/git-rollback-file - Roll back specified files to the previous commit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/git-update-config.html">bin/git-update-config -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/gitconfig-setup.html">bin/gitconfig-setup -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/grephunk.html">bin/grephunk - Patch file filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/hilite-error.html">bin/hilite-error - Read input and highlight errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/hilite.html">bin/hilite - Inline highlighter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/limit-output.html">bin/limit-output - Read input and show at most N lines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/lines-to-dots.html">bin/lines-to-dots - Read input and print a dot for each input line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/lsfunc.html">bin/lsfunc - List all functions from all source files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/msloc.pl.html">bin/msloc.pl - Word count statistics for non-generated source files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/normalize.html">bin/normalize - Run standard normalization tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/select-bootstrap.html">bin/select-bootstrap -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/sha1.html">bin/sha1 -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/sloc.pl.html">bin/sloc.pl - Word count statistics for specified list of source files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/tags.html">bin/tags -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/targ-diff.html">bin/targ-diff - Show changes in TARG’s source code between this branch and REF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/test-orgfile.html">bin/test-orgfile -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/timestamps.html">bin/timestamps - Read input and timestamp each line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/toamc.html">bin/toamc - Try to extract amc schema from specified C++ file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/todo.html">bin/todo -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/update-gitfile.html">bin/update-gitfile -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/update-hdr.html">bin/update-hdr -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/update-scriptfile.html">bin/update-scriptfile -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../txt/script/zfs_snapshot.pl.html">bin/zfs_snapshot.pl -</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="data-dmmeta-ffast-ssim">
+<h1>data/dmmeta/ffast.ssim<a class="headerlink" href="#data-dmmeta-ffast-ssim" title="Permalink to this heading">#</a></h1>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span>dmmeta.ffast  ffast:emdi12.AlgorithmicTradeIndicator.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">  2</span>dmmeta.ffast  ffast:emdi12.Beacon.LastMsgSeqNumProcessed.field  name:LastMsgSeqNumProcessed  id:369  pos:4  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">  3</span>dmmeta.ffast  ffast:emdi12.Beacon.MsgType.field  name:MsgType  id:35  pos:1  optional:N  encoding:string  op:constant  value:&#39;&quot;0&quot;&#39;  comment:&quot;&quot;
+<span class="linenos">  4</span>dmmeta.ffast  ffast:emdi12.Beacon.SenderCompID.field  name:SenderCompID  id:49  pos:2  optional:N  encoding:unsigned  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">  5</span>dmmeta.ffast  ffast:emdi12.Beacon.SenderSubID.field  name:SenderSubID  id:50  pos:3  optional:N  encoding:unsigned  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">  6</span>dmmeta.ffast  ffast:emdi12.ComplexInstrumentUpdate.InstrmtLegGrp.field  name:InstrmtLegGrp  id:0  pos:14  optional:N  encoding:sequence  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">  7</span>dmmeta.ffast  ffast:emdi12.ComplexInstrumentUpdate.InstrmtLegGrp.length  name:NoLegs  id:555  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">  8</span>dmmeta.ffast  ffast:emdi12.ComplexInstrumentUpdate.LastFragment.field  name:LastFragment  id:893  pos:13  optional:N  encoding:type  op:default  value:1  comment:&quot;&quot;
+<span class="linenos">  9</span>dmmeta.ffast  ffast:emdi12.ComplexInstrumentUpdate.LegRatioMultiplier.field  name:LegRatioMultiplier  id:28900  pos:11  optional:Y  encoding:unsigned  op:default  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 10</span>dmmeta.ffast  ffast:emdi12.ComplexInstrumentUpdate.MarketSegmentGrp1.field  name:MarketSegmentGrp1  id:0  pos:15  optional:N  encoding:sequence  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 11</span>dmmeta.ffast  ffast:emdi12.ComplexInstrumentUpdate.MarketSegmentGrp1.length  name:NoMarketSegments  id:1310  pos:1  optional:N  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos"> 12</span>dmmeta.ffast  ffast:emdi12.ComplexInstrumentUpdate.MsgSeqNum.field  name:MsgSeqNum  id:34  pos:2  optional:N  encoding:unsigned  op:increment  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 13</span>dmmeta.ffast  ffast:emdi12.ComplexInstrumentUpdate.MsgType.field  name:MsgType  id:35  pos:1  optional:N  encoding:string  op:constant  value:&#39;&quot;BP&quot;&#39;  comment:&quot;&quot;
+<span class="linenos"> 14</span>dmmeta.ffast  ffast:emdi12.ComplexInstrumentUpdate.ProductComplex.field  name:ProductComplex  id:1227  pos:10  optional:N  encoding:type  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 15</span>dmmeta.ffast  ffast:emdi12.ComplexInstrumentUpdate.QuantityScalingFactor.field  name:QuantityScalingFactor  id:28907  pos:12  optional:Y  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 16</span>dmmeta.ffast  ffast:emdi12.ComplexInstrumentUpdate.SecurityDesc.field  name:SecurityDesc  id:107  pos:7  optional:N  encoding:string  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 17</span>dmmeta.ffast  ffast:emdi12.ComplexInstrumentUpdate.SecurityID.field  name:SecurityID  id:48  pos:5  optional:N  encoding:signed  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 18</span>dmmeta.ffast  ffast:emdi12.ComplexInstrumentUpdate.SecurityIDSource.field  name:SecurityIDSource  id:22  pos:6  optional:N  encoding:string  op:constant  value:&#39;&quot;M&quot;&#39;  comment:&quot;&quot;
+<span class="linenos"> 19</span>dmmeta.ffast  ffast:emdi12.ComplexInstrumentUpdate.SecuritySubType.field  name:SecuritySubType  id:762  pos:9  optional:Y  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 20</span>dmmeta.ffast  ffast:emdi12.ComplexInstrumentUpdate.SecurityType.field  name:SecurityType  id:167  pos:8  optional:N  encoding:type  op:constant  value:2  comment:&quot;&quot;
+<span class="linenos"> 21</span>dmmeta.ffast  ffast:emdi12.ComplexInstrumentUpdate.SecurityUpdateAction.field  name:SecurityUpdateAction  id:980  pos:4  optional:N  encoding:string  op:constant  value:&#39;&quot;A&quot;&#39;  comment:&quot;&quot;
+<span class="linenos"> 22</span>dmmeta.ffast  ffast:emdi12.ComplexInstrumentUpdate.SenderCompID.field  name:SenderCompID  id:49  pos:3  optional:N  encoding:unsigned  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 23</span>dmmeta.ffast  ffast:emdi12.ComplexInstrumentUpdate.TransactTime.field  name:TransactTime  id:60  pos:16  optional:N  encoding:signed  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 24</span>dmmeta.ffast  ffast:emdi12.CrossRequest.CrossRequestSideGrp.field  name:CrossRequestSideGrp  id:0  pos:9  optional:Y  encoding:sequence  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 25</span>dmmeta.ffast  ffast:emdi12.CrossRequest.CrossRequestSideGrp.length  name:NoCrossRequestSideGrp  id:552  pos:1  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos"> 26</span>dmmeta.ffast  ffast:emdi12.CrossRequest.CrossRequestType.field  name:CrossRequestType  id:28771  pos:8  optional:N  encoding:type  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 27</span>dmmeta.ffast  ffast:emdi12.CrossRequest.MDEntryPx.field  name:MDEntryPx  id:270  pos:10  optional:Y  encoding:scaled  op:none  value:&quot;algo::Decimal(0,0)&quot;  comment:&quot;&quot;
+<span class="linenos"> 28</span>dmmeta.ffast  ffast:emdi12.CrossRequest.MarketSegmentID.field  name:MarketSegmentID  id:1300  pos:4  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 29</span>dmmeta.ffast  ffast:emdi12.CrossRequest.MsgSeqNum.field  name:MsgSeqNum  id:34  pos:2  optional:N  encoding:unsigned  op:increment  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 30</span>dmmeta.ffast  ffast:emdi12.CrossRequest.MsgType.field  name:MsgType  id:35  pos:1  optional:N  encoding:string  op:constant  value:&#39;&quot;U16&quot;&#39;  comment:&quot;&quot;
+<span class="linenos"> 31</span>dmmeta.ffast  ffast:emdi12.CrossRequest.OrderQty.field  name:OrderQty  id:38  pos:7  optional:Y  encoding:scaled  op:none  value:&quot;algo::Decimal(0,0)&quot;  comment:&quot;&quot;
+<span class="linenos"> 32</span>dmmeta.ffast  ffast:emdi12.CrossRequest.SecurityID.field  name:SecurityID  id:48  pos:5  optional:N  encoding:signed  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 33</span>dmmeta.ffast  ffast:emdi12.CrossRequest.SecurityIDSource.field  name:SecurityIDSource  id:22  pos:6  optional:N  encoding:string  op:constant  value:&#39;&quot;M&quot;&#39;  comment:&quot;&quot;
+<span class="linenos"> 34</span>dmmeta.ffast  ffast:emdi12.CrossRequest.SenderCompID.field  name:SenderCompID  id:49  pos:3  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 35</span>dmmeta.ffast  ffast:emdi12.CrossRequest.TransactTime.field  name:TransactTime  id:60  pos:11  optional:N  encoding:signed  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 36</span>dmmeta.ffast  ffast:emdi12.CrossRequestSideGrp.InputSource.field  name:InputSource  id:979  pos:3  optional:N  encoding:type  op:constant  value:0  comment:&quot;&quot;
+<span class="linenos"> 37</span>dmmeta.ffast  ffast:emdi12.CrossRequestSideGrp.Side.field  name:Side  id:54  pos:2  optional:Y  encoding:type  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 38</span>dmmeta.ffast  ffast:emdi12.CrossRequestType.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 39</span>dmmeta.ffast  ffast:emdi12.DepthIncremental.MDIncGrp1.field  name:MDIncGrp1  id:0  pos:5  optional:N  encoding:sequence  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 40</span>dmmeta.ffast  ffast:emdi12.DepthIncremental.MDIncGrp1.length  name:NoMDEntries  id:268  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 41</span>dmmeta.ffast  ffast:emdi12.DepthIncremental.MarketSegmentID.field  name:MarketSegmentID  id:1300  pos:4  optional:N  encoding:unsigned  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 42</span>dmmeta.ffast  ffast:emdi12.DepthIncremental.MsgSeqNum.field  name:MsgSeqNum  id:34  pos:2  optional:N  encoding:unsigned  op:increment  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 43</span>dmmeta.ffast  ffast:emdi12.DepthIncremental.MsgType.field  name:MsgType  id:35  pos:1  optional:N  encoding:string  op:constant  value:&#39;&quot;X&quot;&#39;  comment:&quot;&quot;
+<span class="linenos"> 44</span>dmmeta.ffast  ffast:emdi12.DepthIncremental.SenderCompID.field  name:SenderCompID  id:49  pos:3  optional:N  encoding:unsigned  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 45</span>dmmeta.ffast  ffast:emdi12.DepthSnapshot.LastMsgSeqNumProcessed.field  name:LastMsgSeqNumProcessed  id:369  pos:4  optional:Y  encoding:unsigned  op:increment  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 46</span>dmmeta.ffast  ffast:emdi12.DepthSnapshot.LastUpdateTime.field  name:LastUpdateTime  id:779  pos:12  optional:N  encoding:signed  op:delta  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 47</span>dmmeta.ffast  ffast:emdi12.DepthSnapshot.MDSshGrp.field  name:MDSshGrp  id:0  pos:13  optional:N  encoding:sequence  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 48</span>dmmeta.ffast  ffast:emdi12.DepthSnapshot.MDSshGrp.length  name:NoMDEntries  id:268  pos:1  optional:N  encoding:unsigned  op:default  value:1  comment:&quot;&quot;
+<span class="linenos"> 49</span>dmmeta.ffast  ffast:emdi12.DepthSnapshot.MarketSegmentID.field  name:MarketSegmentID  id:1300  pos:6  optional:N  encoding:unsigned  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 50</span>dmmeta.ffast  ffast:emdi12.DepthSnapshot.MsgSeqNum.field  name:MsgSeqNum  id:34  pos:2  optional:Y  encoding:unsigned  op:increment  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 51</span>dmmeta.ffast  ffast:emdi12.DepthSnapshot.MsgType.field  name:MsgType  id:35  pos:1  optional:N  encoding:string  op:constant  value:&#39;&quot;W&quot;&#39;  comment:&quot;&quot;
+<span class="linenos"> 52</span>dmmeta.ffast  ffast:emdi12.DepthSnapshot.ProductComplex.field  name:ProductComplex  id:1227  pos:9  optional:N  encoding:type  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 53</span>dmmeta.ffast  ffast:emdi12.DepthSnapshot.RefreshIndicator.field  name:RefreshIndicator  id:1187  pos:5  optional:Y  encoding:type  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 54</span>dmmeta.ffast  ffast:emdi12.DepthSnapshot.SecurityID.field  name:SecurityID  id:48  pos:7  optional:N  encoding:signed  op:delta  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 55</span>dmmeta.ffast  ffast:emdi12.DepthSnapshot.SecurityIDSource.field  name:SecurityIDSource  id:22  pos:8  optional:N  encoding:string  op:constant  value:&#39;&quot;M&quot;&#39;  comment:&quot;&quot;
+<span class="linenos"> 56</span>dmmeta.ffast  ffast:emdi12.DepthSnapshot.SecurityStatus.field  name:SecurityStatus  id:965  pos:10  optional:N  encoding:type  op:default  value:0  comment:&quot;&quot;
+<span class="linenos"> 57</span>dmmeta.ffast  ffast:emdi12.DepthSnapshot.SenderCompID.field  name:SenderCompID  id:49  pos:3  optional:N  encoding:unsigned  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 58</span>dmmeta.ffast  ffast:emdi12.DepthSnapshot.TESSecurityStatus.field  name:TESSecurityStatus  id:25045  pos:11  optional:Y  encoding:type  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 59</span>dmmeta.ffast  ffast:emdi12.EMDPacketHeader.PacketSeqNum.field  name:PacketSeqNum  id:0  pos:3  optional:N  encoding:byteVector  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 60</span>dmmeta.ffast  ffast:emdi12.EMDPacketHeader.PartitionID.field  name:PartitionID  id:5948  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 61</span>dmmeta.ffast  ffast:emdi12.EMDPacketHeader.PerformanceIndicator.field  name:PerformanceIndicator  id:0  pos:5  optional:N  encoding:byteVector  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 62</span>dmmeta.ffast  ffast:emdi12.EMDPacketHeader.SenderCompID.field  name:SenderCompID  id:49  pos:2  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 63</span>dmmeta.ffast  ffast:emdi12.EMDPacketHeader.SendingTime.field  name:SendingTime  id:0  pos:4  optional:N  encoding:byteVector  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 64</span>dmmeta.ffast  ffast:emdi12.ExerciseStyle.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 65</span>dmmeta.ffast  ffast:emdi12.FastMarketIndicator.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 66</span>dmmeta.ffast  ffast:emdi12.FlexibleInstrumentUpdate.ExerciseStyle.field  name:ExerciseStyle  id:1194  pos:14  optional:Y  encoding:type  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 67</span>dmmeta.ffast  ffast:emdi12.FlexibleInstrumentUpdate.MarketSegmentGrp2.field  name:MarketSegmentGrp2  id:0  pos:16  optional:N  encoding:sequence  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 68</span>dmmeta.ffast  ffast:emdi12.FlexibleInstrumentUpdate.MarketSegmentGrp2.length  name:NoMarketSegments  id:1310  pos:1  optional:N  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos"> 69</span>dmmeta.ffast  ffast:emdi12.FlexibleInstrumentUpdate.MaturityDate.field  name:MaturityDate  id:541  pos:10  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 70</span>dmmeta.ffast  ffast:emdi12.FlexibleInstrumentUpdate.MsgSeqNum.field  name:MsgSeqNum  id:34  pos:2  optional:N  encoding:unsigned  op:increment  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 71</span>dmmeta.ffast  ffast:emdi12.FlexibleInstrumentUpdate.MsgType.field  name:MsgType  id:35  pos:1  optional:N  encoding:string  op:constant  value:&#39;&quot;BP&quot;&#39;  comment:&quot;&quot;
+<span class="linenos"> 72</span>dmmeta.ffast  ffast:emdi12.FlexibleInstrumentUpdate.OptAttribute.field  name:OptAttribute  id:206  pos:13  optional:Y  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 73</span>dmmeta.ffast  ffast:emdi12.FlexibleInstrumentUpdate.ProductComplex.field  name:ProductComplex  id:1227  pos:9  optional:N  encoding:type  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 74</span>dmmeta.ffast  ffast:emdi12.FlexibleInstrumentUpdate.PutOrCall.field  name:PutOrCall  id:201  pos:12  optional:Y  encoding:type  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 75</span>dmmeta.ffast  ffast:emdi12.FlexibleInstrumentUpdate.SecurityDesc.field  name:SecurityDesc  id:107  pos:7  optional:N  encoding:string  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 76</span>dmmeta.ffast  ffast:emdi12.FlexibleInstrumentUpdate.SecurityID.field  name:SecurityID  id:48  pos:5  optional:N  encoding:signed  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 77</span>dmmeta.ffast  ffast:emdi12.FlexibleInstrumentUpdate.SecurityIDSource.field  name:SecurityIDSource  id:22  pos:6  optional:N  encoding:string  op:constant  value:&#39;&quot;M&quot;&#39;  comment:&quot;&quot;
+<span class="linenos"> 78</span>dmmeta.ffast  ffast:emdi12.FlexibleInstrumentUpdate.SecurityType.field  name:SecurityType  id:167  pos:8  optional:N  encoding:type  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 79</span>dmmeta.ffast  ffast:emdi12.FlexibleInstrumentUpdate.SecurityUpdateAction.field  name:SecurityUpdateAction  id:980  pos:4  optional:N  encoding:string  op:constant  value:&#39;&quot;A&quot;&#39;  comment:&quot;&quot;
+<span class="linenos"> 80</span>dmmeta.ffast  ffast:emdi12.FlexibleInstrumentUpdate.SenderCompID.field  name:SenderCompID  id:49  pos:3  optional:N  encoding:unsigned  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 81</span>dmmeta.ffast  ffast:emdi12.FlexibleInstrumentUpdate.SettlMethod.field  name:SettlMethod  id:1193  pos:15  optional:N  encoding:type  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 82</span>dmmeta.ffast  ffast:emdi12.FlexibleInstrumentUpdate.StrikePrice.field  name:StrikePrice  id:202  pos:11  optional:Y  encoding:scaled  op:none  value:&quot;algo::Decimal(0,0)&quot;  comment:&quot;&quot;
+<span class="linenos"> 83</span>dmmeta.ffast  ffast:emdi12.FlexibleInstrumentUpdate.TransactTime.field  name:TransactTime  id:60  pos:17  optional:N  encoding:signed  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 84</span>dmmeta.ffast  ffast:emdi12.ImpliedMarketIndicator.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 85</span>dmmeta.ffast  ffast:emdi12.InputSource.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 86</span>dmmeta.ffast  ffast:emdi12.InstrmtLegGrp.LegPrice.field  name:LegPrice  id:566  pos:8  optional:Y  encoding:scaled  op:none  value:&quot;algo::Decimal(0,0)&quot;  comment:&quot;&quot;
+<span class="linenos"> 87</span>dmmeta.ffast  ffast:emdi12.InstrmtLegGrp.LegRatioQty.field  name:LegRatioQty  id:623  pos:6  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 88</span>dmmeta.ffast  ffast:emdi12.InstrmtLegGrp.LegSecurityID.field  name:LegSecurityID  id:602  pos:3  optional:N  encoding:signed  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 89</span>dmmeta.ffast  ffast:emdi12.InstrmtLegGrp.LegSecurityIDSource.field  name:LegSecurityIDSource  id:603  pos:4  optional:N  encoding:string  op:constant  value:&#39;&quot;M&quot;&#39;  comment:&quot;&quot;
+<span class="linenos"> 90</span>dmmeta.ffast  ffast:emdi12.InstrmtLegGrp.LegSecurityType.field  name:LegSecurityType  id:609  pos:5  optional:N  encoding:type  op:default  value:0  comment:&quot;&quot;
+<span class="linenos"> 91</span>dmmeta.ffast  ffast:emdi12.InstrmtLegGrp.LegSide.field  name:LegSide  id:624  pos:7  optional:N  encoding:type  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 92</span>dmmeta.ffast  ffast:emdi12.InstrmtLegGrp.LegSymbol.field  name:LegSymbol  id:600  pos:2  optional:N  encoding:unsigned  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 93</span>dmmeta.ffast  ffast:emdi12.InstrumentStateChange.FastMarketIndicator.field  name:FastMarketIndicator  id:2447  pos:10  optional:N  encoding:type  op:default  value:0  comment:&quot;&quot;
+<span class="linenos"> 94</span>dmmeta.ffast  ffast:emdi12.InstrumentStateChange.HighPx.field  name:HighPx  id:332  pos:13  optional:Y  encoding:scaled  op:copy  value:&quot;algo::Decimal(0,0)&quot;  comment:&quot;&quot;
+<span class="linenos"> 95</span>dmmeta.ffast  ffast:emdi12.InstrumentStateChange.LowPx.field  name:LowPx  id:333  pos:14  optional:Y  encoding:scaled  op:copy  value:&quot;algo::Decimal(0,0)&quot;  comment:&quot;&quot;
+<span class="linenos"> 96</span>dmmeta.ffast  ffast:emdi12.InstrumentStateChange.MarketCondition.field  name:MarketCondition  id:2705  pos:9  optional:N  encoding:type  op:default  value:0  comment:&quot;&quot;
+<span class="linenos"> 97</span>dmmeta.ffast  ffast:emdi12.InstrumentStateChange.MarketSegmentID.field  name:MarketSegmentID  id:1300  pos:4  optional:N  encoding:unsigned  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 98</span>dmmeta.ffast  ffast:emdi12.InstrumentStateChange.MsgSeqNum.field  name:MsgSeqNum  id:34  pos:2  optional:N  encoding:unsigned  op:increment  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos"> 99</span>dmmeta.ffast  ffast:emdi12.InstrumentStateChange.MsgType.field  name:MsgType  id:35  pos:1  optional:N  encoding:string  op:constant  value:&#39;&quot;f&quot;&#39;  comment:&quot;&quot;
+<span class="linenos">100</span>dmmeta.ffast  ffast:emdi12.InstrumentStateChange.SecurityID.field  name:SecurityID  id:48  pos:5  optional:N  encoding:signed  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">101</span>dmmeta.ffast  ffast:emdi12.InstrumentStateChange.SecurityIDSource.field  name:SecurityIDSource  id:22  pos:6  optional:N  encoding:string  op:constant  value:&#39;&quot;M&quot;&#39;  comment:&quot;&quot;
+<span class="linenos">102</span>dmmeta.ffast  ffast:emdi12.InstrumentStateChange.SecurityStatus.field  name:SecurityStatus  id:965  pos:7  optional:N  encoding:type  op:default  value:0  comment:&quot;&quot;
+<span class="linenos">103</span>dmmeta.ffast  ffast:emdi12.InstrumentStateChange.SecurityTradingEvent.field  name:SecurityTradingEvent  id:1174  pos:11  optional:Y  encoding:type  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">104</span>dmmeta.ffast  ffast:emdi12.InstrumentStateChange.SecurityTradingStatus.field  name:SecurityTradingStatus  id:326  pos:8  optional:Y  encoding:type  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">105</span>dmmeta.ffast  ffast:emdi12.InstrumentStateChange.SenderCompID.field  name:SenderCompID  id:49  pos:3  optional:N  encoding:unsigned  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">106</span>dmmeta.ffast  ffast:emdi12.InstrumentStateChange.SoldOutIndicator.field  name:SoldOutIndicator  id:25155  pos:12  optional:Y  encoding:type  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">107</span>dmmeta.ffast  ffast:emdi12.InstrumentStateChange.TESSecurityStatus.field  name:TESSecurityStatus  id:25045  pos:16  optional:Y  encoding:type  op:default  value:0  comment:&quot;&quot;
+<span class="linenos">108</span>dmmeta.ffast  ffast:emdi12.InstrumentStateChange.TransactTime.field  name:TransactTime  id:60  pos:15  optional:N  encoding:signed  op:delta  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">109</span>dmmeta.ffast  ffast:emdi12.LastFragment.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">110</span>dmmeta.ffast  ffast:emdi12.LegSecurityType.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">111</span>dmmeta.ffast  ffast:emdi12.MDBookType.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">112</span>dmmeta.ffast  ffast:emdi12.MDEntryType.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">113</span>dmmeta.ffast  ffast:emdi12.MDIncGrp1.MDEntryPx.field  name:MDEntryPx  id:270  pos:7  optional:Y  encoding:scaled  op:delta  value:&quot;algo::Decimal(0,0)&quot;  comment:&quot;&quot;
+<span class="linenos">114</span>dmmeta.ffast  ffast:emdi12.MDIncGrp1.MDEntrySize.field  name:MDEntrySize  id:271  pos:8  optional:Y  encoding:scaled  op:delta  value:&quot;algo::Decimal(0,0)&quot;  comment:&quot;&quot;
+<span class="linenos">115</span>dmmeta.ffast  ffast:emdi12.MDIncGrp1.MDEntryTime.field  name:MDEntryTime  id:273  pos:11  optional:Y  encoding:signed  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">116</span>dmmeta.ffast  ffast:emdi12.MDIncGrp1.MDEntryType.field  name:MDEntryType  id:269  pos:4  optional:N  encoding:type  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">117</span>dmmeta.ffast  ffast:emdi12.MDIncGrp1.MDOriginType.field  name:MDOriginType  id:1024  pos:2  optional:N  encoding:type  op:default  value:0  comment:&quot;&quot;
+<span class="linenos">118</span>dmmeta.ffast  ffast:emdi12.MDIncGrp1.MDPriceLevel.field  name:MDPriceLevel  id:1023  pos:10  optional:Y  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">119</span>dmmeta.ffast  ffast:emdi12.MDIncGrp1.MDUpdateAction.field  name:MDUpdateAction  id:279  pos:3  optional:N  encoding:type  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">120</span>dmmeta.ffast  ffast:emdi12.MDIncGrp1.NumberOfOrders.field  name:NumberOfOrders  id:346  pos:9  optional:Y  encoding:unsigned  op:delta  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">121</span>dmmeta.ffast  ffast:emdi12.MDIncGrp1.PotentialSecurityTradingEvent.field  name:PotentialSecurityTradingEvent  id:28872  pos:12  optional:Y  encoding:type  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">122</span>dmmeta.ffast  ffast:emdi12.MDIncGrp1.QuoteCondition.field  name:QuoteCondition  id:276  pos:13  optional:Y  encoding:type  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">123</span>dmmeta.ffast  ffast:emdi12.MDIncGrp1.SecurityID.field  name:SecurityID  id:48  pos:5  optional:N  encoding:signed  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">124</span>dmmeta.ffast  ffast:emdi12.MDIncGrp1.SecurityIDSource.field  name:SecurityIDSource  id:22  pos:6  optional:N  encoding:string  op:constant  value:&#39;&quot;M&quot;&#39;  comment:&quot;&quot;
+<span class="linenos">125</span>dmmeta.ffast  ffast:emdi12.MDIncGrp1.TradeEntryGrp.field  name:TradeEntryGrp  id:0  pos:14  optional:Y  encoding:group  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">126</span>dmmeta.ffast  ffast:emdi12.MDIncGrp2.MDBookType.field  name:MDBookType  id:1021  pos:4  optional:N  encoding:type  op:constant  value:0  comment:&quot;&quot;
+<span class="linenos">127</span>dmmeta.ffast  ffast:emdi12.MDIncGrp2.MDEntryPx.field  name:MDEntryPx  id:270  pos:8  optional:Y  encoding:scaled  op:delta  value:&quot;algo::Decimal(0,0)&quot;  comment:&quot;&quot;
+<span class="linenos">128</span>dmmeta.ffast  ffast:emdi12.MDIncGrp2.MDEntrySize.field  name:MDEntrySize  id:271  pos:9  optional:Y  encoding:scaled  op:delta  value:&quot;algo::Decimal(0,0)&quot;  comment:&quot;&quot;
+<span class="linenos">129</span>dmmeta.ffast  ffast:emdi12.MDIncGrp2.MDEntryTime.field  name:MDEntryTime  id:273  pos:10  optional:Y  encoding:signed  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">130</span>dmmeta.ffast  ffast:emdi12.MDIncGrp2.MDEntryType.field  name:MDEntryType  id:269  pos:3  optional:N  encoding:type  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">131</span>dmmeta.ffast  ffast:emdi12.MDIncGrp2.MDSubBookType.field  name:MDSubBookType  id:1173  pos:5  optional:N  encoding:type  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">132</span>dmmeta.ffast  ffast:emdi12.MDIncGrp2.MDUpdateAction.field  name:MDUpdateAction  id:279  pos:2  optional:N  encoding:type  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">133</span>dmmeta.ffast  ffast:emdi12.MDIncGrp2.QuoteCondition.field  name:QuoteCondition  id:276  pos:11  optional:Y  encoding:type  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">134</span>dmmeta.ffast  ffast:emdi12.MDIncGrp2.SecurityID.field  name:SecurityID  id:48  pos:6  optional:N  encoding:signed  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">135</span>dmmeta.ffast  ffast:emdi12.MDIncGrp2.SecurityIDSource.field  name:SecurityIDSource  id:22  pos:7  optional:N  encoding:string  op:constant  value:&#39;&quot;M&quot;&#39;  comment:&quot;&quot;
+<span class="linenos">136</span>dmmeta.ffast  ffast:emdi12.MDOriginType.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">137</span>dmmeta.ffast  ffast:emdi12.MDSshGrp.FastMarketIndicator.field  name:FastMarketIndicator  id:2447  pos:12  optional:Y  encoding:type  op:default  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">138</span>dmmeta.ffast  ffast:emdi12.MDSshGrp.HighPx.field  name:HighPx  id:332  pos:16  optional:Y  encoding:scaled  op:delta  value:&quot;algo::Decimal(0,0)&quot;  comment:&quot;&quot;
+<span class="linenos">139</span>dmmeta.ffast  ffast:emdi12.MDSshGrp.LowPx.field  name:LowPx  id:333  pos:17  optional:Y  encoding:scaled  op:delta  value:&quot;algo::Decimal(0,0)&quot;  comment:&quot;&quot;
+<span class="linenos">140</span>dmmeta.ffast  ffast:emdi12.MDSshGrp.MDBookType.field  name:MDBookType  id:1021  pos:4  optional:Y  encoding:type  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">141</span>dmmeta.ffast  ffast:emdi12.MDSshGrp.MDEntryPx.field  name:MDEntryPx  id:270  pos:22  optional:Y  encoding:scaled  op:delta  value:&quot;algo::Decimal(0,0)&quot;  comment:&quot;&quot;
+<span class="linenos">142</span>dmmeta.ffast  ffast:emdi12.MDSshGrp.MDEntrySize.field  name:MDEntrySize  id:271  pos:23  optional:Y  encoding:scaled  op:delta  value:&quot;algo::Decimal(0,0)&quot;  comment:&quot;&quot;
+<span class="linenos">143</span>dmmeta.ffast  ffast:emdi12.MDSshGrp.MDEntryTime.field  name:MDEntryTime  id:273  pos:26  optional:Y  encoding:signed  op:delta  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">144</span>dmmeta.ffast  ffast:emdi12.MDSshGrp.MDEntryType.field  name:MDEntryType  id:269  pos:3  optional:N  encoding:type  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">145</span>dmmeta.ffast  ffast:emdi12.MDSshGrp.MDOriginType.field  name:MDOriginType  id:1024  pos:2  optional:N  encoding:type  op:default  value:0  comment:&quot;&quot;
+<span class="linenos">146</span>dmmeta.ffast  ffast:emdi12.MDSshGrp.MDPriceLevel.field  name:MDPriceLevel  id:1023  pos:25  optional:Y  encoding:unsigned  op:increment  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">147</span>dmmeta.ffast  ffast:emdi12.MDSshGrp.MDSubBookType.field  name:MDSubBookType  id:1173  pos:5  optional:Y  encoding:type  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">148</span>dmmeta.ffast  ffast:emdi12.MDSshGrp.MarketCondition.field  name:MarketCondition  id:2705  pos:11  optional:Y  encoding:type  op:default  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">149</span>dmmeta.ffast  ffast:emdi12.MDSshGrp.MultiLegPriceModel.field  name:MultiLegPriceModel  id:28750  pos:20  optional:Y  encoding:type  op:default  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">150</span>dmmeta.ffast  ffast:emdi12.MDSshGrp.MultiLegReportingType.field  name:MultiLegReportingType  id:442  pos:19  optional:Y  encoding:type  op:default  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">151</span>dmmeta.ffast  ffast:emdi12.MDSshGrp.NonDisclosedTradeVolume.field  name:NonDisclosedTradeVolume  id:28873  pos:27  optional:Y  encoding:scaled  op:default  value:&quot;algo::Decimal(0,0)&quot;  comment:&quot;&quot;
+<span class="linenos">152</span>dmmeta.ffast  ffast:emdi12.MDSshGrp.NumberOfOrders.field  name:NumberOfOrders  id:346  pos:24  optional:Y  encoding:unsigned  op:delta  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">153</span>dmmeta.ffast  ffast:emdi12.MDSshGrp.PotentialSecurityTradingEvent.field  name:PotentialSecurityTradingEvent  id:28872  pos:14  optional:Y  encoding:type  op:default  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">154</span>dmmeta.ffast  ffast:emdi12.MDSshGrp.QuoteCondition.field  name:QuoteCondition  id:276  pos:21  optional:Y  encoding:type  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">155</span>dmmeta.ffast  ffast:emdi12.MDSshGrp.SecurityTradingEvent.field  name:SecurityTradingEvent  id:1174  pos:13  optional:Y  encoding:type  op:default  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">156</span>dmmeta.ffast  ffast:emdi12.MDSshGrp.SecurityTradingStatus.field  name:SecurityTradingStatus  id:326  pos:10  optional:Y  encoding:type  op:default  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">157</span>dmmeta.ffast  ffast:emdi12.MDSshGrp.SoldOutIndicator.field  name:SoldOutIndicator  id:25155  pos:15  optional:Y  encoding:type  op:default  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">158</span>dmmeta.ffast  ffast:emdi12.MDSshGrp.TESTradSesStatus.field  name:TESTradSesStatus  id:25044  pos:9  optional:Y  encoding:type  op:default  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">159</span>dmmeta.ffast  ffast:emdi12.MDSshGrp.TotalNumOfTrades.field  name:TotalNumOfTrades  id:6139  pos:28  optional:Y  encoding:unsigned  op:default  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">160</span>dmmeta.ffast  ffast:emdi12.MDSshGrp.TradeCondition.field  name:TradeCondition  id:277  pos:18  optional:Y  encoding:type  op:default  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">161</span>dmmeta.ffast  ffast:emdi12.MDSshGrp.TradingSessionID.field  name:TradingSessionID  id:336  pos:7  optional:Y  encoding:type  op:default  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">162</span>dmmeta.ffast  ffast:emdi12.MDSshGrp.TradingSessionSubID.field  name:TradingSessionSubID  id:625  pos:8  optional:Y  encoding:type  op:default  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">163</span>dmmeta.ffast  ffast:emdi12.MDSshGrp.TrdType.field  name:TrdType  id:828  pos:6  optional:Y  encoding:type  op:default  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">164</span>dmmeta.ffast  ffast:emdi12.MDSubBookType.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">165</span>dmmeta.ffast  ffast:emdi12.MDUpdateAction.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">166</span>dmmeta.ffast  ffast:emdi12.MarketCondition.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">167</span>dmmeta.ffast  ffast:emdi12.MarketSegmentGrp1.ImpliedMarketIndicator.field  name:ImpliedMarketIndicator  id:1144  pos:3  optional:N  encoding:type  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">168</span>dmmeta.ffast  ffast:emdi12.MarketSegmentGrp1.MarketSegmentID.field  name:MarketSegmentID  id:1300  pos:2  optional:N  encoding:unsigned  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">169</span>dmmeta.ffast  ffast:emdi12.MarketSegmentGrp2.MarketSegmentID.field  name:MarketSegmentID  id:1300  pos:2  optional:N  encoding:unsigned  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">170</span>dmmeta.ffast  ffast:emdi12.MarketSegmentGrp3.MarketSegmentID.field  name:MarketSegmentID  id:1300  pos:2  optional:N  encoding:unsigned  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">171</span>dmmeta.ffast  ffast:emdi12.MassInstrumentStateChange.FastMarketIndicator.field  name:FastMarketIndicator  id:2447  pos:9  optional:N  encoding:type  op:default  value:0  comment:&quot;&quot;
+<span class="linenos">172</span>dmmeta.ffast  ffast:emdi12.MassInstrumentStateChange.InstrumentScopeProductComplex.field  name:InstrumentScopeProductComplex  id:1544  pos:5  optional:N  encoding:type  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">173</span>dmmeta.ffast  ffast:emdi12.MassInstrumentStateChange.LastFragment.field  name:LastFragment  id:893  pos:15  optional:N  encoding:type  op:default  value:1  comment:&quot;&quot;
+<span class="linenos">174</span>dmmeta.ffast  ffast:emdi12.MassInstrumentStateChange.MarketSegmentID.field  name:MarketSegmentID  id:1300  pos:4  optional:N  encoding:unsigned  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">175</span>dmmeta.ffast  ffast:emdi12.MassInstrumentStateChange.MassMarketCondition.field  name:MassMarketCondition  id:28894  pos:8  optional:N  encoding:type  op:default  value:0  comment:&quot;&quot;
+<span class="linenos">176</span>dmmeta.ffast  ffast:emdi12.MassInstrumentStateChange.MassSoldOutIndicator.field  name:MassSoldOutIndicator  id:35155  pos:11  optional:Y  encoding:type  op:default  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">177</span>dmmeta.ffast  ffast:emdi12.MassInstrumentStateChange.MsgSeqNum.field  name:MsgSeqNum  id:34  pos:2  optional:N  encoding:unsigned  op:increment  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">178</span>dmmeta.ffast  ffast:emdi12.MassInstrumentStateChange.MsgType.field  name:MsgType  id:35  pos:1  optional:N  encoding:string  op:constant  value:&#39;&quot;CO&quot;&#39;  comment:&quot;&quot;
+<span class="linenos">179</span>dmmeta.ffast  ffast:emdi12.MassInstrumentStateChange.SecMassStatGrp.field  name:SecMassStatGrp  id:0  pos:14  optional:N  encoding:sequence  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">180</span>dmmeta.ffast  ffast:emdi12.MassInstrumentStateChange.SecMassStatGrp.length  name:NoRelatedSym  id:146  pos:1  optional:N  encoding:unsigned  op:default  value:0  comment:&quot;&quot;
+<span class="linenos">181</span>dmmeta.ffast  ffast:emdi12.MassInstrumentStateChange.SecurityMassStatus.field  name:SecurityMassStatus  id:30965  pos:6  optional:N  encoding:type  op:default  value:0  comment:&quot;&quot;
+<span class="linenos">182</span>dmmeta.ffast  ffast:emdi12.MassInstrumentStateChange.SecurityMassTradingEvent.field  name:SecurityMassTradingEvent  id:1680  pos:10  optional:Y  encoding:type  op:default  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">183</span>dmmeta.ffast  ffast:emdi12.MassInstrumentStateChange.SecurityMassTradingStatus.field  name:SecurityMassTradingStatus  id:1679  pos:7  optional:Y  encoding:type  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">184</span>dmmeta.ffast  ffast:emdi12.MassInstrumentStateChange.SenderCompID.field  name:SenderCompID  id:49  pos:3  optional:N  encoding:unsigned  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">185</span>dmmeta.ffast  ffast:emdi12.MassInstrumentStateChange.TESSecurityMassStatus.field  name:TESSecurityMassStatus  id:35045  pos:13  optional:Y  encoding:type  op:default  value:0  comment:&quot;&quot;
+<span class="linenos">186</span>dmmeta.ffast  ffast:emdi12.MassInstrumentStateChange.TransactTime.field  name:TransactTime  id:60  pos:12  optional:N  encoding:signed  op:delta  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">187</span>dmmeta.ffast  ffast:emdi12.MultiLegPriceModel.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">188</span>dmmeta.ffast  ffast:emdi12.MultiLegReportingType.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">189</span>dmmeta.ffast  ffast:emdi12.ProductComplex.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">190</span>dmmeta.ffast  ffast:emdi12.ProductStateChange.FastMarketIndicator.field  name:FastMarketIndicator  id:2447  pos:9  optional:N  encoding:type  op:default  value:0  comment:&quot;&quot;
+<span class="linenos">191</span>dmmeta.ffast  ffast:emdi12.ProductStateChange.MarketCondition.field  name:MarketCondition  id:2705  pos:8  optional:Y  encoding:type  op:default  value:0  comment:&quot;&quot;
+<span class="linenos">192</span>dmmeta.ffast  ffast:emdi12.ProductStateChange.MarketSegmentID.field  name:MarketSegmentID  id:1300  pos:4  optional:N  encoding:unsigned  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">193</span>dmmeta.ffast  ffast:emdi12.ProductStateChange.MsgSeqNum.field  name:MsgSeqNum  id:34  pos:2  optional:N  encoding:unsigned  op:increment  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">194</span>dmmeta.ffast  ffast:emdi12.ProductStateChange.MsgType.field  name:MsgType  id:35  pos:1  optional:N  encoding:string  op:constant  value:&#39;&quot;h&quot;&#39;  comment:&quot;&quot;
+<span class="linenos">195</span>dmmeta.ffast  ffast:emdi12.ProductStateChange.SenderCompID.field  name:SenderCompID  id:49  pos:3  optional:N  encoding:unsigned  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">196</span>dmmeta.ffast  ffast:emdi12.ProductStateChange.TESTradSesStatus.field  name:TESTradSesStatus  id:25044  pos:11  optional:Y  encoding:type  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">197</span>dmmeta.ffast  ffast:emdi12.ProductStateChange.TradSesStatus.field  name:TradSesStatus  id:340  pos:7  optional:N  encoding:type  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">198</span>dmmeta.ffast  ffast:emdi12.ProductStateChange.TradingSessionID.field  name:TradingSessionID  id:336  pos:5  optional:N  encoding:type  op:default  value:0  comment:&quot;&quot;
+<span class="linenos">199</span>dmmeta.ffast  ffast:emdi12.ProductStateChange.TradingSessionSubID.field  name:TradingSessionSubID  id:625  pos:6  optional:N  encoding:type  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">200</span>dmmeta.ffast  ffast:emdi12.ProductStateChange.TransactTime.field  name:TransactTime  id:60  pos:10  optional:N  encoding:signed  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">201</span>dmmeta.ffast  ffast:emdi12.PutOrCall.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">202</span>dmmeta.ffast  ffast:emdi12.QuotReqGrp.OrderQty.field  name:OrderQty  id:38  pos:5  optional:Y  encoding:scaled  op:delta  value:&quot;algo::Decimal(0,0)&quot;  comment:&quot;&quot;
+<span class="linenos">203</span>dmmeta.ffast  ffast:emdi12.QuotReqGrp.SecurityID.field  name:SecurityID  id:48  pos:2  optional:N  encoding:signed  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">204</span>dmmeta.ffast  ffast:emdi12.QuotReqGrp.SecurityIDSource.field  name:SecurityIDSource  id:22  pos:3  optional:N  encoding:string  op:constant  value:&#39;&quot;M&quot;&#39;  comment:&quot;&quot;
+<span class="linenos">205</span>dmmeta.ffast  ffast:emdi12.QuotReqGrp.Side.field  name:Side  id:54  pos:4  optional:Y  encoding:type  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">206</span>dmmeta.ffast  ffast:emdi12.QuotReqGrp.TransactTime.field  name:TransactTime  id:60  pos:6  optional:N  encoding:signed  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">207</span>dmmeta.ffast  ffast:emdi12.QuoteCondition.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">208</span>dmmeta.ffast  ffast:emdi12.QuoteRequest.MarketSegmentID.field  name:MarketSegmentID  id:1300  pos:4  optional:N  encoding:unsigned  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">209</span>dmmeta.ffast  ffast:emdi12.QuoteRequest.MsgSeqNum.field  name:MsgSeqNum  id:34  pos:2  optional:N  encoding:unsigned  op:increment  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">210</span>dmmeta.ffast  ffast:emdi12.QuoteRequest.MsgType.field  name:MsgType  id:35  pos:1  optional:N  encoding:string  op:constant  value:&#39;&quot;R&quot;&#39;  comment:&quot;&quot;
+<span class="linenos">211</span>dmmeta.ffast  ffast:emdi12.QuoteRequest.QuotReqGrp.field  name:QuotReqGrp  id:0  pos:5  optional:N  encoding:sequence  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">212</span>dmmeta.ffast  ffast:emdi12.QuoteRequest.QuotReqGrp.length  name:NoRelatedSym  id:146  pos:1  optional:N  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">213</span>dmmeta.ffast  ffast:emdi12.QuoteRequest.SenderCompID.field  name:SenderCompID  id:49  pos:3  optional:N  encoding:unsigned  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">214</span>dmmeta.ffast  ffast:emdi12.RefreshIndicator.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">215</span>dmmeta.ffast  ffast:emdi12.RelatedInstrumentGrp.RelatedSecurityID.field  name:RelatedSecurityID  id:1650  pos:1  optional:N  encoding:signed  op:delta  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">216</span>dmmeta.ffast  ffast:emdi12.RelatedInstrumentGrp.RelatedSecurityIDSource.field  name:RelatedSecurityIDSource  id:1651  pos:2  optional:N  encoding:string  op:constant  value:&#39;&quot;M&quot;&#39;  comment:&quot;&quot;
+<span class="linenos">217</span>dmmeta.ffast  ffast:emdi12.ScaledSimpleInstrumentUpdate.MarketSegmentGrp3.field  name:MarketSegmentGrp3  id:0  pos:12  optional:N  encoding:sequence  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">218</span>dmmeta.ffast  ffast:emdi12.ScaledSimpleInstrumentUpdate.MarketSegmentGrp3.length  name:NoMarketSegments  id:1310  pos:1  optional:N  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">219</span>dmmeta.ffast  ffast:emdi12.ScaledSimpleInstrumentUpdate.MsgSeqNum.field  name:MsgSeqNum  id:34  pos:2  optional:N  encoding:unsigned  op:increment  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">220</span>dmmeta.ffast  ffast:emdi12.ScaledSimpleInstrumentUpdate.MsgType.field  name:MsgType  id:35  pos:1  optional:N  encoding:string  op:constant  value:&#39;&quot;BP&quot;&#39;  comment:&quot;&quot;
+<span class="linenos">221</span>dmmeta.ffast  ffast:emdi12.ScaledSimpleInstrumentUpdate.ProductComplex.field  name:ProductComplex  id:1227  pos:9  optional:N  encoding:type  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">222</span>dmmeta.ffast  ffast:emdi12.ScaledSimpleInstrumentUpdate.QuantityScalingFactor.field  name:QuantityScalingFactor  id:28907  pos:10  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">223</span>dmmeta.ffast  ffast:emdi12.ScaledSimpleInstrumentUpdate.RelatedInstrumentGrp.field  name:RelatedInstrumentGrp  id:0  pos:11  optional:N  encoding:group  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">224</span>dmmeta.ffast  ffast:emdi12.ScaledSimpleInstrumentUpdate.SecurityDesc.field  name:SecurityDesc  id:107  pos:7  optional:N  encoding:string  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">225</span>dmmeta.ffast  ffast:emdi12.ScaledSimpleInstrumentUpdate.SecurityID.field  name:SecurityID  id:48  pos:5  optional:N  encoding:signed  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">226</span>dmmeta.ffast  ffast:emdi12.ScaledSimpleInstrumentUpdate.SecurityIDSource.field  name:SecurityIDSource  id:22  pos:6  optional:N  encoding:string  op:constant  value:&#39;&quot;M&quot;&#39;  comment:&quot;&quot;
+<span class="linenos">227</span>dmmeta.ffast  ffast:emdi12.ScaledSimpleInstrumentUpdate.SecurityType.field  name:SecurityType  id:167  pos:8  optional:N  encoding:type  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">228</span>dmmeta.ffast  ffast:emdi12.ScaledSimpleInstrumentUpdate.SecurityUpdateAction.field  name:SecurityUpdateAction  id:980  pos:4  optional:N  encoding:string  op:constant  value:&#39;&quot;A&quot;&#39;  comment:&quot;&quot;
+<span class="linenos">229</span>dmmeta.ffast  ffast:emdi12.ScaledSimpleInstrumentUpdate.SenderCompID.field  name:SenderCompID  id:49  pos:3  optional:N  encoding:unsigned  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">230</span>dmmeta.ffast  ffast:emdi12.ScaledSimpleInstrumentUpdate.TransactTime.field  name:TransactTime  id:60  pos:13  optional:N  encoding:signed  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">231</span>dmmeta.ffast  ffast:emdi12.SecMassStatGrp.HighPx.field  name:HighPx  id:332  pos:9  optional:Y  encoding:scaled  op:none  value:&quot;algo::Decimal(0,0)&quot;  comment:&quot;&quot;
+<span class="linenos">232</span>dmmeta.ffast  ffast:emdi12.SecMassStatGrp.LowPx.field  name:LowPx  id:333  pos:10  optional:Y  encoding:scaled  op:none  value:&quot;algo::Decimal(0,0)&quot;  comment:&quot;&quot;
+<span class="linenos">233</span>dmmeta.ffast  ffast:emdi12.SecMassStatGrp.MarketCondition.field  name:MarketCondition  id:2705  pos:6  optional:N  encoding:type  op:default  value:0  comment:&quot;&quot;
+<span class="linenos">234</span>dmmeta.ffast  ffast:emdi12.SecMassStatGrp.SecurityID.field  name:SecurityID  id:48  pos:2  optional:N  encoding:signed  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">235</span>dmmeta.ffast  ffast:emdi12.SecMassStatGrp.SecurityIDSource.field  name:SecurityIDSource  id:22  pos:3  optional:N  encoding:string  op:constant  value:&#39;&quot;M&quot;&#39;  comment:&quot;&quot;
+<span class="linenos">236</span>dmmeta.ffast  ffast:emdi12.SecMassStatGrp.SecurityStatus.field  name:SecurityStatus  id:965  pos:4  optional:N  encoding:type  op:default  value:0  comment:&quot;&quot;
+<span class="linenos">237</span>dmmeta.ffast  ffast:emdi12.SecMassStatGrp.SecurityTradingEvent.field  name:SecurityTradingEvent  id:1174  pos:7  optional:Y  encoding:type  op:default  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">238</span>dmmeta.ffast  ffast:emdi12.SecMassStatGrp.SecurityTradingStatus.field  name:SecurityTradingStatus  id:326  pos:5  optional:Y  encoding:type  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">239</span>dmmeta.ffast  ffast:emdi12.SecMassStatGrp.SoldOutIndicator.field  name:SoldOutIndicator  id:25155  pos:8  optional:Y  encoding:type  op:default  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">240</span>dmmeta.ffast  ffast:emdi12.SecMassStatGrp.TESSecurityStatus.field  name:TESSecurityStatus  id:25045  pos:11  optional:Y  encoding:type  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">241</span>dmmeta.ffast  ffast:emdi12.SecurityStatus.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">242</span>dmmeta.ffast  ffast:emdi12.SecurityTradingEvent.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">243</span>dmmeta.ffast  ffast:emdi12.SecurityTradingStatus.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">244</span>dmmeta.ffast  ffast:emdi12.SecurityType.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">245</span>dmmeta.ffast  ffast:emdi12.SettlMethod.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">246</span>dmmeta.ffast  ffast:emdi12.Side.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">247</span>dmmeta.ffast  ffast:emdi12.SoldOutIndicator.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">248</span>dmmeta.ffast  ffast:emdi12.TopOfBookImplied.MDIncGrp2.field  name:MDIncGrp2  id:0  pos:5  optional:N  encoding:sequence  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">249</span>dmmeta.ffast  ffast:emdi12.TopOfBookImplied.MDIncGrp2.length  name:NoMDEntries  id:268  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">250</span>dmmeta.ffast  ffast:emdi12.TopOfBookImplied.MarketSegmentID.field  name:MarketSegmentID  id:1300  pos:4  optional:N  encoding:unsigned  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">251</span>dmmeta.ffast  ffast:emdi12.TopOfBookImplied.MsgSeqNum.field  name:MsgSeqNum  id:34  pos:2  optional:N  encoding:unsigned  op:increment  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">252</span>dmmeta.ffast  ffast:emdi12.TopOfBookImplied.MsgType.field  name:MsgType  id:35  pos:1  optional:N  encoding:string  op:constant  value:&#39;&quot;X&quot;&#39;  comment:&quot;&quot;
+<span class="linenos">253</span>dmmeta.ffast  ffast:emdi12.TopOfBookImplied.SenderCompID.field  name:SenderCompID  id:49  pos:3  optional:N  encoding:unsigned  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">254</span>dmmeta.ffast  ffast:emdi12.TradSesStatus.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">255</span>dmmeta.ffast  ffast:emdi12.TradeConditionSet.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">256</span>dmmeta.ffast  ffast:emdi12.TradeEntryGrp.AggressorSide.field  name:AggressorSide  id:2446  pos:8  optional:Y  encoding:type  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">257</span>dmmeta.ffast  ffast:emdi12.TradeEntryGrp.AggressorTime.field  name:AggressorTime  id:2445  pos:6  optional:Y  encoding:signed  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">258</span>dmmeta.ffast  ffast:emdi12.TradeEntryGrp.AlgorithmicTradeIndicator.field  name:AlgorithmicTradeIndicator  id:2667  pos:2  optional:Y  encoding:type  op:default  value:0  comment:&quot;&quot;
+<span class="linenos">259</span>dmmeta.ffast  ffast:emdi12.TradeEntryGrp.MDEntryID.field  name:MDEntryID  id:278  pos:13  optional:Y  encoding:unsigned  op:delta  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">260</span>dmmeta.ffast  ffast:emdi12.TradeEntryGrp.MultiLegPriceModel.field  name:MultiLegPriceModel  id:28750  pos:5  optional:Y  encoding:type  op:default  value:0  comment:&quot;&quot;
+<span class="linenos">261</span>dmmeta.ffast  ffast:emdi12.TradeEntryGrp.MultiLegReportingType.field  name:MultiLegReportingType  id:442  pos:4  optional:Y  encoding:type  op:default  value:1  comment:&quot;&quot;
+<span class="linenos">262</span>dmmeta.ffast  ffast:emdi12.TradeEntryGrp.NonDisclosedTradeVolume.field  name:NonDisclosedTradeVolume  id:28873  pos:14  optional:Y  encoding:scaled  op:none  value:&quot;algo::Decimal(0,0)&quot;  comment:&quot;&quot;
+<span class="linenos">263</span>dmmeta.ffast  ffast:emdi12.TradeEntryGrp.NumberOfBuyOrders.field  name:NumberOfBuyOrders  id:2449  pos:9  optional:Y  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">264</span>dmmeta.ffast  ffast:emdi12.TradeEntryGrp.NumberOfSellOrders.field  name:NumberOfSellOrders  id:2450  pos:10  optional:Y  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">265</span>dmmeta.ffast  ffast:emdi12.TradeEntryGrp.RequestTime.field  name:RequestTime  id:5979  pos:7  optional:Y  encoding:signed  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">266</span>dmmeta.ffast  ffast:emdi12.TradeEntryGrp.RestingCxlQty.field  name:RestingCxlQty  id:28869  pos:12  optional:Y  encoding:scaled  op:none  value:&quot;algo::Decimal(0,0)&quot;  comment:&quot;&quot;
+<span class="linenos">267</span>dmmeta.ffast  ffast:emdi12.TradeEntryGrp.TotalNumOfTrades.field  name:TotalNumOfTrades  id:6139  pos:11  optional:Y  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">268</span>dmmeta.ffast  ffast:emdi12.TradeEntryGrp.TradeCondition.field  name:TradeCondition  id:277  pos:3  optional:Y  encoding:type  op:default  value:1  comment:&quot;&quot;
+<span class="linenos">269</span>dmmeta.ffast  ffast:emdi12.TradeEntryGrp.TrdType.field  name:TrdType  id:828  pos:1  optional:Y  encoding:type  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">270</span>dmmeta.ffast  ffast:emdi12.TradingSessionID.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">271</span>dmmeta.ffast  ffast:emdi12.TradingSessionSubID.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">272</span>dmmeta.ffast  ffast:emdi12.TrdType.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">273</span>dmmeta.ffast  ffast:fasttest.BVConst.Value.field  name:Value  id:1  pos:1  optional:N  encoding:byteVector  op:constant  value:&#39;&quot;B23&quot;&#39;  comment:&quot;&quot;
+<span class="linenos">274</span>dmmeta.ffast  ffast:fasttest.BVConstOpt.Value.field  name:Value  id:1  pos:1  optional:Y  encoding:byteVector  op:constant  value:&#39;&quot;B24&quot;&#39;  comment:&quot;&quot;
+<span class="linenos">275</span>dmmeta.ffast  ffast:fasttest.BVCopy.Value58.field  name:Value58  id:1  pos:1  optional:N  encoding:byteVector  op:copy  value:&#39;&quot;B58&quot;&#39;  comment:&quot;&quot;
+<span class="linenos">276</span>dmmeta.ffast  ffast:fasttest.BVCopyNull.Value60.field  name:Value60  id:1  pos:1  optional:Y  encoding:byteVector  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">277</span>dmmeta.ffast  ffast:fasttest.BVCopyOpt.Value59.field  name:Value59  id:1  pos:1  optional:Y  encoding:byteVector  op:copy  value:&#39;&quot;B59&quot;&#39;  comment:&quot;&quot;
+<span class="linenos">278</span>dmmeta.ffast  ffast:fasttest.BVDflt.Value.field  name:Value  id:1  pos:1  optional:N  encoding:byteVector  op:default  value:&#39;&quot;B42&quot;&#39;  comment:&quot;&quot;
+<span class="linenos">279</span>dmmeta.ffast  ffast:fasttest.BVDfltNull.Value.field  name:Value  id:1  pos:1  optional:Y  encoding:byteVector  op:default  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">280</span>dmmeta.ffast  ffast:fasttest.BVDfltOpt.Value.field  name:Value  id:1  pos:1  optional:Y  encoding:byteVector  op:default  value:&#39;&quot;B43&quot;&#39;  comment:&quot;&quot;
+<span class="linenos">281</span>dmmeta.ffast  ffast:fasttest.BVNone.Value.field  name:Value  id:1  pos:1  optional:N  encoding:byteVector  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">282</span>dmmeta.ffast  ffast:fasttest.BVNoneOpt.Value.field  name:Value  id:1  pos:1  optional:Y  encoding:byteVector  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">283</span>dmmeta.ffast  ffast:fasttest.FirstSeq.Value1.field  name:Value1  id:2  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">284</span>dmmeta.ffast  ffast:fasttest.GroupSgmOpt.OptSgmGrp.field  name:OptSgmGrp  id:1  pos:1  optional:Y  encoding:group  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">285</span>dmmeta.ffast  ffast:fasttest.GroupTrv.TrvGrp.field  name:TrvGrp  id:1  pos:1  optional:N  encoding:group  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">286</span>dmmeta.ffast  ffast:fasttest.GroupTrvOpt.OptTrvGrp.field  name:OptTrvGrp  id:1  pos:1  optional:Y  encoding:group  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">287</span>dmmeta.ffast  ffast:fasttest.I32Const.Value.field  name:Value  id:1  pos:1  optional:N  encoding:signed  op:constant  value:17  comment:&quot;&quot;
+<span class="linenos">288</span>dmmeta.ffast  ffast:fasttest.I32ConstOpt.Value.field  name:Value  id:1  pos:1  optional:Y  encoding:signed  op:constant  value:18  comment:&quot;&quot;
+<span class="linenos">289</span>dmmeta.ffast  ffast:fasttest.I32Copy.Value49.field  name:Value49  id:1  pos:1  optional:N  encoding:signed  op:copy  value:49  comment:&quot;&quot;
+<span class="linenos">290</span>dmmeta.ffast  ffast:fasttest.I32CopyNull.Value51.field  name:Value51  id:1  pos:1  optional:Y  encoding:signed  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">291</span>dmmeta.ffast  ffast:fasttest.I32CopyOpt.Value50.field  name:Value50  id:1  pos:1  optional:Y  encoding:signed  op:copy  value:50  comment:&quot;&quot;
+<span class="linenos">292</span>dmmeta.ffast  ffast:fasttest.I32Delta.Value65.field  name:Value65  id:1  pos:1  optional:N  encoding:signed  op:delta  value:65  comment:&quot;&quot;
+<span class="linenos">293</span>dmmeta.ffast  ffast:fasttest.I32DeltaImpl.Value66.field  name:Value66  id:1  pos:1  optional:N  encoding:signed  op:delta  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">294</span>dmmeta.ffast  ffast:fasttest.I32DeltaNull.Value68.field  name:Value68  id:1  pos:1  optional:Y  encoding:signed  op:delta  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">295</span>dmmeta.ffast  ffast:fasttest.I32DeltaOpt.Value67.field  name:Value67  id:1  pos:1  optional:Y  encoding:signed  op:delta  value:67  comment:&quot;&quot;
+<span class="linenos">296</span>dmmeta.ffast  ffast:fasttest.I32Dflt.Value.field  name:Value  id:1  pos:1  optional:N  encoding:signed  op:default  value:33  comment:&quot;&quot;
+<span class="linenos">297</span>dmmeta.ffast  ffast:fasttest.I32DfltNull.Value.field  name:Value  id:1  pos:1  optional:Y  encoding:signed  op:default  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">298</span>dmmeta.ffast  ffast:fasttest.I32DfltOpt.Value.field  name:Value  id:1  pos:1  optional:Y  encoding:signed  op:default  value:34  comment:&quot;&quot;
+<span class="linenos">299</span>dmmeta.ffast  ffast:fasttest.I32Incr.Value97.field  name:Value97  id:1  pos:1  optional:N  encoding:signed  op:increment  value:97  comment:&quot;&quot;
+<span class="linenos">300</span>dmmeta.ffast  ffast:fasttest.I32IncrNV.Value98.field  name:Value98  id:1  pos:1  optional:N  encoding:signed  op:increment  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">301</span>dmmeta.ffast  ffast:fasttest.I32IncrNull.Value100.field  name:Value100  id:1  pos:1  optional:Y  encoding:signed  op:increment  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">302</span>dmmeta.ffast  ffast:fasttest.I32IncrOpt.Value99.field  name:Value99  id:1  pos:1  optional:Y  encoding:signed  op:increment  value:99  comment:&quot;&quot;
+<span class="linenos">303</span>dmmeta.ffast  ffast:fasttest.I32None.Value.field  name:Value  id:1  pos:1  optional:N  encoding:signed  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">304</span>dmmeta.ffast  ffast:fasttest.I32NoneOpt.Value.field  name:Value  id:1  pos:1  optional:Y  encoding:signed  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">305</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value1.field  name:Value1  id:1  pos:1  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">306</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value10.field  name:Value10  id:10  pos:10  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">307</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value11.field  name:Value11  id:11  pos:11  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">308</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value12.field  name:Value12  id:12  pos:12  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">309</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value13.field  name:Value13  id:13  pos:13  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">310</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value14.field  name:Value14  id:14  pos:14  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">311</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value15.field  name:Value15  id:15  pos:15  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">312</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value16.field  name:Value16  id:16  pos:16  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">313</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value17.field  name:Value17  id:17  pos:17  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">314</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value18.field  name:Value18  id:18  pos:18  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">315</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value19.field  name:Value19  id:19  pos:19  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">316</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value2.field  name:Value2  id:2  pos:2  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">317</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value20.field  name:Value20  id:20  pos:20  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">318</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value21.field  name:Value21  id:21  pos:21  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">319</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value22.field  name:Value22  id:22  pos:22  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">320</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value23.field  name:Value23  id:23  pos:23  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">321</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value24.field  name:Value24  id:24  pos:24  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">322</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value25.field  name:Value25  id:25  pos:25  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">323</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value26.field  name:Value26  id:26  pos:26  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">324</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value27.field  name:Value27  id:27  pos:27  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">325</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value28.field  name:Value28  id:28  pos:28  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">326</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value29.field  name:Value29  id:29  pos:29  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">327</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value3.field  name:Value3  id:3  pos:3  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">328</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value30.field  name:Value30  id:30  pos:30  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">329</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value31.field  name:Value31  id:31  pos:31  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">330</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value32.field  name:Value32  id:32  pos:32  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">331</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value33.field  name:Value33  id:33  pos:33  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">332</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value34.field  name:Value34  id:34  pos:34  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">333</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value35.field  name:Value35  id:35  pos:35  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">334</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value36.field  name:Value36  id:36  pos:36  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">335</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value37.field  name:Value37  id:37  pos:37  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">336</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value38.field  name:Value38  id:38  pos:38  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">337</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value39.field  name:Value39  id:39  pos:39  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">338</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value4.field  name:Value4  id:4  pos:4  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">339</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value40.field  name:Value40  id:40  pos:40  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">340</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value41.field  name:Value41  id:41  pos:41  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">341</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value42.field  name:Value42  id:42  pos:42  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">342</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value43.field  name:Value43  id:43  pos:43  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">343</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value44.field  name:Value44  id:44  pos:44  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">344</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value45.field  name:Value45  id:45  pos:45  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">345</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value46.field  name:Value46  id:46  pos:46  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">346</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value47.field  name:Value47  id:47  pos:47  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">347</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value48.field  name:Value48  id:48  pos:48  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">348</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value49.field  name:Value49  id:49  pos:49  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">349</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value5.field  name:Value5  id:5  pos:5  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">350</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value50.field  name:Value50  id:50  pos:50  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">351</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value51.field  name:Value51  id:51  pos:51  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">352</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value52.field  name:Value52  id:52  pos:52  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">353</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value53.field  name:Value53  id:53  pos:53  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">354</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value54.field  name:Value54  id:54  pos:54  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">355</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value55.field  name:Value55  id:55  pos:55  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">356</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value56.field  name:Value56  id:56  pos:56  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">357</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value57.field  name:Value57  id:57  pos:57  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">358</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value58.field  name:Value58  id:58  pos:58  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">359</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value59.field  name:Value59  id:59  pos:59  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">360</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value6.field  name:Value6  id:6  pos:6  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">361</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value60.field  name:Value60  id:60  pos:60  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">362</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value61.field  name:Value61  id:61  pos:61  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">363</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value62.field  name:Value62  id:62  pos:62  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">364</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value63.field  name:Value63  id:63  pos:63  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">365</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value7.field  name:Value7  id:7  pos:7  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">366</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value8.field  name:Value8  id:8  pos:8  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">367</span>dmmeta.ffast  ffast:fasttest.MsgPmap.Value9.field  name:Value9  id:9  pos:9  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">368</span>dmmeta.ffast  ffast:fasttest.OptSgmGrp.Value.field  name:Value  id:2  pos:1  optional:N  encoding:unsigned  op:default  value:1  comment:&quot;&quot;
+<span class="linenos">369</span>dmmeta.ffast  ffast:fasttest.OptSgmSeq.Value.field  name:Value  id:2  pos:1  optional:N  encoding:unsigned  op:default  value:1  comment:&quot;&quot;
+<span class="linenos">370</span>dmmeta.ffast  ffast:fasttest.OptTrvGrp.Value.field  name:Value  id:2  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">371</span>dmmeta.ffast  ffast:fasttest.OptTrvSeq.Value.field  name:Value  id:2  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">372</span>dmmeta.ffast  ffast:fasttest.SampleEnum.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">373</span>dmmeta.ffast  ffast:fasttest.SampleEnumConst.Value.field  name:Value  id:1  pos:1  optional:N  encoding:type  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">374</span>dmmeta.ffast  ffast:fasttest.SampleEnumCopy.Value147.field  name:Value147  id:1  pos:1  optional:N  encoding:type  op:copy  value:0  comment:&quot;&quot;
+<span class="linenos">375</span>dmmeta.ffast  ffast:fasttest.SampleEnumDefault.Value.field  name:Value  id:1  pos:1  optional:N  encoding:type  op:default  value:2  comment:&quot;&quot;
+<span class="linenos">376</span>dmmeta.ffast  ffast:fasttest.SampleSet.value.field  name:&quot;&quot;  id:0  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">377</span>dmmeta.ffast  ffast:fasttest.SampleSetConst.Value.field  name:Value  id:1  pos:1  optional:N  encoding:type  op:constant  value:6  comment:&quot;&quot;
+<span class="linenos">378</span>dmmeta.ffast  ffast:fasttest.SampleSetCopy.Value150.field  name:Value150  id:1  pos:1  optional:N  encoding:type  op:copy  value:2  comment:&quot;&quot;
+<span class="linenos">379</span>dmmeta.ffast  ffast:fasttest.SampleSetDefault.Value.field  name:Value  id:1  pos:1  optional:N  encoding:type  op:default  value:3  comment:&quot;&quot;
+<span class="linenos">380</span>dmmeta.ffast  ffast:fasttest.SclConst.Value.field  name:Value  id:1  pos:1  optional:N  encoding:scaled  op:constant  value:&quot;algo::Decimal(-2,25)&quot;  comment:&quot;&quot;
+<span class="linenos">381</span>dmmeta.ffast  ffast:fasttest.SclConstOpt.Value.field  name:Value  id:1  pos:1  optional:Y  encoding:scaled  op:constant  value:&quot;algo::Decimal(2,26)&quot;  comment:&quot;&quot;
+<span class="linenos">382</span>dmmeta.ffast  ffast:fasttest.SclCopy.Value61.field  name:Value61  id:1  pos:1  optional:N  encoding:scaled  op:copy  value:&quot;algo::Decimal(-2,-61)&quot;  comment:&quot;&quot;
+<span class="linenos">383</span>dmmeta.ffast  ffast:fasttest.SclCopyNull.Value63.field  name:Value63  id:1  pos:1  optional:Y  encoding:scaled  op:copy  value:&quot;algo::Decimal(0,0)&quot;  comment:&quot;&quot;
+<span class="linenos">384</span>dmmeta.ffast  ffast:fasttest.SclCopyOpt.Value62.field  name:Value62  id:1  pos:1  optional:Y  encoding:scaled  op:copy  value:&quot;algo::Decimal(1,-62)&quot;  comment:&quot;&quot;
+<span class="linenos">385</span>dmmeta.ffast  ffast:fasttest.SclDelta.Value81.field  name:Value81  id:1  pos:1  optional:N  encoding:scaled  op:delta  value:&quot;algo::Decimal(-2,-81)&quot;  comment:&quot;&quot;
+<span class="linenos">386</span>dmmeta.ffast  ffast:fasttest.SclDeltaImpl.Value82.field  name:Value82  id:1  pos:1  optional:N  encoding:scaled  op:delta  value:&quot;algo::Decimal(0,0)&quot;  comment:&quot;&quot;
+<span class="linenos">387</span>dmmeta.ffast  ffast:fasttest.SclDeltaNull.Value84.field  name:Value84  id:1  pos:1  optional:Y  encoding:scaled  op:delta  value:&quot;algo::Decimal(0,0)&quot;  comment:&quot;&quot;
+<span class="linenos">388</span>dmmeta.ffast  ffast:fasttest.SclDeltaOpt.Value83.field  name:Value83  id:1  pos:1  optional:Y  encoding:scaled  op:delta  value:&quot;algo::Decimal(1,-83)&quot;  comment:&quot;&quot;
+<span class="linenos">389</span>dmmeta.ffast  ffast:fasttest.SclDflt.Value.field  name:Value  id:1  pos:1  optional:N  encoding:scaled  op:default  value:&quot;algo::Decimal(-2,-45)&quot;  comment:&quot;&quot;
+<span class="linenos">390</span>dmmeta.ffast  ffast:fasttest.SclDfltNull.Value.field  name:Value  id:1  pos:1  optional:Y  encoding:scaled  op:default  value:&quot;algo::Decimal(0,0)&quot;  comment:&quot;&quot;
+<span class="linenos">391</span>dmmeta.ffast  ffast:fasttest.SclDfltOpt.Value.field  name:Value  id:1  pos:1  optional:Y  encoding:scaled  op:default  value:&quot;algo::Decimal(1,-46)&quot;  comment:&quot;&quot;
+<span class="linenos">392</span>dmmeta.ffast  ffast:fasttest.SclNone.Value.field  name:Value  id:1  pos:1  optional:N  encoding:scaled  op:none  value:&quot;algo::Decimal(0,0)&quot;  comment:&quot;&quot;
+<span class="linenos">393</span>dmmeta.ffast  ffast:fasttest.SclNoneOpt.Value.field  name:Value  id:1  pos:1  optional:Y  encoding:scaled  op:none  value:&quot;algo::Decimal(0,0)&quot;  comment:&quot;&quot;
+<span class="linenos">394</span>dmmeta.ffast  ffast:fasttest.SecondSeq.Value2.field  name:Value2  id:5  pos:2  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">395</span>dmmeta.ffast  ffast:fasttest.SeqOrder.FirstSeq.field  name:FirstSeq  id:1  pos:1  optional:N  encoding:sequence  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">396</span>dmmeta.ffast  ffast:fasttest.SeqOrder.SecondSeq.field  name:SecondSeq  id:3  pos:2  optional:N  encoding:sequence  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">397</span>dmmeta.ffast  ffast:fasttest.SeqOrder.SecondSeq.length  name:NoSecondSeq  id:4  pos:1  optional:N  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">398</span>dmmeta.ffast  ffast:fasttest.SeqOrder.Value3.field  name:Value3  id:6  pos:3  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">399</span>dmmeta.ffast  ffast:fasttest.SeqSgmOpt.OptSgmSeq.field  name:OptSgmSeq  id:1  pos:1  optional:Y  encoding:sequence  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">400</span>dmmeta.ffast  ffast:fasttest.SeqTrv.TrvSeq.field  name:TrvSeq  id:1  pos:1  optional:N  encoding:sequence  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">401</span>dmmeta.ffast  ffast:fasttest.SeqTrvLenConst.TrvSeqLenConst.field  name:TrvSeqLenConst  id:1  pos:1  optional:N  encoding:sequence  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">402</span>dmmeta.ffast  ffast:fasttest.SeqTrvLenConst.TrvSeqLenConst.length  name:NoTrvSeqLenConst  id:2  pos:1  optional:N  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">403</span>dmmeta.ffast  ffast:fasttest.SeqTrvLenConstOpt.TrvSeqLenConstOpt.field  name:TrvSeqLenConstOpt  id:1  pos:1  optional:Y  encoding:sequence  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">404</span>dmmeta.ffast  ffast:fasttest.SeqTrvLenConstOpt.TrvSeqLenConstOpt.length  name:NoTrvSeqLenConstOpt  id:2  pos:1  optional:Y  encoding:unsigned  op:constant  value:1  comment:&quot;&quot;
+<span class="linenos">405</span>dmmeta.ffast  ffast:fasttest.SeqTrvLenDflt.TrvSeqLenDflt.field  name:TrvSeqLenDflt  id:1  pos:1  optional:N  encoding:sequence  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">406</span>dmmeta.ffast  ffast:fasttest.SeqTrvLenDflt.TrvSeqLenDflt.length  name:NoTrvSeqLenDflt  id:2  pos:1  optional:N  encoding:unsigned  op:default  value:1  comment:&quot;&quot;
+<span class="linenos">407</span>dmmeta.ffast  ffast:fasttest.SeqTrvLenDfltOpt.TrvSeqDfltOpt.field  name:TrvSeqDfltOpt  id:1  pos:1  optional:Y  encoding:sequence  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">408</span>dmmeta.ffast  ffast:fasttest.SeqTrvLenDfltOpt.TrvSeqDfltOpt.length  name:NoTrvSeqDfltOpt  id:2  pos:1  optional:Y  encoding:unsigned  op:default  value:1  comment:&quot;&quot;
+<span class="linenos">409</span>dmmeta.ffast  ffast:fasttest.SeqTrvLenNone.TrvSeqLenNone.field  name:TrvSeqLenNone  id:1  pos:1  optional:N  encoding:sequence  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">410</span>dmmeta.ffast  ffast:fasttest.SeqTrvLenNone.TrvSeqLenNone.length  name:NoTrvSeqLenNone  id:2  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">411</span>dmmeta.ffast  ffast:fasttest.SeqTrvLenNoneOpt.TrvSeqLenNoneOpt.field  name:TrvSeqLenNoneOpt  id:1  pos:1  optional:Y  encoding:sequence  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">412</span>dmmeta.ffast  ffast:fasttest.SeqTrvLenNoneOpt.TrvSeqLenNoneOpt.length  name:NoTrvSeqNoneOpt  id:2  pos:1  optional:Y  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">413</span>dmmeta.ffast  ffast:fasttest.SeqTrvOpt.OptTrvSeq.field  name:OptTrvSeq  id:1  pos:1  optional:Y  encoding:sequence  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">414</span>dmmeta.ffast  ffast:fasttest.StrConst.Value.field  name:Value  id:1  pos:1  optional:N  encoding:string  op:constant  value:&#39;&quot;A21&quot;&#39;  comment:&quot;&quot;
+<span class="linenos">415</span>dmmeta.ffast  ffast:fasttest.StrConstOpt.Value.field  name:Value  id:1  pos:1  optional:Y  encoding:string  op:constant  value:&#39;&quot;A22&quot;&#39;  comment:&quot;&quot;
+<span class="linenos">416</span>dmmeta.ffast  ffast:fasttest.StrCopy.Value55.field  name:Value55  id:1  pos:1  optional:N  encoding:string  op:copy  value:&#39;&quot;A55&quot;&#39;  comment:&quot;&quot;
+<span class="linenos">417</span>dmmeta.ffast  ffast:fasttest.StrCopyNull.Value57.field  name:Value57  id:1  pos:1  optional:Y  encoding:string  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">418</span>dmmeta.ffast  ffast:fasttest.StrCopyOpt.Value56.field  name:Value56  id:1  pos:1  optional:Y  encoding:string  op:copy  value:&#39;&quot;A56&quot;&#39;  comment:&quot;&quot;
+<span class="linenos">419</span>dmmeta.ffast  ffast:fasttest.StrDflt.Value.field  name:Value  id:1  pos:1  optional:N  encoding:string  op:default  value:&#39;&quot;A39&quot;&#39;  comment:&quot;&quot;
+<span class="linenos">420</span>dmmeta.ffast  ffast:fasttest.StrDfltNull.Value.field  name:Value  id:1  pos:1  optional:Y  encoding:string  op:default  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">421</span>dmmeta.ffast  ffast:fasttest.StrDfltOpt.Value.field  name:Value  id:1  pos:1  optional:Y  encoding:string  op:default  value:&#39;&quot;A40&quot;&#39;  comment:&quot;&quot;
+<span class="linenos">422</span>dmmeta.ffast  ffast:fasttest.StrNone.Value.field  name:Value  id:1  pos:1  optional:N  encoding:string  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">423</span>dmmeta.ffast  ffast:fasttest.StrNoneOpt.Value.field  name:Value  id:1  pos:1  optional:Y  encoding:string  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">424</span>dmmeta.ffast  ffast:fasttest.TrvGrp.Value.field  name:Value  id:2  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">425</span>dmmeta.ffast  ffast:fasttest.TrvSeq.Value.field  name:Value  id:2  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">426</span>dmmeta.ffast  ffast:fasttest.TrvSeqDfltOpt.Value.field  name:Value  id:3  pos:2  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">427</span>dmmeta.ffast  ffast:fasttest.TrvSeqLenConst.Value.field  name:Value  id:3  pos:2  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">428</span>dmmeta.ffast  ffast:fasttest.TrvSeqLenConstOpt.Value.field  name:Value  id:3  pos:2  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">429</span>dmmeta.ffast  ffast:fasttest.TrvSeqLenDflt.Value.field  name:Value  id:3  pos:2  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">430</span>dmmeta.ffast  ffast:fasttest.TrvSeqLenNone.Value.field  name:Value  id:3  pos:2  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">431</span>dmmeta.ffast  ffast:fasttest.TrvSeqLenNoneOpt.Value.field  name:Value  id:3  pos:2  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">432</span>dmmeta.ffast  ffast:fasttest.U32Const.Value.field  name:Value  id:1  pos:1  optional:N  encoding:unsigned  op:constant  value:19  comment:&quot;&quot;
+<span class="linenos">433</span>dmmeta.ffast  ffast:fasttest.U32ConstOpt.Value.field  name:Value  id:1  pos:1  optional:Y  encoding:unsigned  op:constant  value:20  comment:&quot;&quot;
+<span class="linenos">434</span>dmmeta.ffast  ffast:fasttest.U32Copy.Value52.field  name:Value52  id:1  pos:1  optional:N  encoding:unsigned  op:copy  value:52  comment:&quot;&quot;
+<span class="linenos">435</span>dmmeta.ffast  ffast:fasttest.U32CopyNull.Value54.field  name:Value54  id:1  pos:1  optional:Y  encoding:unsigned  op:copy  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">436</span>dmmeta.ffast  ffast:fasttest.U32CopyOpt.Value53.field  name:Value53  id:1  pos:1  optional:Y  encoding:unsigned  op:copy  value:53  comment:&quot;&quot;
+<span class="linenos">437</span>dmmeta.ffast  ffast:fasttest.U32Delta.Value69.field  name:Value69  id:1  pos:1  optional:N  encoding:unsigned  op:delta  value:69  comment:&quot;&quot;
+<span class="linenos">438</span>dmmeta.ffast  ffast:fasttest.U32DeltaImpl.Value70.field  name:Value70  id:1  pos:1  optional:N  encoding:unsigned  op:delta  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">439</span>dmmeta.ffast  ffast:fasttest.U32DeltaNull.Value72.field  name:Value72  id:1  pos:1  optional:Y  encoding:unsigned  op:delta  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">440</span>dmmeta.ffast  ffast:fasttest.U32DeltaOpt.Value71.field  name:Value71  id:1  pos:1  optional:Y  encoding:unsigned  op:delta  value:71  comment:&quot;&quot;
+<span class="linenos">441</span>dmmeta.ffast  ffast:fasttest.U32Dflt.Value.field  name:Value  id:1  pos:1  optional:N  encoding:unsigned  op:default  value:36  comment:&quot;&quot;
+<span class="linenos">442</span>dmmeta.ffast  ffast:fasttest.U32DfltNull.Value.field  name:Value  id:1  pos:1  optional:Y  encoding:unsigned  op:default  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">443</span>dmmeta.ffast  ffast:fasttest.U32DfltOpt.Value.field  name:Value  id:1  pos:1  optional:Y  encoding:unsigned  op:default  value:37  comment:&quot;&quot;
+<span class="linenos">444</span>dmmeta.ffast  ffast:fasttest.U32Incr.Value101.field  name:Value101  id:1  pos:1  optional:N  encoding:unsigned  op:increment  value:101  comment:&quot;&quot;
+<span class="linenos">445</span>dmmeta.ffast  ffast:fasttest.U32IncrNV.Value102.field  name:Value102  id:1  pos:1  optional:N  encoding:unsigned  op:increment  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">446</span>dmmeta.ffast  ffast:fasttest.U32IncrNull.Value104.field  name:Value104  id:1  pos:1  optional:Y  encoding:unsigned  op:increment  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">447</span>dmmeta.ffast  ffast:fasttest.U32IncrOpt.Value103.field  name:Value103  id:1  pos:1  optional:Y  encoding:unsigned  op:increment  value:103  comment:&quot;&quot;
+<span class="linenos">448</span>dmmeta.ffast  ffast:fasttest.U32None.Value.field  name:Value  id:1  pos:1  optional:N  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+<span class="linenos">449</span>dmmeta.ffast  ffast:fasttest.U32NoneOpt.Value.field  name:Value  id:1  pos:1  optional:Y  encoding:unsigned  op:none  value:&quot;&quot;  comment:&quot;&quot;
+</pre></div>
+</div>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024, AlgoRND
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            <div class="last-updated">
+              Last updated on Apr 25, 2024</div>
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link " href="algornd/arnd.313/-/commit/f8df17b9ffe2ee281b418863917c6ef10eaf02fa" aria-label="gitlab"><p style="font-family: Courier, monospace; font-size:12px; "> commit:2024-04-25.f8df17b9 </p></a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/furo.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    </body>
+</html>
